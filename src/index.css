@@ -431,7 +431,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 .provider__role {
@@ -851,7 +851,7 @@ button {
   object-fit: cover;
   object-position: center;
   border-radius: inherit;
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 .spotlight h2 {
