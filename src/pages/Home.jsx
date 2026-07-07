@@ -28,10 +28,14 @@ function HeroArt() {
       <circle cx="112" cy="70" r="5" fill="#e4ede6" />
 
       {/* patient — warm skin, sage sweater */}
-      <circle cx="162" cy="158" r="31" fill="#9a6a44" />
-      <path d="M131 152 a31 31 0 0 1 62 0 c-4 -18 -12 -25 -31 -25 s-27 7 -31 25z" fill="#33241a" />
+      <rect x="150" y="180" width="24" height="24" rx="10" fill="#9a6a44" />
       <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#4a7c59" />
-      <path d="M147 212 c5 6 10 9 15 9 s10 -3 15 -9" fill="none" stroke="#faf7f2" strokeWidth="3" strokeLinecap="round" />
+      <path d="M148 210 c4 8 9 12 14 12 s10 -4 14 -12" fill="#3e6b4f" />
+      <circle cx="162" cy="158" r="31" fill="#9a6a44" />
+      <path d="M131 158 a31 31 0 0 1 62 0 Q162 143 131 158 z" fill="#33241a" />
+      <circle cx="151" cy="160" r="3" fill="#33241a" />
+      <circle cx="173" cy="160" r="3" fill="#33241a" />
+      <path d="M153 172 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#33241a" strokeWidth="2.5" strokeLinecap="round" />
 
       {/* clinician — picture-in-picture, warm gold top */}
       <rect x="272" y="182" width="86" height="76" rx="14" fill="#faf7f2" stroke="#e4ede6" strokeWidth="2" />
@@ -92,6 +96,12 @@ export default function Home() {
           </div>
           <div className="hero__art">
             <HeroArt />
+            <div className="hero__chip hero__chip--tl">
+              <span aria-hidden="true">🟢</span> Secure session in progress
+            </div>
+            <div className="hero__chip hero__chip--br">
+              <span aria-hidden="true">⭐</span> 4.9 from 200+ clients
+            </div>
           </div>
         </div>
       </section>
