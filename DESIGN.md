@@ -31,7 +31,9 @@ seasoning. Dark mode remaps the same tokens — components never branch on theme
 ## Typography
 
 - **Display**: Fraunces (serif, warm) — all h1–h4, weight 500–600,
-  letter-spacing −0.015em, `text-wrap: balance`.
+  letter-spacing −0.015em, `text-wrap: balance`. Optical size is pinned
+  to 32 globally (`font-variation-settings: "opsz" 32` on body) — the
+  auto display-size cut made glyphs like lowercase f too eccentric.
 - **Body**: Inter — weight 400–600, `text-wrap: pretty`.
 - **Base size**: 17px desktop, 16px mobile. Line-height 1.6.
 
