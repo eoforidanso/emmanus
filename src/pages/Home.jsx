@@ -14,11 +14,12 @@ import Breathe from "../components/Breathe";
 
 function HeroArt() {
   return (
-    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm video therapy session between a patient and clinician">
+    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm video therapy session between a patient and Dr. Ofori-Danso">
       {/* soft organic backdrop */}
       <path d="M64 44 C142 -8 318 -2 378 76 C428 144 404 258 322 306 C238 354 108 342 54 276 C4 214 -8 92 64 44z" fill="#f3ede3" />
-      <circle cx="354" cy="52" r="24" fill="#c9a227" opacity="0.3" />
-      <circle cx="376" cy="82" r="10" fill="#c9a227" opacity="0.18" />
+      {/* sun accents, fully clear of the window */}
+      <circle cx="392" cy="58" r="16" fill="#c9a227" opacity="0.32" />
+      <circle cx="378" cy="86" r="7" fill="#c9a227" opacity="0.2" />
 
       {/* video call window */}
       <rect x="50" y="50" width="320" height="230" rx="22" fill="#ffffff" stroke="#e4ede6" strokeWidth="2" />
@@ -27,31 +28,48 @@ function HeroArt() {
       <circle cx="94" cy="70" r="5" fill="#c9a227" />
       <circle cx="112" cy="70" r="5" fill="#e4ede6" />
 
-      {/* patient — warm skin, sage sweater */}
-      <rect x="150" y="180" width="24" height="24" rx="10" fill="#9a6a44" />
+      {/* patient — neck tucked behind head and sweater */}
+      <rect x="153" y="176" width="18" height="34" rx="8" fill="#9a6a44" />
       <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#4a7c59" />
-      <path d="M148 210 c4 8 9 12 14 12 s10 -4 14 -12" fill="#3e6b4f" />
-      <circle cx="162" cy="158" r="31" fill="#9a6a44" />
-      <path d="M131 158 a31 31 0 0 1 62 0 Q162 143 131 158 z" fill="#33241a" />
-      <circle cx="151" cy="160" r="3" fill="#33241a" />
-      <circle cx="173" cy="160" r="3" fill="#33241a" />
-      <path d="M153 172 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#33241a" strokeWidth="2.5" strokeLinecap="round" />
+      <path d="M148 208 c4 8 9 12 14 12 s10 -4 14 -12" fill="#3e6b4f" />
+      <circle cx="162" cy="156" r="30" fill="#9a6a44" />
+      <path d="M132 156 a30 30 0 0 1 60 0 Q162 141 132 156 z" fill="#33241a" />
+      <circle cx="151" cy="158" r="3" fill="#33241a" />
+      <circle cx="173" cy="158" r="3" fill="#33241a" />
+      <path d="M153 170 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#33241a" strokeWidth="2.5" strokeLinecap="round" />
+      {/* "You" tile label */}
+      <rect x="118" y="246" width="42" height="17" rx="8.5" fill="#f0f5f1" />
+      <text x="139" y="258.5" textAnchor="middle" fontSize="10" fontWeight="600" fill="#3e6b4f">You</text>
 
-      {/* clinician — picture-in-picture, warm gold top */}
-      <rect x="272" y="182" width="86" height="76" rx="14" fill="#faf7f2" stroke="#e4ede6" strokeWidth="2" />
-      <circle cx="315" cy="209" r="13" fill="#5c3a28" />
-      <path d="M292 258 c0 -15 10 -24 23 -24 s23 9 23 24" fill="#c9a227" opacity="0.85" />
+      {/* clinician — picture-in-picture with face and glasses */}
+      <rect x="272" y="182" width="86" height="76" rx="14" fill="#faf7f2" stroke="#4a7c59" strokeWidth="2" />
+      <circle cx="349" cy="191" r="4" fill="#4a7c59" />
+      <circle cx="315" cy="210" r="14" fill="#5c3a28" />
+      <path d="M301 210 a14 14 0 0 1 28 0 Q315 199 301 210 z" fill="#1f1710" />
+      <circle cx="309" cy="211" r="4.2" fill="none" stroke="#24322a" strokeWidth="1.4" />
+      <circle cx="321" cy="211" r="4.2" fill="none" stroke="#24322a" strokeWidth="1.4" />
+      <line x1="313.2" y1="211" x2="316.8" y2="211" stroke="#24322a" strokeWidth="1.4" />
+      <path d="M311 219 c1.5 2 3 3 4 3 s2.5 -1 4 -3" fill="none" stroke="#1f1710" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M293 258 c0 -14 10 -22 22 -22 s22 8 22 22" fill="#c9a227" opacity="0.85" />
+      {/* "Dr. O" tile label */}
+      <rect x="290" y="240" width="50" height="15" rx="7.5" fill="#f0f5f1" />
+      <text x="315" y="251" textAnchor="middle" fontSize="9" fontWeight="600" fill="#3e6b4f">Dr. O</text>
 
-      {/* speech bubble with heart and leaf */}
-      <rect x="228" y="104" width="110" height="44" rx="20" fill="#4a7c59" />
-      <path d="M252 148 l-9 15 22 -8z" fill="#4a7c59" />
-      <path d="M266 118 c-4 -7 -14 -5 -14 3 0 7 14 14 14 14 s14 -7 14 -14 c0 -8 -10 -10 -14 -3z" fill="#faf7f2" />
-      <path d="M296 130 c7 -10 18 -12 26 -9 -4 9 -14 13 -26 9z" fill="#cfe3d6" />
+      {/* speech bubble from the clinician */}
+      <rect x="226" y="102" width="112" height="44" rx="20" fill="#4a7c59" />
+      <path d="M318 146 l12 22 -30 -10z" fill="#4a7c59" />
+      <path d="M264 116 c-4 -7 -14 -5 -14 3 0 7 14 14 14 14 s14 -7 14 -14 c0 -8 -10 -10 -14 -3z" fill="#faf7f2" />
+      <path d="M294 128 c7 -10 18 -12 26 -9 -4 9 -14 13 -26 9z" fill="#cfe3d6" />
 
-      {/* plant, warm pot */}
-      <path d="M84 250 c-2 -22 6 -38 20 -48 -1 18 -6 34 -20 48z" fill="#3e6b4f" />
-      <path d="M96 252 c8 -16 22 -24 36 -24 -6 14 -19 23 -36 24z" fill="#5d8a6a" />
-      <path d="M78 252 h48 l-6 30 a8 8 0 0 1 -8 7 h-20 a8 8 0 0 1 -8 -7z" fill="#c9a227" opacity="0.8" />
+      {/* call controls */}
+      <circle cx="230" cy="266" r="7" fill="#e4ede6" />
+      <circle cx="248" cy="266" r="7" fill="#e4ede6" />
+      <circle cx="266" cy="266" r="7" fill="#dfb3a8" />
+
+      {/* plant, clear of the person */}
+      <path d="M70 248 c-2 -20 5 -35 18 -44 -1 17 -5 31 -18 44z" fill="#3e6b4f" />
+      <path d="M80 250 c7 -14 19 -21 31 -21 -5 12 -16 20 -31 21z" fill="#5d8a6a" />
+      <path d="M64 250 h42 l-5 27 a7 7 0 0 1 -7 6 h-18 a7 7 0 0 1 -7 -6z" fill="#c9a227" opacity="0.8" />
 
       {/* grounding shadow */}
       <ellipse cx="210" cy="308" rx="130" ry="10" fill="#2c4a38" opacity="0.08" />
