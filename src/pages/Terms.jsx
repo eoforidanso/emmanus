@@ -1,4 +1,10 @@
+import usePageMeta from "../usePageMeta";
+
 export default function Terms() {
+  usePageMeta(
+    "Terms of Use",
+    "Terms of use for the Emmanus Wellness website: informational content, not medical advice, and not for emergencies."
+  );
   return (
     <>
       <section className="page-hero">

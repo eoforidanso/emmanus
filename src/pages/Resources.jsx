@@ -9,6 +9,7 @@ import SafetyPlan from "../components/SafetyPlan";
 import SleepCheck from "../components/SleepCheck";
 import CrisisBanner from "../components/CrisisBanner";
 import { BOOKS } from "../data";
+import usePageMeta from "../usePageMeta";
 
 const TOOL_MENU = [
   {
@@ -86,6 +87,10 @@ const CRISIS_LINES = [
 ];
 
 export default function Resources() {
+  usePageMeta(
+    "Free Mental Health Self-Care Tools",
+    "Private, free self-care tools: WHO-5 wellbeing check-in, mood tracking, thought reframing, box breathing, grounding, sleep check-in, safety planning, and crisis resources."
+  );
   return (
     <>
       <section className="page-hero">

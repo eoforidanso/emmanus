@@ -2,8 +2,13 @@ import { PORTAL_URL, SERVICES, FAQS } from "../data";
 import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import CareFinder from "../components/CareFinder";
+import usePageMeta from "../usePageMeta";
 
 export default function Services() {
+  usePageMeta(
+    "Services",
+    "Telehealth therapy, psychiatry and medication management, couples counseling, teen care, group support, and wellness coaching — delivered over secure video."
+  );
   return (
     <>
       <section className="page-hero">

@@ -1,4 +1,10 @@
+import usePageMeta from "../usePageMeta";
+
 export default function Privacy() {
+  usePageMeta(
+    "Privacy Policy",
+    "How Emmanus Wellness handles your information: no tracking on this site, self-care tools run in your browser, and clinical data is protected under HIPAA."
+  );
   return (
     <>
       <section className="page-hero">

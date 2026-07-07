@@ -1,16 +1,52 @@
-# React + Vite
+# Emmanus Wellness
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Telehealth mental health practice site for **Dr. Emmanuel Ofori-Danso, DNP**
+(Rush University) — therapy, psychiatry & medication management, and a hub of
+free, private self-care tools.
 
-Currently, two official plugins are available:
+**Live:** https://eoforidanso.github.io/emmanus/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Marketing pages** — Home (hero, trust cards, conditions, Why Emmanus,
+  provider spotlight, how it works), Services with Care Finder quiz, Provider
+  profile, Contact with state-eligibility checker, Privacy & Terms.
+- **Resources hub** — interactive tools that run entirely in the browser
+  (nothing is transmitted): WHO-5 wellbeing check-in, mood tracker
+  (device-only storage), CBT thought reframing, box breathing, 5-4-3-2-1
+  grounding, sleep check-in, journaling prompts, downloadable safety plan,
+  curated reading list, and crisis resources (988).
+- **Booking** — all CTAs route to the Clarity EHR patient portal; there is no
+  backend in this repo.
+- Light/dark theme, scroll-reveal and hero animations (all respect
+  `prefers-reduced-motion`), PWA manifest + icons, per-page SEO, Open Graph
+  card, JSON-LD structured data, sitemap/robots.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the Oxlint configuration
+React 19 · Vite · react-router · hand-rolled CSS design system (no UI
+framework). Design tokens and rules live in [DESIGN.md](DESIGN.md) — read it
+before changing styles.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Development
+
+```bash
+npm install
+npm run dev      # http://localhost:5174/emmanus/
+npm run build    # production build to dist/
+```
+
+## Deployment
+
+Every push to `main` triggers `.github/workflows/deploy.yml`, which builds
+and publishes to GitHub Pages (SPA fallback via `404.html`). Vite `base` and
+the router basename are `/emmanus/` — change both to `/` if this ever moves
+to a custom domain.
+
+## Before real launch
+
+- Replace placeholder content: phone/email, stats, client rating, licensed
+  states (`LICENSED_STATES` in `src/data.js`), insurers, testimonials, and
+  footer social links.
+- Have counsel review the Privacy Policy and Terms pages.
+- Point the contact form at a real backend or form service.

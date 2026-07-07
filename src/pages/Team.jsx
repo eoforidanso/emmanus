@@ -1,5 +1,6 @@
 import { PORTAL_URL, PROVIDERS } from "../data";
 import Reveal from "../components/Reveal";
+import usePageMeta from "../usePageMeta";
 
 const APPROACH = [
   "\"Pills and Skills\" — medication and therapy prescribed together, because each works better with the other",
@@ -18,6 +19,10 @@ const EXPECT = [
 ];
 
 export default function Team() {
+  usePageMeta(
+    "Meet Dr. Emmanuel Ofori-Danso, DNP",
+    "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, where he teaches weekly."
+  );
   const doctor = PROVIDERS[0];
 
   return (

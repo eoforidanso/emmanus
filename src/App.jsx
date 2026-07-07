@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import AnnouncementBar from "./components/AnnouncementBar";
+import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
@@ -46,6 +48,7 @@ export default function App() {
         Skip to content
       </a>
       <ScrollToTop />
+      <AnnouncementBar />
       <Navbar
         theme={theme}
         onToggleTheme={() =>
@@ -67,6 +70,7 @@ export default function App() {
         </RouteFade>
       </main>
       <Footer />
+      <BackToTop />
     </BrowserRouter>
   );
 }

@@ -11,6 +11,7 @@ import {
 import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import Breathe from "../components/Breathe";
+import usePageMeta from "../usePageMeta";
 
 function HeroArt() {
   return (
@@ -78,6 +79,7 @@ function HeroArt() {
 }
 
 export default function Home() {
+  usePageMeta();
   const doctor = PROVIDERS[0];
 
   return (

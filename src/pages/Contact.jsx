@@ -1,8 +1,13 @@
 import { useState } from "react";
 import CrisisBanner from "../components/CrisisBanner";
 import StateChecker from "../components/StateChecker";
+import usePageMeta from "../usePageMeta";
 
 export default function Contact() {
+  usePageMeta(
+    "Contact",
+    "Questions about services, insurance, or getting started? Reach the Emmanus Wellness care team by phone or email."
+  );
   const [sent, setSent] = useState(false);
 
   return (

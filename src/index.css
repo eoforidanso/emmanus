@@ -195,6 +195,63 @@ button {
   background: #e4ede6;
 }
 
+/* Announcement bar */
+.announce {
+  background: var(--green-900);
+  color: #faf7f2;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 9px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.announce a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.announce__close {
+  background: none;
+  border: none;
+  color: rgba(250, 247, 242, 0.7);
+  font-size: 0.95rem;
+  padding: 2px 6px;
+  flex-shrink: 0;
+}
+
+.announce__close:hover {
+  color: #fff;
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 60;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--green-100);
+  background: var(--white);
+  color: var(--green-700);
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  animation: heroIn 0.4s var(--ease) both;
+  transition: transform 0.3s var(--ease), background 0.2s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  background: var(--green-50);
+}
+
 /* Navbar */
 .nav {
   position: sticky;
