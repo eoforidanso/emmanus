@@ -54,7 +54,7 @@ export const PROVIDERS = [
     role: "NP / Clinical Instructor",
     color: "#3e6b4f",
     photo: drPhoto,
-    bio: "Board-certified psychiatric-mental health nurse practitioner and clinical instructor, providing compassionate, evidence-based care in psychotherapy and medication management for adults and adolescents.",
+    bio: "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, providing compassionate, evidence-based care in psychotherapy and medication management for adults and adolescents.",
     tags: ["Psychiatry", "Medication Management", "Anxiety", "Depression", "ADHD"],
   },
 ];
@@ -217,7 +217,7 @@ export const FAQS = [
   },
   {
     q: "Who will I be working with?",
-    a: "All care at Emmanus Wellness is provided by Dr. Emmanuel Ofori-Danso, a board-certified psychiatric-mental health nurse practitioner and clinical instructor — so you see the same trusted clinician at every visit.",
+    a: "All care at Emmanus Wellness is provided by Dr. Emmanuel Ofori-Danso, a board-certified psychiatric-mental health nurse practitioner who earned his Doctor of Nursing Practice at Rush University, where he still teaches one day a week — so you see the same trusted clinician at every visit.",
   },
   {
     q: "Can you prescribe medication?",

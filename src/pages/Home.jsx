@@ -260,7 +260,8 @@ export default function Home() {
                 </p>
                 <ul className="spotlight__creds">
                   <li>Board-certified psychiatric-mental health NP</li>
-                  <li>Clinical instructor training the next generation of providers</li>
+                  <li>Doctor of Nursing Practice (DNP), Rush University</li>
+                  <li>Teaches weekly at Rush as a clinical instructor</li>
                   <li>
                     Practices "Pills and Skills" — therapy recommended
                     alongside medication for lasting results

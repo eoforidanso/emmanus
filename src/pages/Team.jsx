@@ -76,10 +76,11 @@ export default function Team() {
                 <h2>About</h2>
                 <p>{doctor.bio}</p>
                 <p style={{ marginTop: 12 }}>
-                  As a clinical instructor, Dr. Ofori-Danso also trains the
-                  next generation of psychiatric providers — which means the
-                  care you receive reflects current best practice, not
-                  habit.
+                  Dr. Ofori-Danso earned his Doctor of Nursing Practice (DNP)
+                  from Rush University, where he still teaches one day a week
+                  as a clinical instructor. Training the next generation of
+                  psychiatric providers keeps his practice sharp — the care
+                  you receive reflects current best practice, not habit.
                 </p>
 
                 <blockquote className="quote" style={{ marginTop: 24 }}>
