@@ -14,29 +14,43 @@ import Breathe from "../components/Breathe";
 
 function HeroArt() {
   return (
-    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a calm video therapy session">
+    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm video therapy session between a patient and clinician">
+      {/* soft organic backdrop */}
+      <path d="M64 44 C142 -8 318 -2 378 76 C428 144 404 258 322 306 C238 354 108 342 54 276 C4 214 -8 92 64 44z" fill="#f3ede3" />
+      <circle cx="354" cy="52" r="24" fill="#c9a227" opacity="0.3" />
+      <circle cx="376" cy="82" r="10" fill="#c9a227" opacity="0.18" />
+
       {/* video call window */}
-      <rect x="30" y="30" width="360" height="250" rx="18" fill="#ffffff" stroke="#e4ede6" strokeWidth="2" />
-      <rect x="30" y="30" width="360" height="44" rx="18" fill="#f0f5f1" />
-      <circle cx="56" cy="52" r="6" fill="#4a7c59" />
-      <circle cx="76" cy="52" r="6" fill="#c9a227" />
-      <circle cx="96" cy="52" r="6" fill="#e4ede6" />
-      {/* person */}
-      <circle cx="150" cy="150" r="34" fill="#4a7c59" />
-      <path d="M96 250c0-38 26-58 54-58s54 20 54 58" fill="#4a7c59" />
-      {/* second person (small window) */}
-      <rect x="268" y="180" width="100" height="80" rx="12" fill="#f0f5f1" stroke="#e4ede6" strokeWidth="2" />
-      <circle cx="318" cy="208" r="14" fill="#2c4a38" />
-      <path d="M294 260c0-16 11-25 24-25s24 9 24 25" fill="#2c4a38" />
-      {/* speech bubble */}
-      <rect x="230" y="100" width="120" height="46" rx="14" fill="#3e6b4f" />
-      <circle cx="258" cy="123" r="4" fill="#faf7f2" />
-      <circle cx="288" cy="123" r="4" fill="#faf7f2" />
-      <circle cx="318" cy="123" r="4" fill="#faf7f2" />
-      <path d="M250 146l-10 16 24-10z" fill="#3e6b4f" />
-      {/* leaves */}
-      <path d="M50 320c30-40 80-40 110-20-40 10-70 25-110 20z" fill="#4a7c59" opacity="0.5" />
-      <path d="M370 320c-30-40-80-40-110-20 40 10 70 25 110 20z" fill="#2c4a38" opacity="0.4" />
+      <rect x="50" y="50" width="320" height="230" rx="22" fill="#ffffff" stroke="#e4ede6" strokeWidth="2" />
+      <path d="M50 72 a22 22 0 0 1 22-22 h276 a22 22 0 0 1 22 22 v18 h-320z" fill="#f0f5f1" />
+      <circle cx="76" cy="70" r="5" fill="#4a7c59" />
+      <circle cx="94" cy="70" r="5" fill="#c9a227" />
+      <circle cx="112" cy="70" r="5" fill="#e4ede6" />
+
+      {/* patient — warm skin, sage sweater */}
+      <circle cx="162" cy="158" r="31" fill="#9a6a44" />
+      <path d="M131 152 a31 31 0 0 1 62 0 c-4 -18 -12 -25 -31 -25 s-27 7 -31 25z" fill="#33241a" />
+      <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#4a7c59" />
+      <path d="M147 212 c5 6 10 9 15 9 s10 -3 15 -9" fill="none" stroke="#faf7f2" strokeWidth="3" strokeLinecap="round" />
+
+      {/* clinician — picture-in-picture, warm gold top */}
+      <rect x="272" y="182" width="86" height="76" rx="14" fill="#faf7f2" stroke="#e4ede6" strokeWidth="2" />
+      <circle cx="315" cy="209" r="13" fill="#5c3a28" />
+      <path d="M292 258 c0 -15 10 -24 23 -24 s23 9 23 24" fill="#c9a227" opacity="0.85" />
+
+      {/* speech bubble with heart and leaf */}
+      <rect x="228" y="104" width="110" height="44" rx="20" fill="#4a7c59" />
+      <path d="M252 148 l-9 15 22 -8z" fill="#4a7c59" />
+      <path d="M266 118 c-4 -7 -14 -5 -14 3 0 7 14 14 14 14 s14 -7 14 -14 c0 -8 -10 -10 -14 -3z" fill="#faf7f2" />
+      <path d="M296 130 c7 -10 18 -12 26 -9 -4 9 -14 13 -26 9z" fill="#cfe3d6" />
+
+      {/* plant, warm pot */}
+      <path d="M84 250 c-2 -22 6 -38 20 -48 -1 18 -6 34 -20 48z" fill="#3e6b4f" />
+      <path d="M96 252 c8 -16 22 -24 36 -24 -6 14 -19 23 -36 24z" fill="#5d8a6a" />
+      <path d="M78 252 h48 l-6 30 a8 8 0 0 1 -8 7 h-20 a8 8 0 0 1 -8 -7z" fill="#c9a227" opacity="0.8" />
+
+      {/* grounding shadow */}
+      <ellipse cx="210" cy="308" rx="130" ry="10" fill="#2c4a38" opacity="0.08" />
     </svg>
   );
 }
@@ -73,14 +87,44 @@ export default function Home() {
             </div>
             <div className="hero__micro">
               <span>⏱️ Booking takes 30 seconds</span>
-              <span>🔒 Private &amp; HIPAA-secure</span>
-              <span>🩺 Board-certified NP</span>
-              <span>📅 Seen within days</span>
+              <span>💳 Most insurance accepted</span>
             </div>
           </div>
           <div className="hero__art">
             <HeroArt />
           </div>
+        </div>
+      </section>
+
+      <section className="trust">
+        <div className="container grid-3">
+          <Reveal>
+            <div className="card card--mini">
+              <div className="card__icon" aria-hidden="true">🔒</div>
+              <div>
+                <h3>HIPAA-secure video</h3>
+                <p>Every session runs on an encrypted, HIPAA-compliant platform — as private as a closed office door.</p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={90}>
+            <div className="card card--mini">
+              <div className="card__icon" aria-hidden="true">🩺</div>
+              <div>
+                <h3>Board-certified NP</h3>
+                <p>Care from Dr. Ofori-Danso — licensed, board-certified, and a clinical instructor in psychiatry.</p>
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={180}>
+            <div className="card card--mini">
+              <div className="card__icon" aria-hidden="true">📅</div>
+              <div>
+                <h3>Seen within days</h3>
+                <p>Most new patients have their first session within 3–5 days — not weeks or months.</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -354,6 +354,36 @@ button {
   color: var(--ink-soft);
 }
 
+/* Trust feature cards below hero */
+.trust {
+  padding: 46px 0;
+}
+
+.card--mini {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 24px;
+}
+
+.card--mini .card__icon {
+  width: 46px;
+  height: 46px;
+  font-size: 1.25rem;
+  margin: 0;
+  flex-shrink: 0;
+  border-radius: 12px;
+}
+
+.card--mini h3 {
+  font-size: 1.02rem;
+  margin-bottom: 4px;
+}
+
+.card--mini p {
+  font-size: 0.88rem;
+}
+
 .btn__arrow {
   display: inline-block;
   transition: transform 0.3s var(--ease);
