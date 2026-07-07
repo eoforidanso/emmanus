@@ -39,7 +39,7 @@ export default function App() {
   }, [theme]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <a className="skip-link" href="#main">
         Skip to content
       </a>
