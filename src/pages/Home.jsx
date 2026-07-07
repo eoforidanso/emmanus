@@ -65,16 +65,17 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="btn btn--primary"
               >
-                Book a Session
+                Book a Session <span className="btn__arrow" aria-hidden="true">→</span>
               </a>
               <Link to="/resources" className="btn btn--ghost">
                 Explore Resources
               </Link>
             </div>
-            <div className="hero__badges">
-              <span className="hero__badge">🔒 HIPAA-compliant video</span>
-              <span className="hero__badge">🩺 Board-certified NP</span>
-              <span className="hero__badge">📅 Sessions within days</span>
+            <div className="hero__micro">
+              <span>⏱️ Booking takes 30 seconds</span>
+              <span>🔒 Private &amp; HIPAA-secure</span>
+              <span>🩺 Board-certified NP</span>
+              <span>📅 Seen within days</span>
             </div>
           </div>
           <div className="hero__art">
