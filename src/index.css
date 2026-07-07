@@ -269,7 +269,8 @@ button {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 56px;
   align-items: center;
-  padding: 90px 0 100px;
+  padding-top: 90px;
+  padding-bottom: 100px;
 }
 
 .hero h1 {
@@ -1371,7 +1372,8 @@ button {
 
   .hero__inner {
     grid-template-columns: 1fr;
-    padding: 60px 0;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .hero__art {
@@ -1430,7 +1432,8 @@ button {
   }
 
   .hero__inner {
-    padding: 44px 0 56px;
+    padding-top: 44px;
+    padding-bottom: 56px;
     gap: 40px;
   }
 
@@ -1486,14 +1489,29 @@ button {
     gap: 28px;
   }
 
+  .footer {
+    text-align: center;
+  }
+
   .footer__grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 32px;
+  }
+
+  .footer__brand,
+  .footer__social,
+  .footer__legal {
+    justify-content: center;
+  }
+
+  .footer p {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer__bottom {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
   }
 
