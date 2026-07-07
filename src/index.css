@@ -654,6 +654,7 @@ button {
   width: 96px;
   height: 96px;
   border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 5.5px var(--green-100);
   margin: 0 auto 18px;
   display: flex;
   align-items: center;
@@ -1094,6 +1095,7 @@ button {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(250, 247, 242, 0.55), 0 0 0 8px rgba(201, 162, 39, 0.35);
   background: linear-gradient(150deg, var(--green-600), var(--green-900));
   display: flex;
   align-items: center;
