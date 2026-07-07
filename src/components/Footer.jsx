@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { PORTAL_URL } from "../data";
+import { PORTAL_URL, INSURERS } from "../data";
+
+// TODO: replace with the practice's real social profiles before launch.
+const SOCIALS = [
+  { label: "LinkedIn", icon: "in", href: "https://www.linkedin.com" },
+  { label: "Instagram", icon: "◎", href: "https://www.instagram.com" },
+  { label: "Facebook", icon: "f", href: "https://www.facebook.com" },
+];
 
 export default function Footer() {
   return (
@@ -16,6 +23,19 @@ export default function Footer() {
               Compassionate, licensed mental health care delivered securely to
               wherever you are.
             </p>
+            <div className="footer__social">
+              {SOCIALS.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
           </div>
           <div>
             <h4>Care</h4>
@@ -24,6 +44,11 @@ export default function Footer() {
               <li><Link to="/services">Psychiatry</Link></li>
               <li><Link to="/services">Couples Counseling</Link></li>
               <li><Link to="/services">Group Support</Link></li>
+              <li>
+                <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
+                  Book a Session
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -37,27 +62,38 @@ export default function Footer() {
                 </a>
               </li>
               <li><Link to="/contact">Contact</Link></li>
-              <li>
-                <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
-                  Book a Session
-                </a>
-              </li>
             </ul>
           </div>
           <div>
-            <h4>Support</h4>
+            <h4>Contact &amp; Hours</h4>
             <ul>
               <li><a href="tel:+18005550123">1-800-555-0123</a></li>
               <li><a href="mailto:care@emmanuswellness.com">care@emmanuswellness.com</a></li>
               <li>Mon–Sat, 8am–8pm ET</li>
+              <li>
+                100% telehealth — serving MD, VA, DC, PA &amp; NY from
+                anywhere you are
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4>Insurance</h4>
+            <ul>
+              {INSURERS.slice(0, 4).map((name) => (
+                <li key={name}>{name}</li>
+              ))}
+              <li>Self-pay &amp; sliding scale</li>
             </ul>
           </div>
         </div>
         <div className="footer__bottom">
           <span>© {new Date().getFullYear()} Emmanus Wellness. All rights reserved.</span>
+          <span className="footer__legal">
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Use</Link>
+          </span>
           <span>
-            In crisis? Call or text <strong>988</strong> (Suicide & Crisis
-            Lifeline) — available 24/7.
+            In crisis? Call or text <strong>988</strong> — available 24/7.
           </span>
         </div>
       </div>

@@ -8,6 +8,8 @@ import Services from "./pages/Services";
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
 
 function RouteFade({ children }) {
@@ -58,6 +60,8 @@ export default function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </RouteFade>

@@ -132,6 +132,52 @@ export default function Home() {
       <section className="section section--tint">
         <div className="container">
           <Reveal>
+            <div className="section-head">
+              <span className="eyebrow">Why Emmanus</span>
+              <h2>A different kind of practice</h2>
+            </div>
+          </Reveal>
+          <div className="grid-3">
+            <Reveal>
+              <div className="card">
+                <div className="card__icon" aria-hidden="true">🌱</div>
+                <h3>Pills and Skills</h3>
+                <p>
+                  Medication can steady the ground; therapy teaches you to
+                  walk it. We deliberately pair both, because each works
+                  better with the other.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={90}>
+              <div className="card">
+                <div className="card__icon" aria-hidden="true">🤝</div>
+                <h3>One clinician who knows you</h3>
+                <p>
+                  No rotating faces, no re-telling your story. Every visit is
+                  with Dr. Ofori-Danso — continuity that compounds into
+                  better care.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={180}>
+              <div className="card">
+                <div className="card__icon" aria-hidden="true">🔬</div>
+                <h3>Evidence over guesswork</h3>
+                <p>
+                  Measurement-informed treatment, conservative prescribing,
+                  and GeneSight® testing where necessary — decisions guided
+                  by data, explained in plain language.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <Reveal>
             <div className="spotlight">
               <div
                 className="spotlight__portrait"

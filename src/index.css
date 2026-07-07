@@ -7,6 +7,8 @@
   --cream: #faf7f2;
   --sand: #f3ede3;
   --gold: #c9a227;
+  --blue-50: #eaf1f6;
+  --blue: #5b87a8;
   --ink: #24322a;
   --ink-soft: #55645b;
   --white: #ffffff;
@@ -29,6 +31,13 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -101,6 +110,8 @@ button {
 
 .section--tint {
   background: var(--green-50);
+  border-top: 1px solid var(--green-100);
+  border-bottom: 1px solid var(--green-100);
 }
 
 .section-head {
@@ -230,8 +241,12 @@ button {
 
 /* Hero */
 .hero {
-  background: linear-gradient(160deg, var(--green-50) 0%, var(--cream) 55%, var(--sand) 100%);
+  background: linear-gradient(160deg, var(--green-50) 0%, var(--cream) 45%, var(--blue-50) 78%, var(--sand) 100%);
   overflow: hidden;
+}
+
+[data-theme="dark"] .hero {
+  background: linear-gradient(160deg, var(--green-50) 0%, var(--cream) 55%, var(--sand) 100%);
 }
 
 .hero__inner {
@@ -357,7 +372,7 @@ button {
 }
 
 .card h3 {
-  font-size: 1.22rem;
+  font-size: 1.32rem;
   margin-bottom: 10px;
 }
 
@@ -706,9 +721,42 @@ button {
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.8fr 1fr 1fr 1.3fr 1fr;
+  gap: 36px;
   margin-bottom: 44px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.footer__social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 247, 242, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background 0.2s ease, transform 0.3s var(--ease);
+}
+
+.footer__social a:hover {
+  background: rgba(250, 247, 242, 0.12);
+  transform: translateY(-2px);
+}
+
+.footer__legal {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__legal a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer h4 {
@@ -1574,6 +1622,27 @@ button {
   .page-fade {
     animation: none;
   }
+}
+
+/* Legal pages */
+.legal {
+  max-width: 760px;
+}
+
+.legal h2 {
+  font-size: 1.35rem;
+  margin: 34px 0 10px;
+}
+
+.legal p,
+.legal li {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.legal ul {
+  padding-left: 22px;
+  margin-top: 8px;
 }
 
 /* 404 */
