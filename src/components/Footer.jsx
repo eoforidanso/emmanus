@@ -29,8 +29,13 @@ export default function Footer() {
           <div>
             <h4>Company</h4>
             <ul>
-              <li><Link to="/team">Our Team</Link></li>
+              <li><Link to="/team">Providers</Link></li>
               <li><Link to="/resources">Resources</Link></li>
+              <li>
+                <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
+                  Patient Portal
+                </a>
+              </li>
               <li><Link to="/contact">Contact</Link></li>
               <li>
                 <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">

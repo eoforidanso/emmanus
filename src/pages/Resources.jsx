@@ -6,6 +6,7 @@ import Breathe from "../components/Breathe";
 import MoodTracker from "../components/MoodTracker";
 import Reframe from "../components/Reframe";
 import SafetyPlan from "../components/SafetyPlan";
+import SleepCheck from "../components/SleepCheck";
 import CrisisBanner from "../components/CrisisBanner";
 import { BOOKS } from "../data";
 
@@ -30,6 +31,13 @@ const TOOL_MENU = [
     text: "Evidence-based prompts to challenge unhelpful thinking and build healthier narratives.",
     meta: "Thought reframing",
     href: "#reframe",
+  },
+  {
+    icon: "🌙",
+    title: "Sleep check-in",
+    text: "Five quick questions about your nights, with practical habits matched to your answers.",
+    meta: "Sleep check-in",
+    href: "#sleep",
   },
   {
     icon: "✍️",
@@ -136,6 +144,18 @@ export default function Resources() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={150}>
+            <div className="crisis" style={{ marginTop: 32 }} role="note">
+              <span aria-hidden="true">🔒</span>
+              <span>
+                <strong>Private by design.</strong> Every tool on this page
+                runs entirely in your browser — no account, no tracking, and
+                nothing you type is ever sent to us or anyone else. The mood
+                tracker saves only to this device, and you can clear it
+                anytime.
+              </span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -216,7 +236,26 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="section" id="safety">
+      <section className="section" id="sleep">
+        <div className="container">
+          <Reveal>
+            <div className="section-head">
+              <span className="eyebrow">Sleep check-in</span>
+              <h2>How are your nights treating you?</h2>
+              <p>
+                Sleep and mood are deeply linked. Five quick questions about
+                the last two weeks, with practical habits matched to your
+                answers.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <SleepCheck />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section section--tint" id="safety">
         <div className="container">
           <Reveal>
             <div className="section-head">
@@ -234,7 +273,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="section section--tint" id="reading">
+      <section className="section" id="reading">
         <div className="container">
           <Reveal>
             <div className="section-head">
@@ -273,7 +312,7 @@ export default function Resources() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tint">
         <div className="container">
           <Reveal>
             <div className="section-head">

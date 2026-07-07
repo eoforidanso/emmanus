@@ -6,7 +6,7 @@ import { PORTAL_URL } from "../data";
 const LINKS = [
   { to: "/", label: "Home", end: true },
   { to: "/services", label: "Services" },
-  { to: "/team", label: "Our Team" },
+  { to: "/team", label: "Providers" },
   { to: "/resources", label: "Resources" },
   { to: "/contact", label: "Contact" },
 ];
@@ -29,6 +29,16 @@ export default function Navbar({ theme, onToggleTheme }) {
               </NavLink>
             </li>
           ))}
+          <li>
+            <a
+              href={PORTAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              Patient Portal
+            </a>
+          </li>
           <li>
             <a
               href={PORTAL_URL}

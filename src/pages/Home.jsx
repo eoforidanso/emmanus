@@ -49,14 +49,14 @@ export default function Home() {
       <section className="hero">
         <div className="container hero__inner">
           <div>
-            <span className="eyebrow">Telehealth Mental Wellness</span>
+            <span className="eyebrow">Emmanus Wellness · Telehealth</span>
             <h1>
-              Feel heard. Feel better. <em>From wherever you are.</em>
+              Care that meets you <em>where you are.</em>
             </h1>
             <p>
-              Emmanus Wellness provides licensed therapy and psychiatric care
-              through secure video sessions with Dr. Emmanuel Ofori-Danso —
-              care that meets you where life happens.
+              Gentle, private mental health care with Dr. Emmanuel
+              Ofori-Danso — secure video sessions, grounded in evidence-based
+              practice.
             </p>
             <div className="hero__actions">
               <a
@@ -65,10 +65,10 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="btn btn--primary"
               >
-                Book Your First Session
+                Book a Session
               </a>
-              <Link to="/services" className="btn btn--ghost">
-                Explore Services
+              <Link to="/resources" className="btn btn--ghost">
+                Explore Resources
               </Link>
             </div>
             <div className="hero__badges">
