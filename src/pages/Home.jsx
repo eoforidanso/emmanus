@@ -76,6 +76,9 @@ export default function Home() {
               Ofori-Danso — secure video sessions, grounded in evidence-based
               practice.
             </p>
+            <p className="hero__philosophy">
+              Rooted in evidence, delivered with compassion.
+            </p>
             <div className="hero__actions">
               <a
                 href={PORTAL_URL}
@@ -161,6 +164,7 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
+          <div className="divider" aria-hidden="true">🌿</div>
           <Reveal>
             <div className="section-head">
               <span className="eyebrow">Conditions we treat</span>
@@ -194,7 +198,8 @@ export default function Home() {
           </Reveal>
           <div className="grid-3">
             <Reveal>
-              <div className="card">
+              <div className="card card--pillar">
+                <span className="card__motif" aria-hidden="true">🌿</span>
                 <div className="card__icon" aria-hidden="true">🌱</div>
                 <h3>Pills and Skills</h3>
                 <p>
@@ -205,7 +210,8 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={90}>
-              <div className="card">
+              <div className="card card--pillar">
+                <span className="card__motif" aria-hidden="true">💛</span>
                 <div className="card__icon" aria-hidden="true">🤝</div>
                 <h3>One clinician who knows you</h3>
                 <p>
@@ -216,7 +222,8 @@ export default function Home() {
               </div>
             </Reveal>
             <Reveal delay={180}>
-              <div className="card">
+              <div className="card card--pillar">
+                <span className="card__motif" aria-hidden="true">☀️</span>
                 <div className="card__icon" aria-hidden="true">🔬</div>
                 <h3>Evidence over guesswork</h3>
                 <p>

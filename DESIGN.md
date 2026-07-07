@@ -90,6 +90,9 @@ One easing everywhere: `--ease: cubic-bezier(0.22, 1, 0.36, 1)`.
 - Grids: `.grid-3` / `.grid-2`, 26px gaps, collapse to one column ≤900px.
 - Section heads: eyebrow → H2 → one short paragraph, max-width 620px,
   48px below.
+- Ornament divider (`.divider`, a 🌿 between hairlines) separates adjacent
+  cream sections; `.card--pillar` cards carry a large faint brand motif
+  (leaf/heart/sun, ~9% opacity) in the corner.
 
 ## Voice & safety
 

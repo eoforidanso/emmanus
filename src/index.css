@@ -367,6 +367,15 @@ button {
 .hero__copy > *:nth-child(3) { animation-delay: 0.16s; }
 .hero__copy > *:nth-child(4) { animation-delay: 0.26s; }
 .hero__copy > *:nth-child(5) { animation-delay: 0.36s; }
+.hero__copy > *:nth-child(6) { animation-delay: 0.44s; }
+
+.hero__philosophy {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--green-600);
+  margin: -16px 0 30px;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero__copy > * {
@@ -440,7 +449,43 @@ button {
 
 /* Trust feature cards below hero */
 .trust {
-  padding: 46px 0;
+  padding: 46px 0 54px;
+  background: linear-gradient(180deg, var(--cream), var(--green-50));
+  border-bottom: 1px solid var(--green-100);
+}
+
+/* Ornament divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--green-600);
+  font-size: 1.05rem;
+  margin-bottom: 52px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--green-100);
+}
+
+/* Pillar motif */
+.card--pillar {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--pillar .card__motif {
+  position: absolute;
+  right: -14px;
+  bottom: -24px;
+  font-size: 5.4rem;
+  opacity: 0.09;
+  pointer-events: none;
+  user-select: none;
 }
 
 .card--mini {
