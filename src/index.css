@@ -105,7 +105,13 @@ button {
 }
 
 .section {
-  padding: 88px 0;
+  padding: 100px 0;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 72px 0;
+  }
 }
 
 .section--tint {
@@ -340,6 +346,23 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .hero__art svg {
+    animation: none;
+  }
+}
+
+/* Staggered hero text entrance */
+.hero__copy > * {
+  animation: heroIn 0.7s var(--ease) both;
+}
+
+.hero__copy > *:nth-child(1) { animation-delay: 0s; }
+.hero__copy > *:nth-child(2) { animation-delay: 0.08s; }
+.hero__copy > *:nth-child(3) { animation-delay: 0.16s; }
+.hero__copy > *:nth-child(4) { animation-delay: 0.26s; }
+.hero__copy > *:nth-child(5) { animation-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__copy > * {
     animation: none;
   }
 }

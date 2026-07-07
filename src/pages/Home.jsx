@@ -62,7 +62,7 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="container hero__inner">
-          <div>
+          <div className="hero__copy">
             <span className="eyebrow">Emmanus Wellness · Telehealth</span>
             <h1>
               Care that meets you <em>where you are.</em>
@@ -251,7 +251,7 @@ export default function Home() {
                   <li>Same trusted clinician at every visit — no re-telling your story</li>
                 </ul>
                 <Link to="/team" className="btn btn--ghost">
-                  Meet Dr. Ofori-Danso
+                  Meet your provider <span className="btn__arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
