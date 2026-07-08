@@ -13,8 +13,8 @@ export default function AnnouncementBar() {
   return (
     <div className="announce" role="region" aria-label="Announcement">
       <span>
-        🌿 Now welcoming new patients in MD, VA, DC, PA &amp; NY — most
-        insurance accepted.{" "}
+        🌿 Now welcoming new patients across Illinois — most insurance
+        accepted.{" "}
         <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
           Book a session →
         </a>

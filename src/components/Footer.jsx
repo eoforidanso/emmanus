@@ -69,10 +69,10 @@ export default function Footer() {
             <ul>
               <li><a href="tel:+18005550123">1-800-555-0123</a></li>
               <li><a href="mailto:care@emmanuswellness.com">care@emmanuswellness.com</a></li>
-              <li>Mon–Sat, 8am–8pm ET</li>
+              <li>Mon–Sat, 8am–8pm CT</li>
               <li>
-                100% telehealth — serving MD, VA, DC, PA &amp; NY from
-                anywhere you are
+                100% telehealth — serving patients across Illinois from
+                wherever you are
               </li>
             </ul>
           </div>

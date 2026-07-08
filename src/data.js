@@ -72,14 +72,7 @@ export const CONDITIONS = [
   { icon: "🧭", label: "Life Transitions" },
 ];
 
-// Placeholder — replace with the states Dr. Ofori-Danso actually holds licensure in.
-export const LICENSED_STATES = [
-  "Maryland",
-  "Virginia",
-  "District of Columbia",
-  "Pennsylvania",
-  "New York",
-];
+export const LICENSED_STATES = ["Illinois"];
 
 export const INSURERS = [
   "Aetna",

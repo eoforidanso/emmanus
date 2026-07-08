@@ -34,7 +34,7 @@ export default function Contact() {
                   <p>
                     <a href="tel:+18005550123">1-800-555-0123</a>
                     <br />
-                    Mon–Sat, 8am–8pm ET
+                    Mon–Sat, 8am–8pm CT
                   </p>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export default function Contact() {
                   <h4>Telehealth only</h4>
                   <p>
                     All care is delivered virtually — no office visits needed.
-                    Available across multiple states.
+                    Serving patients across Illinois.
                   </p>
                 </div>
               </div>
