@@ -44,6 +44,7 @@ export default function Footer() {
               <li><Link to="/services">Psychiatry</Link></li>
               <li><Link to="/services">Couples Counseling</Link></li>
               <li><Link to="/services">Group Support</Link></li>
+              <li><Link to="/how-booking-works">How Booking Works</Link></li>
               <li>
                 <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
                   Book a Session

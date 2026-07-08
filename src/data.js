@@ -202,7 +202,7 @@ export const FAQS = [
   },
   {
     q: "How quickly can I be seen?",
-    a: "Most new clients have their first session within 3–5 days of completing intake. Psychiatry evaluations are typically scheduled within one week.",
+    a: "Next-day appointments are often available, and most new clients have their first session within 1–3 days of booking. Availability shows in real time in the patient portal when you schedule.",
   },
   {
     q: "Is my information private?",

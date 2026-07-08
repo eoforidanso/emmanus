@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Team from "./pages/Team";
 import Resources from "./pages/Resources";
+import HowBookingWorks from "./pages/HowBookingWorks";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/team" element={<Team />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/how-booking-works" element={<HowBookingWorks />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />

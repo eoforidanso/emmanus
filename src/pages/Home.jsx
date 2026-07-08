@@ -113,6 +113,7 @@ export default function Home() {
             </div>
             <div className="hero__micro">
               <span>⏱️ Booking takes 30 seconds</span>
+              <span>📅 Next-day slots often available</span>
               <span>💳 Most insurance accepted</span>
             </div>
           </div>
@@ -152,8 +153,8 @@ export default function Home() {
             <div className="card card--mini">
               <div className="card__icon" aria-hidden="true">📅</div>
               <div>
-                <h3>Seen within days</h3>
-                <p>Most new patients have their first session within 3–5 days — not weeks or months.</p>
+                <h3>Seen within days, often next-day</h3>
+                <p>Next-day appointments are often available — most new patients are seen within 1–3 days, not weeks or months.</p>
               </div>
             </div>
           </Reveal>
@@ -171,8 +172,8 @@ export default function Home() {
             <div className="stats__label">Years of clinical experience</div>
           </div>
           <div>
-            <div className="stats__num">3–5 days</div>
-            <div className="stats__label">Average time to first session</div>
+            <div className="stats__num">Next-day</div>
+            <div className="stats__label">Appointments often available</div>
           </div>
           <div>
             <div className="stats__num">4.9★</div>
@@ -347,6 +348,13 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={120}>
+            <div style={{ textAlign: "center", marginTop: 36 }}>
+              <Link to="/how-booking-works" className="btn btn--ghost">
+                See exactly how booking works <span className="btn__arrow" aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </Reveal>
           <Reveal delay={150}>
             <div className="insurers" style={{ marginTop: 40 }}>
               <span style={{ border: "none", background: "none", paddingLeft: 0 }}>
