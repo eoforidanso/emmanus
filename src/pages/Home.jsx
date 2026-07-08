@@ -15,7 +15,7 @@ import usePageMeta from "../usePageMeta";
 
 function HeroArt() {
   return (
-    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm video therapy session between a patient and Dr. Ofori-Danso">
+    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a video therapy session: an abstract green figure representing any patient, talking with Dr. Ofori-Danso">
       {/* soft organic backdrop */}
       <path d="M64 44 C142 -8 318 -2 378 76 C428 144 404 258 322 306 C238 354 108 342 54 276 C4 214 -8 92 64 44z" fill="#f3ede3" />
       {/* sun accents, fully clear of the window */}
@@ -29,15 +29,14 @@ function HeroArt() {
       <circle cx="94" cy="70" r="5" fill="#c9a227" />
       <circle cx="112" cy="70" r="5" fill="#e4ede6" />
 
-      {/* patient — neck tucked behind head and sweater */}
-      <rect x="153" y="176" width="18" height="34" rx="8" fill="#9a6a44" />
-      <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#4a7c59" />
-      <path d="M148 208 c4 8 9 12 14 12 s10 -4 14 -12" fill="#3e6b4f" />
-      <circle cx="162" cy="156" r="30" fill="#9a6a44" />
-      <path d="M132 156 a30 30 0 0 1 60 0 Q162 141 132 156 z" fill="#33241a" />
-      <circle cx="151" cy="158" r="3" fill="#33241a" />
-      <circle cx="173" cy="158" r="3" fill="#33241a" />
-      <path d="M153 170 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#33241a" strokeWidth="2.5" strokeLinecap="round" />
+      {/* patient — deliberately abstract, brand-colored "anyone" figure */}
+      <rect x="153" y="176" width="18" height="34" rx="8" fill="#86b399" />
+      <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#3e6b4f" />
+      <path d="M148 208 c4 8 9 12 14 12 s10 -4 14 -12" fill="#2c4a38" />
+      <circle cx="162" cy="156" r="30" fill="#86b399" />
+      <circle cx="151" cy="158" r="3" fill="#24322a" />
+      <circle cx="173" cy="158" r="3" fill="#24322a" />
+      <path d="M153 170 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#24322a" strokeWidth="2.5" strokeLinecap="round" />
       {/* "You" tile label */}
       <rect x="118" y="246" width="42" height="17" rx="8.5" fill="#f0f5f1" />
       <text x="139" y="258.5" textAnchor="middle" fontSize="10" fontWeight="600" fill="#3e6b4f">You</text>
