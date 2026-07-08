@@ -86,7 +86,10 @@ export default function Home() {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__copy">
-            <span className="eyebrow">Emmanus Wellness · Telehealth</span>
+            <span className="hero__avail">
+              <span className="hero__avail-dot" aria-hidden="true" />
+              Next-day appointments often available
+            </span>
             <h1>
               Care that meets you <em>where you are.</em>
             </h1>
@@ -113,7 +116,6 @@ export default function Home() {
             </div>
             <div className="hero__micro">
               <span>⏱️ Booking takes 30 seconds</span>
-              <span>📅 Next-day slots often available</span>
               <span>💳 Most insurance accepted</span>
             </div>
           </div>

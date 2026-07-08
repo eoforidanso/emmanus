@@ -433,6 +433,48 @@ button {
 .hero__copy > *:nth-child(5) { animation-delay: 0.36s; }
 .hero__copy > *:nth-child(6) { animation-delay: 0.44s; }
 
+/* Availability pill at top of hero */
+.hero__avail {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--green-50);
+  border: 1px solid var(--green-100);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--green-700);
+  margin-bottom: 18px;
+}
+
+.hero__avail-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3ba55d;
+  box-shadow: 0 0 0 0 rgba(59, 165, 93, 0.5);
+  animation: availPulse 2.2s ease-out infinite;
+}
+
+@keyframes availPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 165, 93, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(59, 165, 93, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 165, 93, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__avail-dot {
+    animation: none;
+  }
+}
+
 .hero__philosophy {
   font-family: var(--font-display);
   font-style: italic;

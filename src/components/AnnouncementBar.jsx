@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { PORTAL_URL } from "../data";
 
-const STORAGE_KEY = "ew-announce-dismissed";
+// Versioned: bump when the message changes so it reappears for past dismissers
+const STORAGE_KEY = "ew-announce-dismissed-v2";
 
 export default function AnnouncementBar() {
   const [dismissed, setDismissed] = useState(
