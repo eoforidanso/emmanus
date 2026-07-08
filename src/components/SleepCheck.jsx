@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PORTAL_URL } from "../data";
+import { BOOKING_URL } from "../data";
 
 const ITEMS = [
   "I fall asleep within about 30 minutes of going to bed",
@@ -110,7 +110,7 @@ export default function SleepCheck() {
           )}
           {result.suggestBooking && (
             <a
-              href={PORTAL_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary"

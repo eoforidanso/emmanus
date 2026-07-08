@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LICENSED_STATES, PORTAL_URL } from "../data";
+import { LICENSED_STATES, BOOKING_URL } from "../data";
 
 const ALL_STATES = [
   "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado",
@@ -39,7 +39,7 @@ export default function StateChecker() {
             <>
               Yes! We're licensed in {state}.{" "}
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "underline" }}

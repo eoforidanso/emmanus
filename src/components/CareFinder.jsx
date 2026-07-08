@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PORTAL_URL, SERVICES } from "../data";
+import { BOOKING_URL, SERVICES } from "../data";
 
 const QUESTIONS = [
   {
@@ -93,12 +93,12 @@ export default function CareFinder() {
             {service.detail}
           </p>
           <a
-            href={PORTAL_URL}
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn--primary"
           >
-            Book this in the portal
+            Book this session
           </a>
           <br />
           <button className="finder__reset" onClick={reset}>

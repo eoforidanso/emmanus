@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  PORTAL_URL,
+  BOOKING_URL,
   SERVICES,
   STEPS,
   TESTIMONIALS,
@@ -103,7 +103,7 @@ export default function Home() {
             </p>
             <div className="hero__actions">
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--primary"
@@ -426,7 +426,7 @@ export default function Home() {
                 patient portal to schedule with Dr. Ofori-Danso.
               </p>
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--light"

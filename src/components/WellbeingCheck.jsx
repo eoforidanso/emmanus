@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PORTAL_URL } from "../data";
+import { BOOKING_URL } from "../data";
 
 // WHO-5 Well-Being Index — a widely used, non-diagnostic wellbeing measure.
 const ITEMS = [
@@ -122,7 +122,7 @@ export default function WellbeingCheck() {
           </p>
           {result.suggestBooking && (
             <a
-              href={PORTAL_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary"

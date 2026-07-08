@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Logo from "./Logo";
-import { PORTAL_URL } from "../data";
+import { BOOKING_URL, PORTAL_URL } from "../data";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -41,7 +41,7 @@ export default function Navbar({ theme, onToggleTheme }) {
           </li>
           <li>
             <a
-              href={PORTAL_URL}
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary"

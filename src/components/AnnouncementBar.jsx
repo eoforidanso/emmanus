@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PORTAL_URL } from "../data";
+import { BOOKING_URL } from "../data";
 
 // Versioned: bump when the message changes so it reappears for past dismissers
 const STORAGE_KEY = "ew-announce-dismissed-v2";
@@ -16,7 +16,7 @@ export default function AnnouncementBar() {
       <span>
         🌿 Next-day appointments often available across Illinois — most
         insurance accepted.{" "}
-        <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
+        <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
           Book a session →
         </a>
       </span>

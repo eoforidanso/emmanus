@@ -1,4 +1,4 @@
-import { PORTAL_URL, PROVIDERS } from "../data";
+import { BOOKING_URL, PROVIDERS } from "../data";
 import Reveal from "../components/Reveal";
 import usePageMeta from "../usePageMeta";
 
@@ -65,7 +65,7 @@ export default function Team() {
                 </div>
                 <div style={{ marginTop: 24 }}>
                   <a
-                    href={PORTAL_URL}
+                    href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn--primary"
@@ -126,7 +126,7 @@ export default function Team() {
                 patient portal — most new clients are seen within days.
               </p>
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--light"

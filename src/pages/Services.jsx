@@ -1,4 +1,4 @@
-import { PORTAL_URL, SERVICES, FAQS } from "../data";
+import { BOOKING_URL, SERVICES, FAQS } from "../data";
 import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import CareFinder from "../components/CareFinder";
@@ -88,7 +88,7 @@ export default function Services() {
                 right starting point.
               </p>
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--light"

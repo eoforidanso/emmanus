@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { PORTAL_URL, INSURERS } from "../data";
+import { BOOKING_URL, PORTAL_URL, INSURERS } from "../data";
 
 // TODO: replace with the practice's real social profiles before launch.
 const SOCIALS = [
@@ -46,7 +46,7 @@ export default function Footer() {
               <li><Link to="/services">Group Support</Link></li>
               <li><Link to="/how-booking-works">How Booking Works</Link></li>
               <li>
-                <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                   Book a Session
                 </a>
               </li>

@@ -1,18 +1,18 @@
-import { PORTAL_URL } from "../data";
+import { BOOKING_URL } from "../data";
 import Reveal from "../components/Reveal";
 import CrisisBanner from "../components/CrisisBanner";
 import usePageMeta from "../usePageMeta";
 
 const STEPS = [
   {
-    icon: "👤",
-    title: "Create your portal account",
-    text: "Booking happens in our secure Clarity patient portal. Creating an account takes about 30 seconds — just your name, email, and a password.",
-  },
-  {
     icon: "📅",
     title: "Pick a time that works",
-    text: "Real-time availability, including evenings — next-day appointments are often open. Choose a free 15-minute consultation or a full first visit.",
+    text: "No account needed to look — see real-time availability, including evenings, with next-day appointments often open. Choose a free 15-minute consultation or a full first visit.",
+  },
+  {
+    icon: "👤",
+    title: "Confirm with a few details",
+    text: "Name, date of birth, email, and phone — about 30 seconds. That confirms your time and sets up your secure patient portal in one step.",
   },
   {
     icon: "💻",
@@ -31,7 +31,7 @@ const CHECKLIST = [
 export default function HowBookingWorks() {
   usePageMeta(
     "How Booking Works",
-    "Booking with Emmanus Wellness takes about 30 seconds: create a portal account, pick a time (next-day appointments often available), and meet Dr. Ofori-Danso on secure video."
+    "Booking with Emmanus Wellness takes about 30 seconds: pick a time (next-day appointments often available, no account needed to look), confirm a few details, and meet Dr. Ofori-Danso on secure video."
   );
 
   return (
@@ -64,12 +64,12 @@ export default function HowBookingWorks() {
           <Reveal delay={150}>
             <div style={{ textAlign: "center", marginTop: 40 }}>
               <a
-                href={PORTAL_URL}
+                href={BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn--primary"
               >
-                Open the Patient Portal <span className="btn__arrow" aria-hidden="true">→</span>
+                See Available Times <span className="btn__arrow" aria-hidden="true">→</span>
               </a>
             </div>
           </Reveal>

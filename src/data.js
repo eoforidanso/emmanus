@@ -1,5 +1,8 @@
 import drPhoto from "./assets/dr-ofori-danso.jpg";
 
+// Public new-patient booking page (no sign-in required)
+export const BOOKING_URL = "https://app.clarity-ehr.com/book/emmanus";
+// Sign-in for existing patients
 export const PORTAL_URL = "https://app.clarity-ehr.com/patient-portal-login";
 
 export const SERVICES = [
