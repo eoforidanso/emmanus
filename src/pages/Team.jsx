@@ -1,5 +1,6 @@
 import { BOOKING_URL, PROVIDERS } from "../data";
 import Reveal from "../components/Reveal";
+import Portrait from "../components/Portrait";
 import usePageMeta from "../usePageMeta";
 
 const APPROACH = [
@@ -49,7 +50,7 @@ export default function Team() {
                   style={{ background: doctor.color, width: 120, height: 120, fontSize: "2.3rem" }}
                 >
                   {doctor.photo ? (
-                    <img src={doctor.photo} alt={`Portrait of ${doctor.name}`} />
+                    <Portrait src={doctor.photo} alt={`Portrait of ${doctor.name}`} />
                   ) : (
                     <span aria-hidden="true">{doctor.initials}</span>
                   )}

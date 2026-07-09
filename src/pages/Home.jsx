@@ -11,6 +11,7 @@ import {
 import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import Breathe from "../components/Breathe";
+import Portrait from "../components/Portrait";
 import usePageMeta from "../usePageMeta";
 import {
   IconShield,
@@ -266,7 +267,7 @@ export default function Home() {
                 style={{ background: `linear-gradient(150deg, ${doctor.color}, var(--green-900))` }}
               >
                 {doctor.photo ? (
-                  <img src={doctor.photo} alt={`Portrait of ${doctor.name}`} />
+                  <Portrait src={doctor.photo} alt={`Portrait of ${doctor.name}`} />
                 ) : (
                   <span aria-hidden="true">{doctor.initials}</span>
                 )}
