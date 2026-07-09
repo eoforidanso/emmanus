@@ -349,6 +349,28 @@ button {
   border-bottom: 1px solid rgba(201, 168, 117, 0.35);
 }
 
+/* extremely subtle geometric patterning on the forest background */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(247, 244, 239, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 244, 239, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(120% 100% at 78% 30%, #000 0%, transparent 68%);
+  mask-image: radial-gradient(120% 100% at 78% 30%, #000 0%, transparent 68%);
+}
+
+.hero__rule {
+  width: 64px;
+  height: 1px;
+  background: rgba(201, 168, 117, 0.6);
+  margin-top: 34px;
+}
+
 .hero__inner {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -727,16 +749,31 @@ button {
   padding: 28px;
   background: var(--white);
   border-radius: var(--radius);
-  border: 1px solid var(--green-100);
+  border: 1px solid var(--line);
+  transition: border-color 0.3s ease;
+}
+
+.step:hover {
+  border-color: var(--gold);
+}
+
+.step__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
 
 .step__num {
   font-family: var(--font-display);
-  font-size: 2.6rem;
-  color: var(--green-100);
+  font-size: 2.2rem;
+  color: var(--line);
   font-weight: 600;
   line-height: 1;
-  margin-bottom: 12px;
+}
+
+.step .card__icon {
+  margin-bottom: 0;
 }
 
 .step h3 {

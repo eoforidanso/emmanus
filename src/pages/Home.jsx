@@ -13,13 +13,19 @@ import Reveal from "../components/Reveal";
 import Breathe from "../components/Breathe";
 import usePageMeta from "../usePageMeta";
 import {
-  IconLock,
   IconShield,
   IconCalendar,
   IconCapsule,
   IconUser,
   IconFlask,
+  IconEvaluation,
+  IconTreatment,
+  IconFollowUp,
+  IconInsurance,
+  IconTelehealth,
 } from "../components/icons";
+
+const STEP_ICONS = [IconEvaluation, IconTreatment, IconFollowUp];
 
 function HeroArt() {
   return (
@@ -39,31 +45,44 @@ function HeroArt() {
         </linearGradient>
       </defs>
 
-      {/* concentric rings — steadiness */}
-      <circle cx="215" cy="164" r="150" fill="none" stroke="#f7f4ef" strokeOpacity="0.12" />
-      <circle cx="215" cy="164" r="112" fill="none" stroke="#f7f4ef" strokeOpacity="0.09" />
-      <circle cx="215" cy="164" r="76" fill="none" stroke="#f7f4ef" strokeOpacity="0.07" />
+      {/* off-center concentric rings — steadiness, deliberately asymmetric */}
+      <circle cx="256" cy="140" r="158" fill="none" stroke="#f7f4ef" strokeOpacity="0.11" />
+      <circle cx="256" cy="140" r="118" fill="none" stroke="#f7f4ef" strokeOpacity="0.085" />
+      <circle cx="256" cy="140" r="80" fill="none" stroke="#f7f4ef" strokeOpacity="0.06" />
 
       {/* soft chromatic fields */}
-      <circle cx="262" cy="118" r="118" fill="url(#haGold)" />
-      <circle cx="150" cy="220" r="108" fill="url(#haSlate)" />
+      <circle cx="288" cy="104" r="118" fill="url(#haGold)" />
+      <circle cx="140" cy="228" r="112" fill="url(#haSlate)" />
 
       {/* two overlapping discs — patient and clinician */}
-      <circle cx="186" cy="152" r="68" fill="url(#haIvory)" />
-      <circle cx="246" cy="194" r="68" fill="url(#haIvory)" />
+      <circle cx="176" cy="150" r="66" fill="url(#haIvory)" />
+      <circle cx="240" cy="188" r="72" fill="url(#haIvory)" />
+
+      {/* thin axis lines — clinical measurement */}
+      <path d="M30 96 H 200" stroke="#f7f4ef" strokeOpacity="0.16" strokeWidth="1" />
+      <path d="M56 96 V 46" stroke="#f7f4ef" strokeOpacity="0.16" strokeWidth="1" />
+      <circle cx="56" cy="96" r="2.5" fill="#c9a875" />
 
       {/* gold arc — the course of care */}
-      <path d="M92 212 A124 124 0 0 1 216 88" fill="none" stroke="#c9a875" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.85" />
-      <circle cx="216" cy="88" r="4" fill="#c9a875" />
+      <path d="M78 224 A132 132 0 0 1 224 78" fill="none" stroke="#c9a875" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.85" />
+      <circle cx="224" cy="78" r="4" fill="#c9a875" />
 
-      {/* breath line */}
-      <path d="M55 262 C 115 240 152 290 212 264 S 322 228 368 254" fill="none" stroke="#f7f4ef" strokeOpacity="0.55" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="368" cy="254" r="3.5" fill="#8ea0c9" />
+      {/* clinical waveform */}
+      <path
+        d="M30 272 H 78 L 92 240 L 106 296 L 120 254 L 134 272 H 372"
+        fill="none"
+        stroke="#8ea0c9"
+        strokeOpacity="0.65"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+      <circle cx="372" cy="272" r="3.5" fill="#8ea0c9" />
 
       {/* quiet dot grid — data, measurement */}
       <g fill="#f7f4ef" fillOpacity="0.28">
-        <circle cx="66" cy="300" r="1.6" /><circle cx="82" cy="300" r="1.6" /><circle cx="98" cy="300" r="1.6" />
-        <circle cx="66" cy="314" r="1.6" /><circle cx="82" cy="314" r="1.6" /><circle cx="98" cy="314" r="1.6" />
+        <circle cx="330" cy="66" r="1.6" /><circle cx="346" cy="66" r="1.6" /><circle cx="362" cy="66" r="1.6" />
+        <circle cx="330" cy="80" r="1.6" /><circle cx="346" cy="80" r="1.6" /><circle cx="362" cy="80" r="1.6" />
       </g>
     </svg>
   );
@@ -78,20 +97,14 @@ export default function Home() {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__copy">
-            <span className="hero__avail">
-              <span className="hero__avail-dot" aria-hidden="true" />
-              Next-day appointments often available
-            </span>
             <h1>
-              Care that meets you <em>where you are.</em>
+              Evidence-based psychiatric care,{" "}
+              <em>designed around your life.</em>
             </h1>
             <p>
-              Gentle, private mental health care with Dr. Emmanuel
-              Ofori-Danso — secure video sessions, grounded in evidence-based
-              practice.
-            </p>
-            <p className="hero__philosophy">
-              Rooted in evidence, delivered with compassion.
+              Thoughtful evaluation, clear treatment planning, and secure
+              video sessions with Dr. Emmanuel Ofori-Danso — delivered with
+              precision and compassion.
             </p>
             <div className="hero__actions">
               <a
@@ -107,9 +120,11 @@ export default function Home() {
               </Link>
             </div>
             <div className="hero__micro">
-              <span>⏱️ Booking takes 30 seconds</span>
-              <span>💳 Most insurance accepted</span>
+              <span>Most insurance accepted</span>
+              <span aria-hidden="true">·</span>
+              <span>Next-day appointments often available</span>
             </div>
+            <div className="hero__rule" aria-hidden="true" />
           </div>
           <div className="hero__art">
             <HeroArt />
@@ -121,7 +136,7 @@ export default function Home() {
         <div className="container grid-3">
           <Reveal>
             <div className="card card--mini">
-              <div className="card__icon"><IconLock /></div>
+              <div className="card__icon"><IconTelehealth /></div>
               <div>
                 <h3>HIPAA-secure video</h3>
                 <p>Every session runs on an encrypted, HIPAA-compliant platform — as private as a closed office door.</p>
@@ -323,15 +338,21 @@ export default function Home() {
             </div>
           </Reveal>
           <div className="steps">
-            {STEPS.map((step, i) => (
-              <Reveal key={step.title} delay={i * 90}>
-                <div className="step">
-                  <div className="step__num">0{i + 1}</div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </Reveal>
-            ))}
+            {STEPS.map((step, i) => {
+              const StepIcon = STEP_ICONS[i];
+              return (
+                <Reveal key={step.title} delay={i * 90}>
+                  <div className="step">
+                    <div className="step__top">
+                      <div className="step__num">0{i + 1}</div>
+                      <div className="card__icon"><StepIcon /></div>
+                    </div>
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
           <Reveal delay={120}>
             <div style={{ textAlign: "center", marginTop: 36 }}>
@@ -342,7 +363,19 @@ export default function Home() {
           </Reveal>
           <Reveal delay={150}>
             <div className="insurers" style={{ marginTop: 40 }}>
-              <span style={{ border: "none", background: "none", paddingLeft: 0 }}>
+              <span
+                style={{
+                  border: "none",
+                  background: "none",
+                  paddingLeft: 0,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span style={{ width: 18, height: 18, color: "var(--slate)" }}>
+                  <IconInsurance />
+                </span>
                 Insurance &amp; payment:
               </span>
               {INSURERS.map((name) => (

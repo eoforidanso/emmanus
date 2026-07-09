@@ -30,15 +30,26 @@ Rule of thumb: deep forest carries authority, ivory keeps it human, slate adds
 clinical trust, gold sand is the only luxury note. No mint, no pastel. Dark
 mode remaps the same tokens — components never branch on theme.
 
-**Signature surface — the evergreen hero.** The homepage hero is deliberately
-dark in both themes: `--forest` (#0f2f2a) with gold-sand accents for the
-availability badge, italic em, philosophy line, and the primary button (gold
-fill, charcoal text). A subtle SVG film grain overlays the surface; the hero
-ends in a 1px gold hairline (no wave — clinical geometry). The hero art is an
-**abstract geometric composition** (concentric rings, two overlapping ivory
-discs, a gold arc, a breath line) — never cartoon figures or UI mockups.
-This dark-hero/light-body contrast is the brand's differentiator — do not
-lighten the hero back to cream. Footer uses `--forest-2` to bookend.
+**Signature surface — the evergreen hero (locked spec).** The homepage hero
+is deliberately dark in both themes: `--forest` (#0f2f2a) with an extremely
+subtle geometric grid patterning (masked to fade toward the left, 3.5%
+opacity). Copy: H1 "Evidence-based psychiatric care, designed around your
+life." (Spectral, cream, gold italic emphasis on the second clause) plus one
+subheadline sentence (Inter, muted cream) — no separate philosophy line, no
+availability pill; that content moved into a plain micro-trust row ("Most
+insurance accepted · Next-day appointments often available") under the CTA
+row, closed with a 64px gold hairline rule. CTA row: Book a Session (gold
+fill, charcoal text) + Explore Resources (ghost, cream border). No wave, no
+floating chips.
+
+Hero art (right column) is an **abstract geometric composition** — never
+cartoon figures or UI mockups: off-center concentric rings, two overlapping
+ivory discs (patient + clinician), thin axis lines with a gold node (clinical
+measurement), a gold arc tracing "the course of care," a clinical waveform
+line, and a quiet dot grid. Asymmetric placement is deliberate — nothing is
+centered. This dark-hero/light-body contrast is the brand's differentiator —
+do not lighten the hero back to cream, and do not re-center the composition.
+Footer uses `--forest-2` to bookend.
 
 ## Typography
 
@@ -57,9 +68,11 @@ Numbers use `font-variant-numeric: tabular-nums` where they update.
 
 - Icons are **thin-stroke, monochrome SVG** (1.5px stroke, currentColor) in
   square bordered chips (`.card__icon`: 48px, ivory background, 1px
-  `--line` border, radius 6px). The set lives in `src/components/icons.jsx`.
-  Emoji remain only in the Resources tools pending migration — do not add
-  new emoji icons.
+  `--line` border, radius 6px). The set lives in `src/components/icons.jsx`:
+  Lock, Shield, Calendar, Capsule, User, Flask, Evaluation, Treatment,
+  FollowUp, Insurance, Telehealth. Geometric, not playful — no rounded
+  mascot-style icons. Emoji remain only in the Resources tools pending
+  migration — do not add new emoji icons.
 - Illustration is abstract geometric (see hero note above): soft overlapping
   shapes, subtle gradients, clinical geometry. No cartoons, no mockups. The
   provider portrait (circular crop, sage backdrop) is the only photograph.
