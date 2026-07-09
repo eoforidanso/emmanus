@@ -14,11 +14,19 @@ export default function Portrait({ src, alt, className = "" }) {
   const driftRef = useRef(null);
   const [visible, setVisible] = useState(REDUCE_MOTION);
 
-  // One-time geometric mask reveal + fade/rise when scrolled into view
+  // One-time geometric mask reveal + fade/rise when scrolled near view.
+  // Triggers early (rootMargin) so the reveal is finished by the time the
+  // portrait is actually on screen, and a hard fallback guarantees the
+  // photo is never stuck invisible (e.g. a screenshot taken instantly on
+  // load, before any scroll/observer callback has run).
   useEffect(() => {
-    if (REDUCE_MOTION) return;
+    if (REDUCE_MOTION) {
+      setVisible(true);
+      return;
+    }
     const el = frameRef.current;
     if (!el) return;
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,10 +34,16 @@ export default function Portrait({ src, alt, className = "" }) {
           io.disconnect();
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0, rootMargin: "400px 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    const fallback = setTimeout(() => setVisible(true), 500);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   // Continuous, barely-there parallax drift tied to scroll position
