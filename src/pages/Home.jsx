@@ -129,6 +129,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <svg
+          className="hero__wave"
+          viewBox="0 0 1440 72"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path d="M0 42 C240 72 480 6 760 26 C1040 46 1240 10 1440 36 L1440 72 L0 72 Z" />
+        </svg>
       </section>
 
       <section className="trust">

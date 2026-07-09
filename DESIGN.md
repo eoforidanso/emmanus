@@ -28,6 +28,15 @@ motion, warm plain language.
 Rule of thumb: green does the work, sand/cream keep it warm, gold and blue are
 seasoning. Dark mode remaps the same tokens — components never branch on theme.
 
+**Signature surface — the evergreen hero.** The homepage hero is deliberately
+dark in both themes: `--forest`/`--forest-2` (#16281e/#1f3a2b) with a
+luminous `--mint` (#9fe3c0) accent for the availability pill, italic em, and
+the primary button (mint fill, `--mint-deep` text, soft mint glow). A subtle
+SVG film grain overlays the surface, and an organic wave (`.hero__wave`,
+filled `--cream`) transitions into the light body. This dark-hero/light-body
+contrast is the brand's differentiator — do not lighten the hero back to
+cream. Footer uses `--forest-2` to bookend the page.
+
 ## Typography
 
 - **Display**: Fraunces (serif, warm) — all h1–h4, weight 500–600,

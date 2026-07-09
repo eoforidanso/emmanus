@@ -9,6 +9,11 @@
   --gold: #c9a227;
   --blue-50: #eaf1f6;
   --blue: #5b87a8;
+  --forest: #16281e;
+  --forest-2: #1f3a2b;
+  --mint: #9fe3c0;
+  --mint-deep: #10291d;
+  --on-forest: #f4f1ea;
   --ink: #24322a;
   --ink-soft: #55645b;
   --white: #ffffff;
@@ -315,14 +320,43 @@ button {
   color: var(--green-900);
 }
 
-/* Hero */
+/* Hero — deep evergreen editorial */
 .hero {
-  background: linear-gradient(160deg, var(--green-50) 0%, var(--cream) 45%, var(--blue-50) 78%, var(--sand) 100%);
+  position: relative;
+  background:
+    radial-gradient(900px 520px at 78% 18%, rgba(159, 227, 192, 0.13), transparent 62%),
+    radial-gradient(700px 460px at 10% 88%, rgba(201, 162, 39, 0.1), transparent 60%),
+    linear-gradient(160deg, var(--forest-2) 0%, var(--forest) 62%, #121e16 100%);
   overflow: hidden;
 }
 
-[data-theme="dark"] .hero {
-  background: linear-gradient(160deg, var(--green-50) 0%, var(--cream) 55%, var(--sand) 100%);
+/* film grain for editorial depth */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 72px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__wave path {
+  fill: var(--cream);
 }
 
 .hero__inner {
@@ -330,26 +364,49 @@ button {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 56px;
   align-items: center;
-  padding-top: 90px;
-  padding-bottom: 100px;
+  padding-top: 84px;
+  padding-bottom: 130px;
 }
 
 .hero h1 {
   font-size: clamp(2.6rem, 5.5vw, 4rem);
   font-weight: 600;
   margin-bottom: 20px;
+  color: var(--on-forest);
 }
 
 .hero h1 em {
   font-style: italic;
-  color: var(--green-600);
+  color: var(--mint);
 }
 
 .hero p {
   font-size: 1.12rem;
-  color: var(--ink-soft);
+  color: rgba(244, 241, 234, 0.78);
   max-width: 480px;
   margin-bottom: 32px;
+}
+
+.hero .btn--primary {
+  background: var(--mint);
+  color: var(--mint-deep);
+  box-shadow: 0 8px 28px rgba(159, 227, 192, 0.28);
+}
+
+.hero .btn--primary:hover {
+  background: #b9edd2;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(159, 227, 192, 0.36);
+}
+
+.hero .btn--ghost {
+  border-color: rgba(244, 241, 234, 0.4);
+  color: var(--on-forest);
+}
+
+.hero .btn--ghost:hover {
+  background: rgba(244, 241, 234, 0.09);
+  border-color: rgba(244, 241, 234, 0.65);
 }
 
 .hero__actions {
@@ -438,13 +495,13 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  background: var(--green-50);
-  border: 1px solid var(--green-100);
+  background: rgba(159, 227, 192, 0.1);
+  border: 1px solid rgba(159, 227, 192, 0.32);
   border-radius: 999px;
   padding: 8px 16px;
   font-size: 0.84rem;
   font-weight: 700;
-  color: var(--green-700);
+  color: var(--mint);
   margin-bottom: 18px;
 }
 
@@ -452,20 +509,20 @@ button {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: #3ba55d;
-  box-shadow: 0 0 0 0 rgba(59, 165, 93, 0.5);
+  background: var(--mint);
+  box-shadow: 0 0 0 0 rgba(159, 227, 192, 0.5);
   animation: availPulse 2.2s ease-out infinite;
 }
 
 @keyframes availPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(59, 165, 93, 0.5);
+    box-shadow: 0 0 0 0 rgba(159, 227, 192, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 8px rgba(59, 165, 93, 0);
+    box-shadow: 0 0 0 8px rgba(159, 227, 192, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(59, 165, 93, 0);
+    box-shadow: 0 0 0 0 rgba(159, 227, 192, 0);
   }
 }
 
@@ -479,7 +536,7 @@ button {
   font-family: var(--font-display);
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--green-600);
+  color: #d9b64a;
   margin: -16px 0 30px;
 }
 
@@ -496,23 +553,24 @@ button {
   margin-top: 14px;
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--ink-soft);
+  color: rgba(244, 241, 234, 0.62);
 }
 
 /* Floating chips over the hero illustration */
 .hero__chip {
   position: absolute;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 7px;
-  background: var(--white);
-  border: 1px solid var(--green-100);
+  background: #ffffff;
+  border: 1px solid #e4ede6;
+  color: #2c4a38;
   border-radius: 999px;
   padding: 9px 16px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--heading);
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   animation: heroIn 0.8s var(--ease) 0.6s both, chipFloat 6s ease-in-out 1.5s infinite alternate;
 }
@@ -1037,9 +1095,14 @@ button {
 
 /* Footer */
 .footer {
-  background: var(--green-900);
+  background: var(--forest-2);
   color: rgba(250, 247, 242, 0.8);
   padding: 60px 0 30px;
+}
+
+.footer a:hover,
+.footer .footer__social a:hover {
+  color: var(--mint);
 }
 
 .footer__grid {
@@ -1559,8 +1622,12 @@ button {
 
   .hero__inner {
     padding-top: 44px;
-    padding-bottom: 56px;
+    padding-bottom: 92px;
     gap: 40px;
+  }
+
+  .hero__wave {
+    height: 44px;
   }
 
   .hero h1 {
