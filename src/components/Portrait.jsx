@@ -81,7 +81,13 @@ export default function Portrait({ src, alt, className = "" }) {
       className={`portrait-frame${visible ? " is-visible" : ""} ${className}`.trim()}
     >
       <div ref={driftRef} className="portrait-drift">
-        <img className="portrait-zoom" src={src} alt={alt} />
+        <img
+          className="portrait-zoom"
+          src={src}
+          alt={alt}
+          loading="eager"
+          decoding="async"
+        />
       </div>
     </div>
   );
