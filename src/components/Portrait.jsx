@@ -34,11 +34,13 @@ export default function Portrait({ src, alt, className = "" }) {
           io.disconnect();
         }
       },
-      { threshold: 0, rootMargin: "400px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
     io.observe(el);
 
-    const fallback = setTimeout(() => setVisible(true), 500);
+    // Safety net only — normal scrolling triggers the observer well before
+    // this fires. Guarantees the photo can never get stuck invisible.
+    const fallback = setTimeout(() => setVisible(true), 1200);
 
     return () => {
       io.disconnect();
@@ -57,7 +59,7 @@ export default function Portrait({ src, alt, className = "" }) {
       const rect = el.parentElement.getBoundingClientRect();
       const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
       const drift = Math.max(-1, Math.min(1, -mid / (window.innerHeight * 0.8)));
-      el.style.transform = `translate3d(0, ${drift * 10}px, 0)`;
+      el.style.transform = `translate3d(0, ${drift * 16}px, 0)`;
       raf = null;
     };
 
