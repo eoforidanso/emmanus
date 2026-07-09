@@ -18,10 +18,6 @@ function HeroArt() {
     <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a video therapy session: an abstract green figure representing any patient, talking with Dr. Ofori-Danso">
       {/* soft organic backdrop */}
       <path d="M64 44 C142 -8 318 -2 378 76 C428 144 404 258 322 306 C238 354 108 342 54 276 C4 214 -8 92 64 44z" fill="#f3ede3" />
-      {/* sun accents, fully clear of the window */}
-      <circle cx="392" cy="58" r="16" fill="#c9a227" opacity="0.32" />
-      <circle cx="378" cy="86" r="7" fill="#c9a227" opacity="0.2" />
-
       {/* video call window */}
       <rect x="50" y="50" width="320" height="230" rx="22" fill="#ffffff" stroke="#e4ede6" strokeWidth="2" />
       <path d="M50 72 a22 22 0 0 1 22-22 h276 a22 22 0 0 1 22 22 v18 h-320z" fill="#f0f5f1" />
@@ -122,7 +118,8 @@ export default function Home() {
           <div className="hero__art">
             <HeroArt />
             <div className="hero__chip hero__chip--tl">
-              <span aria-hidden="true">🟢</span> Secure session in progress
+              <span className="hero__chip-dot" aria-hidden="true" /> Secure
+              session in progress
             </div>
             <div className="hero__chip hero__chip--br">
               <span aria-hidden="true">⭐</span> 4.9 from 200+ clients
