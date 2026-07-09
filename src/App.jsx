@@ -40,7 +40,7 @@ export default function App() {
     localStorage.setItem("ew-theme", theme);
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", theme === "dark" ? "#121b15" : "#faf7f2");
+      ?.setAttribute("content", theme === "dark" ? "#0e1a16" : "#f7f4ef");
   }, [theme]);
 
   return (

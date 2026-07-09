@@ -6,43 +6,44 @@ overrides). Change tokens there — never hardcode values in components.
 
 ## Brand feel
 
-Calm · supportive · evidence-based · modern · trustworthy. Every choice below
-serves an anxious first-time visitor: soft edges, generous space, slow gentle
+**Premium clinical**: precise · calm · evidence-based · human warmth without
+cartoon friendliness. Not marketplace-telehealth. Every choice below serves
+an anxious first-time visitor while signaling medical expertise: rectangular
+components, hairline borders, minimal shadows, generous space, slow gentle
 motion, warm plain language.
 
 ## Color palette
 
 | Token | Light | Role |
 |---|---|---|
-| `--green-900` | `#2c4a38` | Deep anchor: stats bar, footer, dark gradients |
-| `--green-700` | `#3e6b4f` | Primary actions, brand marks |
-| `--green-600` | `#4a7c59` | Accents, eyebrows, links, icons |
-| `--green-100` / `--green-50` | `#e4ede6` / `#f0f5f1` | Hairlines, borders, tinted sections, icon chips |
-| `--cream` | `#faf7f2` | Page background |
-| `--sand` | `#f3ede3` | Warm neutral blocks, illustration backdrop |
-| `--gold` | `#c9a227` | Sparing warmth: stars, sun, plant pot, ≤5% of any view |
-| `--blue` / `--blue-50` | `#5b87a8` / `#eaf1f6` | Gentle blue, gradient hints only |
-| `--ink` / `--ink-soft` | `#24322a` / `#55645b` | Body text / secondary text |
-| `--heading` | `#2c4a38` | All display headings |
+| `--green-900` / `--forest` | `#0f2f2a` | Deep forest — authority, calm: hero, primary buttons, stats, footer |
+| `--green-700` / `--green-600` | `#1b4a42` / `#2e6157` | Mid greens for CTA band, hovers |
+| `--cream` | `#f7f4ef` | Soft ivory page background — warmth without pastel |
+| `--slate` / `--blue` | `#3e4a66` | Clinical trust — eyebrows, tags, secondary accents |
+| `--gold` | `#c9a875` | Gold sand — premium accent: hero CTA, hover borders, divider, ≤5% of any view |
+| `--ink` | `#1c1c1c` | Charcoal — typography clarity |
+| `--ink-soft` | `#4f5752` | Secondary text |
+| `--line` | `#ddd7c9` | 1px hairline borders everywhere |
+| `--green-100` / `--green-50` / `--sand` | warm neutrals | Tinted sections, icon chips |
 
-Rule of thumb: green does the work, sand/cream keep it warm, gold and blue are
-seasoning. Dark mode remaps the same tokens — components never branch on theme.
+Rule of thumb: deep forest carries authority, ivory keeps it human, slate adds
+clinical trust, gold sand is the only luxury note. No mint, no pastel. Dark
+mode remaps the same tokens — components never branch on theme.
 
 **Signature surface — the evergreen hero.** The homepage hero is deliberately
-dark in both themes: `--forest`/`--forest-2` (#16281e/#1f3a2b) with a
-luminous `--mint` (#9fe3c0) accent for the availability pill, italic em, and
-the primary button (mint fill, `--mint-deep` text, soft mint glow). A subtle
-SVG film grain overlays the surface, and an organic wave (`.hero__wave`,
-filled `--cream`) transitions into the light body. This dark-hero/light-body
-contrast is the brand's differentiator — do not lighten the hero back to
-cream. Footer uses `--forest-2` to bookend the page.
+dark in both themes: `--forest` (#0f2f2a) with gold-sand accents for the
+availability badge, italic em, philosophy line, and the primary button (gold
+fill, charcoal text). A subtle SVG film grain overlays the surface; the hero
+ends in a 1px gold hairline (no wave — clinical geometry). The hero art is an
+**abstract geometric composition** (concentric rings, two overlapping ivory
+discs, a gold arc, a breath line) — never cartoon figures or UI mockups.
+This dark-hero/light-body contrast is the brand's differentiator — do not
+lighten the hero back to cream. Footer uses `--forest-2` to bookend.
 
 ## Typography
 
-- **Display**: Fraunces (serif, warm) — all h1–h4, weight 500–600,
-  letter-spacing −0.015em, `text-wrap: balance`. Optical size is pinned
-  to 32 globally (`font-variation-settings: "opsz" 32` on body) — the
-  auto display-size cut made glyphs like lowercase f too eccentric.
+- **Display**: Spectral (serif — clinical, high-end) — all h1–h4, weight
+  500–600, letter-spacing −0.015em, `text-wrap: balance`.
 - **Body**: Inter — weight 400–600, `text-wrap: pretty`.
 - **Base size**: 17px desktop, 16px mobile. Line-height 1.6.
 
@@ -54,12 +55,14 @@ Numbers use `font-variant-numeric: tabular-nums` where they update.
 
 ## Iconography & illustration
 
-- Icons are emoji in soft rounded chips (`.card__icon`: 46–60px square,
-  `--green-100` background, radius 12px). Rounded and friendly, never sharp
-  or clinical line-art.
-- Illustrations are inline SVG: organic blob backdrops (`--sand`), warm human
-  skin tones, brand greens + gold accents, soft drop shadows, gentle float
-  animation. No stock photos except the provider portrait (circular crop).
+- Icons are **thin-stroke, monochrome SVG** (1.5px stroke, currentColor) in
+  square bordered chips (`.card__icon`: 48px, ivory background, 1px
+  `--line` border, radius 6px). The set lives in `src/components/icons.jsx`.
+  Emoji remain only in the Resources tools pending migration — do not add
+  new emoji icons.
+- Illustration is abstract geometric (see hero note above): soft overlapping
+  shapes, subtle gradients, clinical geometry. No cartoons, no mockups. The
+  provider portrait (circular crop, sage backdrop) is the only photograph.
 
 ## Card system
 

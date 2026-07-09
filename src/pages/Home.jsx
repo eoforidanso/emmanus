@@ -12,63 +12,59 @@ import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import Breathe from "../components/Breathe";
 import usePageMeta from "../usePageMeta";
+import {
+  IconLock,
+  IconShield,
+  IconCalendar,
+  IconCapsule,
+  IconUser,
+  IconFlask,
+} from "../components/icons";
 
 function HeroArt() {
   return (
-    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a video therapy session: an abstract green figure representing any patient, talking with Dr. Ofori-Danso">
-      {/* soft organic backdrop */}
-      <path d="M64 44 C142 -8 318 -2 378 76 C428 144 404 258 322 306 C238 354 108 342 54 276 C4 214 -8 92 64 44z" fill="#f3ede3" />
-      {/* video call window */}
-      <rect x="50" y="50" width="320" height="230" rx="22" fill="#ffffff" stroke="#e4ede6" strokeWidth="2" />
-      <path d="M50 72 a22 22 0 0 1 22-22 h276 a22 22 0 0 1 22 22 v18 h-320z" fill="#f0f5f1" />
-      <circle cx="76" cy="70" r="5" fill="#4a7c59" />
-      <circle cx="94" cy="70" r="5" fill="#c9a227" />
-      <circle cx="112" cy="70" r="5" fill="#e4ede6" />
+    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract composition of overlapping calm geometric forms suggesting balance and connection">
+      <defs>
+        <radialGradient id="haGold" cx="50%" cy="45%" r="55%">
+          <stop offset="0%" stopColor="#c9a875" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="#c9a875" stopOpacity="0" />
+        </radialGradient>
+        <radialGradient id="haSlate" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#3e4a66" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id="haIvory" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#f7f4ef" stopOpacity="0.14" />
+          <stop offset="100%" stopColor="#f7f4ef" stopOpacity="0.02" />
+        </linearGradient>
+      </defs>
 
-      {/* patient — deliberately abstract, brand-colored "anyone" figure */}
-      <rect x="153" y="176" width="18" height="34" rx="8" fill="#86b399" />
-      <path d="M107 262 c0 -35 25 -54 55 -54 s55 19 55 54" fill="#3e6b4f" />
-      <path d="M148 208 c4 8 9 12 14 12 s10 -4 14 -12" fill="#2c4a38" />
-      <circle cx="162" cy="156" r="30" fill="#86b399" />
-      <circle cx="151" cy="158" r="3" fill="#24322a" />
-      <circle cx="173" cy="158" r="3" fill="#24322a" />
-      <path d="M153 170 c3 4 6 6 9 6 s6 -2 9 -6" fill="none" stroke="#24322a" strokeWidth="2.5" strokeLinecap="round" />
-      {/* "You" tile label */}
-      <rect x="118" y="246" width="42" height="17" rx="8.5" fill="#f0f5f1" />
-      <text x="139" y="258.5" textAnchor="middle" fontSize="10" fontWeight="600" fill="#3e6b4f">You</text>
+      {/* concentric rings — steadiness */}
+      <circle cx="215" cy="164" r="150" fill="none" stroke="#f7f4ef" strokeOpacity="0.12" />
+      <circle cx="215" cy="164" r="112" fill="none" stroke="#f7f4ef" strokeOpacity="0.09" />
+      <circle cx="215" cy="164" r="76" fill="none" stroke="#f7f4ef" strokeOpacity="0.07" />
 
-      {/* clinician — picture-in-picture with face and glasses */}
-      <rect x="272" y="182" width="86" height="76" rx="14" fill="#faf7f2" stroke="#4a7c59" strokeWidth="2" />
-      <circle cx="349" cy="191" r="4" fill="#4a7c59" />
-      <circle cx="315" cy="210" r="14" fill="#5c3a28" />
-      <path d="M301 210 a14 14 0 0 1 28 0 Q315 199 301 210 z" fill="#1f1710" />
-      <circle cx="309" cy="211" r="4.2" fill="none" stroke="#24322a" strokeWidth="1.4" />
-      <circle cx="321" cy="211" r="4.2" fill="none" stroke="#24322a" strokeWidth="1.4" />
-      <line x1="313.2" y1="211" x2="316.8" y2="211" stroke="#24322a" strokeWidth="1.4" />
-      <path d="M311 219 c1.5 2 3 3 4 3 s2.5 -1 4 -3" fill="none" stroke="#1f1710" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M293 258 c0 -14 10 -22 22 -22 s22 8 22 22" fill="#c9a227" opacity="0.85" />
-      {/* "Dr. O" tile label */}
-      <rect x="290" y="240" width="50" height="15" rx="7.5" fill="#f0f5f1" />
-      <text x="315" y="251" textAnchor="middle" fontSize="9" fontWeight="600" fill="#3e6b4f">Dr. O</text>
+      {/* soft chromatic fields */}
+      <circle cx="262" cy="118" r="118" fill="url(#haGold)" />
+      <circle cx="150" cy="220" r="108" fill="url(#haSlate)" />
 
-      {/* speech bubble from the clinician */}
-      <rect x="226" y="102" width="112" height="44" rx="20" fill="#4a7c59" />
-      <path d="M318 146 l12 22 -30 -10z" fill="#4a7c59" />
-      <path d="M264 116 c-4 -7 -14 -5 -14 3 0 7 14 14 14 14 s14 -7 14 -14 c0 -8 -10 -10 -14 -3z" fill="#faf7f2" />
-      <path d="M294 128 c7 -10 18 -12 26 -9 -4 9 -14 13 -26 9z" fill="#cfe3d6" />
+      {/* two overlapping discs — patient and clinician */}
+      <circle cx="186" cy="152" r="68" fill="url(#haIvory)" />
+      <circle cx="246" cy="194" r="68" fill="url(#haIvory)" />
 
-      {/* call controls */}
-      <circle cx="230" cy="266" r="7" fill="#e4ede6" />
-      <circle cx="248" cy="266" r="7" fill="#e4ede6" />
-      <circle cx="266" cy="266" r="7" fill="#dfb3a8" />
+      {/* gold arc — the course of care */}
+      <path d="M92 212 A124 124 0 0 1 216 88" fill="none" stroke="#c9a875" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.85" />
+      <circle cx="216" cy="88" r="4" fill="#c9a875" />
 
-      {/* plant, clear of the person */}
-      <path d="M70 248 c-2 -20 5 -35 18 -44 -1 17 -5 31 -18 44z" fill="#3e6b4f" />
-      <path d="M80 250 c7 -14 19 -21 31 -21 -5 12 -16 20 -31 21z" fill="#5d8a6a" />
-      <path d="M64 250 h42 l-5 27 a7 7 0 0 1 -7 6 h-18 a7 7 0 0 1 -7 -6z" fill="#c9a227" opacity="0.8" />
+      {/* breath line */}
+      <path d="M55 262 C 115 240 152 290 212 264 S 322 228 368 254" fill="none" stroke="#f7f4ef" strokeOpacity="0.55" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="368" cy="254" r="3.5" fill="#8ea0c9" />
 
-      {/* grounding shadow */}
-      <ellipse cx="210" cy="308" rx="130" ry="10" fill="#2c4a38" opacity="0.08" />
+      {/* quiet dot grid — data, measurement */}
+      <g fill="#f7f4ef" fillOpacity="0.28">
+        <circle cx="66" cy="300" r="1.6" /><circle cx="82" cy="300" r="1.6" /><circle cx="98" cy="300" r="1.6" />
+        <circle cx="66" cy="314" r="1.6" /><circle cx="82" cy="314" r="1.6" /><circle cx="98" cy="314" r="1.6" />
+      </g>
     </svg>
   );
 }
@@ -117,30 +113,15 @@ export default function Home() {
           </div>
           <div className="hero__art">
             <HeroArt />
-            <div className="hero__chip hero__chip--tl">
-              <span className="hero__chip-dot" aria-hidden="true" /> Secure
-              session in progress
-            </div>
-            <div className="hero__chip hero__chip--br">
-              <span aria-hidden="true">⭐</span> 4.9 from 200+ clients
-            </div>
           </div>
         </div>
-        <svg
-          className="hero__wave"
-          viewBox="0 0 1440 72"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M0 42 C240 72 480 6 760 26 C1040 46 1240 10 1440 36 L1440 72 L0 72 Z" />
-        </svg>
       </section>
 
       <section className="trust">
         <div className="container grid-3">
           <Reveal>
             <div className="card card--mini">
-              <div className="card__icon" aria-hidden="true">🔒</div>
+              <div className="card__icon"><IconLock /></div>
               <div>
                 <h3>HIPAA-secure video</h3>
                 <p>Every session runs on an encrypted, HIPAA-compliant platform — as private as a closed office door.</p>
@@ -149,7 +130,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={90}>
             <div className="card card--mini">
-              <div className="card__icon" aria-hidden="true">🩺</div>
+              <div className="card__icon"><IconShield /></div>
               <div>
                 <h3>Board-certified NP</h3>
                 <p>Care from Dr. Ofori-Danso — licensed, board-certified, and a clinical instructor in psychiatry.</p>
@@ -158,7 +139,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={180}>
             <div className="card card--mini">
-              <div className="card__icon" aria-hidden="true">📅</div>
+              <div className="card__icon"><IconCalendar /></div>
               <div>
                 <h3>Seen within days, often next-day</h3>
                 <p>Next-day appointments are often available — most new patients are seen within 1–3 days, not weeks or months.</p>
@@ -191,7 +172,7 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="divider" aria-hidden="true">🌿</div>
+          <div className="divider" aria-hidden="true">◆</div>
           <Reveal>
             <div className="section-head">
               <span className="eyebrow">Conditions we treat</span>
@@ -226,8 +207,7 @@ export default function Home() {
           <div className="grid-3">
             <Reveal>
               <div className="card card--pillar">
-                <span className="card__motif" aria-hidden="true">🌿</span>
-                <div className="card__icon" aria-hidden="true">🌱</div>
+                <div className="card__icon"><IconCapsule /></div>
                 <h3>Pills and Skills</h3>
                 <p>
                   Medication can steady the ground; therapy teaches you to
@@ -238,8 +218,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={90}>
               <div className="card card--pillar">
-                <span className="card__motif" aria-hidden="true">💛</span>
-                <div className="card__icon" aria-hidden="true">🤝</div>
+                <div className="card__icon"><IconUser /></div>
                 <h3>One clinician who knows you</h3>
                 <p>
                   No rotating faces, no re-telling your story. Every visit is
@@ -250,8 +229,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={180}>
               <div className="card card--pillar">
-                <span className="card__motif" aria-hidden="true">☀️</span>
-                <div className="card__icon" aria-hidden="true">🔬</div>
+                <div className="card__icon"><IconFlask /></div>
                 <h3>Evidence over guesswork</h3>
                 <p>
                   Measurement-informed treatment, conservative prescribing,
