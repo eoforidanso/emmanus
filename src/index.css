@@ -1280,6 +1280,35 @@ button {
   border-color: var(--gold);
 }
 
+/* Standalone callout line — a single focus area given its own weight */
+.callout-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  box-shadow: var(--shadow-sm);
+  border-radius: 0 6px 6px 0;
+}
+
+.callout-line__icon {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.callout-line p {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.callout-line strong {
+  color: var(--heading);
+}
+
 /* Clinician spotlight */
 .spotlight {
   display: grid;

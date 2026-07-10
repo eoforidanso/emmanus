@@ -212,6 +212,20 @@ export default function Home() {
               ))}
             </div>
           </Reveal>
+
+          <Reveal delay={160}>
+            <div className="callout-line">
+              <span className="callout-line__icon" aria-hidden="true">🎯</span>
+              <p>
+                <strong>A note for men:</strong> you're statistically far less
+                likely to seek mental health care — often because of stigma,
+                or simply not knowing where to start. Dr. Ofori-Danso works
+                with men on stress, anger, anxiety, relationship strain, and
+                burnout, directly and without judgment. You don't need the
+                right words yet.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
