@@ -914,7 +914,7 @@ button {
 /* CTA band */
 .cta {
   background: var(--green-700);
-  border-radius: 20px;
+  border-radius: var(--radius);
   padding: 60px 48px;
   text-align: center;
   color: #faf7f2;
@@ -1936,8 +1936,8 @@ button {
 /* Journaling prompt */
 .prompt-card {
   background: var(--white);
-  border: 1px solid var(--green-100);
-  border-radius: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   padding: 44px;
   box-shadow: var(--shadow);
   text-align: center;
@@ -2002,8 +2002,8 @@ button {
   font-size: 1.5rem;
   width: 56px;
   height: 56px;
-  border-radius: 14px;
-  border: 1.5px solid var(--green-100);
+  border-radius: 6px;
+  border: 1.5px solid var(--line);
   background: var(--cream);
   transition: transform 0.15s, border-color 0.15s, background 0.15s;
 }
@@ -2047,7 +2047,7 @@ button {
   font-size: 0.82rem;
   font-weight: 600;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--green-50);
   color: var(--green-700);
   border: 1.5px solid var(--green-100);
@@ -2169,7 +2169,7 @@ button {
   position: relative;
   overflow: hidden;
   background: linear-gradient(140deg, var(--green-700), #2c4a38);
-  border-radius: 24px;
+  border-radius: var(--radius);
   padding: 56px;
   display: grid;
   grid-template-columns: 1fr 1.1fr;
