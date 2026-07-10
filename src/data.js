@@ -73,6 +73,7 @@ export const CONDITIONS = [
   { icon: "🔥", label: "Burnout & Stress" },
   { icon: "🤱", label: "Postpartum Wellness" },
   { icon: "🧭", label: "Life Transitions" },
+  { icon: "🎯", label: "Men's Mental Health" },
 ];
 
 export const LICENSED_STATES = ["Illinois"];
@@ -195,6 +196,10 @@ export const BOOKS = [
 ];
 
 export const FAQS = [
+  {
+    q: "Do you offer care specifically for men's mental health?",
+    a: "Yes. Men are statistically far less likely to seek mental health care, often because of stigma or not knowing where to start — Dr. Ofori-Danso works with men navigating stress, anger, anxiety, relationship strain, and burnout in a direct, judgment-free way that doesn't require you to have the right words yet.",
+  },
   {
     q: "Is telehealth therapy as effective as in-person?",
     a: "Research consistently shows video-based therapy produces outcomes comparable to in-person care for most concerns, including anxiety and depression. Many clients find they open up more easily from a comfortable, familiar space.",
