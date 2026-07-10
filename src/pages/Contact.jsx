@@ -32,10 +32,17 @@ export default function Contact() {
                 <div>
                   <h4>Phone</h4>
                   <p>
-                    <a href="tel:+18005550123">1-800-555-0123</a>
+                    <a href="tel:+12242535528">(224) 253-5528</a>
                     <br />
                     Mon–Sat, 8am–8pm CT
                   </p>
+                </div>
+              </div>
+              <div className="contact-info__item">
+                <div className="card__icon" aria-hidden="true">📠</div>
+                <div>
+                  <h4>Fax</h4>
+                  <p>(224) 253-5528</p>
                 </div>
               </div>
               <div className="contact-info__item">
