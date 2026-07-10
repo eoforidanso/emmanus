@@ -29,8 +29,19 @@ import {
 const STEP_ICONS = [IconEvaluation, IconTreatment, IconFollowUp];
 
 function HeroArt() {
+  const nodes = [
+    { x: 78, y: 246, label: "EVALUATE" },
+    { x: 216, y: 158, label: "TREAT" },
+    { x: 352, y: 92, label: "SUPPORT" },
+  ];
+
   return (
-    <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract composition of overlapping calm geometric forms suggesting balance and connection">
+    <svg
+      viewBox="0 0 420 340"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Diagram of the care journey: evaluate, treat, support"
+    >
       <defs>
         <radialGradient id="haGold" cx="50%" cy="45%" r="55%">
           <stop offset="0%" stopColor="#c9a875" stopOpacity="0.4" />
@@ -38,57 +49,48 @@ function HeroArt() {
           <stop offset="100%" stopColor="#c9a875" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="haSlate" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.42" />
-          <stop offset="55%" stopColor="#3e4a66" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.35" />
+          <stop offset="55%" stopColor="#3e4a66" stopOpacity="0.1" />
           <stop offset="100%" stopColor="#3e4a66" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="haIvory" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#f7f4ef" stopOpacity="0.16" />
-          <stop offset="100%" stopColor="#f7f4ef" stopOpacity="0" />
         </radialGradient>
       </defs>
 
-      {/* off-center concentric rings — steadiness, deliberately asymmetric */}
-      <circle cx="256" cy="140" r="158" fill="none" stroke="#f7f4ef" strokeOpacity="0.11" />
-      <circle cx="256" cy="140" r="118" fill="none" stroke="#f7f4ef" strokeOpacity="0.085" />
-      <circle cx="256" cy="140" r="80" fill="none" stroke="#f7f4ef" strokeOpacity="0.06" />
-
-      {/* soft chromatic fields — blend so overlaps glow rather than seam */}
+      {/* soft ambient light — backdrop only, no meaning to decode */}
+      <circle cx="256" cy="140" r="158" fill="none" stroke="#f7f4ef" strokeOpacity="0.08" />
       <g style={{ mixBlendMode: "screen" }}>
-        <circle cx="288" cy="104" r="118" fill="url(#haGold)" />
-        <circle cx="140" cy="228" r="112" fill="url(#haSlate)" />
-
-        {/* two overlapping discs — patient and clinician */}
-        <circle cx="176" cy="150" r="66" fill="url(#haIvory)" />
-        <circle cx="240" cy="188" r="72" fill="url(#haIvory)" />
+        <circle cx="300" cy="110" r="130" fill="url(#haGold)" />
+        <circle cx="120" cy="230" r="110" fill="url(#haSlate)" />
       </g>
 
-      {/* thin axis lines — clinical measurement */}
-      <path d="M30 96 H 200" stroke="#f7f4ef" strokeOpacity="0.16" strokeWidth="1" />
-      <path d="M56 96 V 46" stroke="#f7f4ef" strokeOpacity="0.16" strokeWidth="1" />
-      <circle cx="56" cy="96" r="2.5" fill="#c9a875" />
-
-      {/* gold arc — the course of care */}
-      <path d="M78 224 A132 132 0 0 1 224 78" fill="none" stroke="#c9a875" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.85" />
-      <circle cx="224" cy="78" r="4" fill="#c9a875" />
-
-      {/* clinical waveform */}
+      {/* the care journey: one path, three plain-language stops */}
       <path
-        d="M30 272 H 78 L 92 240 L 106 296 L 120 254 L 134 272 H 372"
+        d="M78 246 C 130 246 150 200 216 158 C 270 124 300 118 352 92"
         fill="none"
-        stroke="#8ea0c9"
-        strokeOpacity="0.65"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
+        stroke="#c9a875"
+        strokeWidth="2"
         strokeLinecap="round"
+        strokeOpacity="0.9"
       />
-      <circle cx="372" cy="272" r="3.5" fill="#8ea0c9" />
 
-      {/* quiet dot grid — data, measurement */}
-      <g fill="#f7f4ef" fillOpacity="0.28">
-        <circle cx="330" cy="66" r="1.6" /><circle cx="346" cy="66" r="1.6" /><circle cx="362" cy="66" r="1.6" />
-        <circle cx="330" cy="80" r="1.6" /><circle cx="346" cy="80" r="1.6" /><circle cx="362" cy="80" r="1.6" />
-      </g>
+      {nodes.map((n, i) => (
+        <g key={n.label}>
+          <circle cx={n.x} cy={n.y} r="14" fill="#16281e" stroke="#c9a875" strokeWidth="1.5" />
+          <circle cx={n.x} cy={n.y} r="4" fill="#c9a875" />
+          <text
+            x={n.x}
+            y={n.y + (i === 1 ? -28 : 34)}
+            textAnchor="middle"
+            fontFamily="Inter, sans-serif"
+            fontSize="11"
+            fontWeight="600"
+            letterSpacing="1.5"
+            fill="#f7f4ef"
+            fillOpacity="0.82"
+          >
+            {n.label}
+          </text>
+        </g>
+      ))}
     </svg>
   );
 }
