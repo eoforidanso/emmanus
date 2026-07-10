@@ -29,68 +29,64 @@ import {
 const STEP_ICONS = [IconEvaluation, IconTreatment, IconFollowUp];
 
 function HeroArt() {
-  const nodes = [
-    { x: 78, y: 246, label: "EVALUATE" },
-    { x: 216, y: 158, label: "TREAT" },
-    { x: 352, y: 92, label: "SUPPORT" },
-  ];
-
   return (
     <svg
-      viewBox="0 0 420 340"
+      viewBox="0 0 680 520"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="Diagram of the care journey: evaluate, treat, support"
+      aria-label="An image of hope: dawn breaking over a dark horizon, with a small sprout growing toward the light"
     >
       <defs>
-        <radialGradient id="haGold" cx="50%" cy="45%" r="55%">
-          <stop offset="0%" stopColor="#c9a875" stopOpacity="0.4" />
-          <stop offset="55%" stopColor="#c9a875" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#c9a875" stopOpacity="0" />
+        <linearGradient id="haSky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0f2f2a" />
+          <stop offset="55%" stopColor="#1c4a3d" />
+          <stop offset="78%" stopColor="#4a6b4a" />
+          <stop offset="100%" stopColor="#c9a875" />
+        </linearGradient>
+        <radialGradient id="haSun" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#f7e7c1" stopOpacity="0.95" />
+          <stop offset="45%" stopColor="#e8c47e" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#e8c47e" stopOpacity="0" />
         </radialGradient>
-        <radialGradient id="haSlate" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.35" />
-          <stop offset="55%" stopColor="#3e4a66" stopOpacity="0.1" />
-          <stop offset="100%" stopColor="#3e4a66" stopOpacity="0" />
-        </radialGradient>
+        <linearGradient id="haGround" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#0b2019" />
+          <stop offset="100%" stopColor="#050f0c" />
+        </linearGradient>
       </defs>
 
-      {/* soft ambient light — backdrop only, no meaning to decode */}
-      <circle cx="256" cy="140" r="158" fill="none" stroke="#f7f4ef" strokeOpacity="0.08" />
-      <g style={{ mixBlendMode: "screen" }}>
-        <circle cx="300" cy="110" r="130" fill="url(#haGold)" />
-        <circle cx="120" cy="230" r="110" fill="url(#haSlate)" />
+      <rect x="0" y="0" width="680" height="520" fill="url(#haSky)" />
+      <circle cx="340" cy="378" r="170" fill="url(#haSun)" />
+      <circle cx="340" cy="378" r="54" fill="#f7f0dd" />
+      <circle cx="340" cy="378" r="54" fill="none" stroke="#fbf3df" strokeWidth="1" opacity="0.7" />
+
+      <g stroke="#f2d9a3" strokeWidth="1.5" strokeLinecap="round" opacity="0.55">
+        <line x1="340" y1="278" x2="340" y2="256" />
+        <line x1="410" y1="308" x2="428" y2="292" />
+        <line x1="270" y1="308" x2="252" y2="292" />
+        <line x1="440" y1="378" x2="464" y2="378" />
+        <line x1="240" y1="378" x2="216" y2="378" />
       </g>
 
-      {/* the care journey: one path, three plain-language stops */}
-      <path
-        d="M78 246 C 130 246 150 200 216 158 C 270 124 300 118 352 92"
-        fill="none"
-        stroke="#c9a875"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeOpacity="0.9"
-      />
+      <circle cx="120" cy="90" r="1.6" fill="#f7f4ef" opacity="0.6" />
+      <circle cx="560" cy="70" r="1.4" fill="#f7f4ef" opacity="0.5" />
+      <circle cx="600" cy="140" r="1.8" fill="#f7f4ef" opacity="0.55" />
+      <circle cx="90" cy="160" r="1.3" fill="#f7f4ef" opacity="0.45" />
+      <circle cx="480" cy="50" r="1.5" fill="#f7f4ef" opacity="0.5" />
 
-      {nodes.map((n, i) => (
-        <g key={n.label}>
-          <circle cx={n.x} cy={n.y} r="14" fill="#16281e" stroke="#c9a875" strokeWidth="1.5" />
-          <circle cx={n.x} cy={n.y} r="4" fill="#c9a875" />
-          <text
-            x={n.x}
-            y={n.y + (i === 1 ? -28 : 34)}
-            textAnchor="middle"
-            fontFamily="Inter, sans-serif"
-            fontSize="11"
-            fontWeight="600"
-            letterSpacing="1.5"
-            fill="#f7f4ef"
-            fillOpacity="0.82"
-          >
-            {n.label}
-          </text>
-        </g>
-      ))}
+      <path
+        d="M0 400 C 140 380 260 402 340 396 C 430 390 560 372 680 398 L 680 430 L 0 430 Z"
+        fill="#173328"
+        opacity="0.85"
+      />
+      <rect x="0" y="418" width="680" height="102" fill="url(#haGround)" />
+
+      <g>
+        <path d="M340 418 C 340 388 340 360 340 336" fill="none" stroke="#c9a875" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M340 372 C 322 372 306 358 300 336 C 322 336 338 348 340 372 Z" fill="#4a7c59" />
+        <path d="M340 360 C 358 360 374 346 380 324 C 358 324 342 336 340 360 Z" fill="#5d8a6a" />
+        <path d="M340 338 C 328 338 316 328 312 312 C 326 312 337 320 340 338 Z" fill="#6fa27e" />
+      </g>
+      <ellipse cx="340" cy="422" rx="46" ry="7" fill="#0f2f2a" opacity="0.5" />
     </svg>
   );
 }
