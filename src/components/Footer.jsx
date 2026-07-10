@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="footer__grid">
           <div>
             <div className="footer__brand">
-              <Logo size={30} />
+              <Logo size={46} />
               Emmanus Wellness
             </div>
             <p style={{ fontSize: "0.9rem", maxWidth: 300 }}>
