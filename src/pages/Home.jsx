@@ -33,17 +33,19 @@ function HeroArt() {
     <svg viewBox="0 0 420 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Abstract composition of overlapping calm geometric forms suggesting balance and connection">
       <defs>
         <radialGradient id="haGold" cx="50%" cy="45%" r="55%">
-          <stop offset="0%" stopColor="#c9a875" stopOpacity="0.5" />
+          <stop offset="0%" stopColor="#c9a875" stopOpacity="0.4" />
+          <stop offset="55%" stopColor="#c9a875" stopOpacity="0.12" />
           <stop offset="100%" stopColor="#c9a875" stopOpacity="0" />
         </radialGradient>
         <radialGradient id="haSlate" cx="50%" cy="50%" r="55%">
-          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.55" />
+          <stop offset="0%" stopColor="#3e4a66" stopOpacity="0.42" />
+          <stop offset="55%" stopColor="#3e4a66" stopOpacity="0.12" />
           <stop offset="100%" stopColor="#3e4a66" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id="haIvory" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#f7f4ef" stopOpacity="0.14" />
-          <stop offset="100%" stopColor="#f7f4ef" stopOpacity="0.02" />
-        </linearGradient>
+        <radialGradient id="haIvory" cx="50%" cy="50%" r="55%">
+          <stop offset="0%" stopColor="#f7f4ef" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#f7f4ef" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
       {/* off-center concentric rings — steadiness, deliberately asymmetric */}
@@ -51,13 +53,15 @@ function HeroArt() {
       <circle cx="256" cy="140" r="118" fill="none" stroke="#f7f4ef" strokeOpacity="0.085" />
       <circle cx="256" cy="140" r="80" fill="none" stroke="#f7f4ef" strokeOpacity="0.06" />
 
-      {/* soft chromatic fields */}
-      <circle cx="288" cy="104" r="118" fill="url(#haGold)" />
-      <circle cx="140" cy="228" r="112" fill="url(#haSlate)" />
+      {/* soft chromatic fields — blend so overlaps glow rather than seam */}
+      <g style={{ mixBlendMode: "screen" }}>
+        <circle cx="288" cy="104" r="118" fill="url(#haGold)" />
+        <circle cx="140" cy="228" r="112" fill="url(#haSlate)" />
 
-      {/* two overlapping discs — patient and clinician */}
-      <circle cx="176" cy="150" r="66" fill="url(#haIvory)" />
-      <circle cx="240" cy="188" r="72" fill="url(#haIvory)" />
+        {/* two overlapping discs — patient and clinician */}
+        <circle cx="176" cy="150" r="66" fill="url(#haIvory)" />
+        <circle cx="240" cy="188" r="72" fill="url(#haIvory)" />
+      </g>
 
       {/* thin axis lines — clinical measurement */}
       <path d="M30 96 H 200" stroke="#f7f4ef" strokeOpacity="0.16" strokeWidth="1" />
