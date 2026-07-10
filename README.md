@@ -4,7 +4,7 @@ Telehealth mental health practice site for **Dr. Emmanuel Ofori-Danso, DNP**
 (Rush University) — therapy, psychiatry & medication management, and a hub of
 free, private self-care tools.
 
-**Live:** https://eoforidanso.github.io/emmanus/
+**Live:** https://emmanuswellness.com/
 
 ## Features
 
@@ -32,16 +32,30 @@ before changing styles.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5174/emmanus/
+npm run dev      # http://localhost:5174/
 npm run build    # production build to dist/
 ```
 
 ## Deployment
 
 Every push to `main` triggers `.github/workflows/deploy.yml`, which builds
-and publishes to GitHub Pages (SPA fallback via `404.html`). Vite `base` and
-the router basename are `/emmanus/` — change both to `/` if this ever moves
-to a custom domain.
+and publishes to GitHub Pages (SPA fallback via `404.html`). Custom domain
+`emmanuswellness.com` is set via `public/CNAME` and the repo's Pages settings;
+Vite `base` and the router basename are `/`. DNS is managed on Cloudflare —
+see DNS records below.
+
+### DNS (Cloudflare)
+
+| Type | Name | Content | Proxy |
+|---|---|---|---|
+| A | @ | 185.199.108.153 | DNS only |
+| A | @ | 185.199.109.153 | DNS only |
+| A | @ | 185.199.110.153 | DNS only |
+| A | @ | 185.199.111.153 | DNS only |
+| CNAME | www | eoforidanso.github.io | DNS only |
+
+Keep records "DNS only" (grey cloud) until GitHub issues the HTTPS
+certificate, then Cloudflare proxy (orange cloud) can be enabled if desired.
 
 ## Before real launch
 

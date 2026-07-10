@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eoforidanso.github.io/emmanus/sitemap.xml
+Sitemap: https://emmanuswellness.com/sitemap.xml
