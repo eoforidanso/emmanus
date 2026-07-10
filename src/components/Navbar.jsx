@@ -18,7 +18,7 @@ export default function Navbar({ theme, onToggleTheme }) {
     <header className="nav">
       <div className="container nav__inner">
         <Link to="/" className="nav__brand" onClick={() => setOpen(false)}>
-          <Logo />
+          <Logo size={46} />
           Emmanus Wellness
         </Link>
         <ul className={`nav__links${open ? " open" : ""}`}>
