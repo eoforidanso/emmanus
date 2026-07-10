@@ -39,9 +39,10 @@ function HeroArt() {
       <defs>
         <linearGradient id="haSky" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#0f2f2a" />
-          <stop offset="55%" stopColor="#1c4a3d" />
-          <stop offset="78%" stopColor="#4a6b4a" />
-          <stop offset="100%" stopColor="#c9a875" />
+          <stop offset="38%" stopColor="#1c4a3d" />
+          <stop offset="60%" stopColor="#3f6b4a" />
+          <stop offset="80%" stopColor="#c9a875" />
+          <stop offset="100%" stopColor="#e8b768" />
         </linearGradient>
         <radialGradient id="haSun" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#f7e7c1" stopOpacity="0.95" />
@@ -55,16 +56,16 @@ function HeroArt() {
       </defs>
 
       <rect x="0" y="0" width="680" height="520" fill="url(#haSky)" />
-      <circle cx="340" cy="378" r="170" fill="url(#haSun)" />
-      <circle cx="340" cy="378" r="54" fill="#f7f0dd" />
-      <circle cx="340" cy="378" r="54" fill="none" stroke="#fbf3df" strokeWidth="1" opacity="0.7" />
+      <circle cx="340" cy="430" r="170" fill="url(#haSun)" />
+      <circle cx="340" cy="430" r="54" fill="#f7f0dd" />
+      <circle cx="340" cy="430" r="54" fill="none" stroke="#fbf3df" strokeWidth="1" opacity="0.7" />
 
       <g stroke="#f2d9a3" strokeWidth="1.5" strokeLinecap="round" opacity="0.55">
-        <line x1="340" y1="278" x2="340" y2="256" />
-        <line x1="410" y1="308" x2="428" y2="292" />
-        <line x1="270" y1="308" x2="252" y2="292" />
-        <line x1="440" y1="378" x2="464" y2="378" />
-        <line x1="240" y1="378" x2="216" y2="378" />
+        <line x1="340" y1="330" x2="340" y2="308" />
+        <line x1="410" y1="360" x2="428" y2="344" />
+        <line x1="270" y1="360" x2="252" y2="344" />
+        <line x1="440" y1="430" x2="464" y2="430" />
+        <line x1="240" y1="430" x2="216" y2="430" />
       </g>
 
       <circle cx="120" cy="90" r="1.6" fill="#f7f4ef" opacity="0.6" />
@@ -74,19 +75,19 @@ function HeroArt() {
       <circle cx="480" cy="50" r="1.5" fill="#f7f4ef" opacity="0.5" />
 
       <path
-        d="M0 400 C 140 380 260 402 340 396 C 430 390 560 372 680 398 L 680 430 L 0 430 Z"
+        d="M0 470 C 140 452 260 472 340 466 C 430 460 560 446 680 468 L 680 496 L 0 496 Z"
         fill="#173328"
         opacity="0.85"
       />
-      <rect x="0" y="418" width="680" height="102" fill="url(#haGround)" />
+      <rect x="0" y="486" width="680" height="34" fill="url(#haGround)" />
 
       <g>
-        <path d="M340 418 C 340 388 340 360 340 336" fill="none" stroke="#c9a875" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M340 372 C 322 372 306 358 300 336 C 322 336 338 348 340 372 Z" fill="#4a7c59" />
-        <path d="M340 360 C 358 360 374 346 380 324 C 358 324 342 336 340 360 Z" fill="#5d8a6a" />
-        <path d="M340 338 C 328 338 316 328 312 312 C 326 312 337 320 340 338 Z" fill="#6fa27e" />
+        <path d="M340 486 C 340 456 340 428 340 404" fill="none" stroke="#c9a875" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M340 440 C 322 440 306 426 300 404 C 322 404 338 416 340 440 Z" fill="#4a7c59" />
+        <path d="M340 428 C 358 428 374 414 380 392 C 358 392 342 404 340 428 Z" fill="#5d8a6a" />
+        <path d="M340 406 C 328 406 316 396 312 380 C 326 380 337 388 340 406 Z" fill="#6fa27e" />
       </g>
-      <ellipse cx="340" cy="422" rx="46" ry="7" fill="#0f2f2a" opacity="0.5" />
+      <ellipse cx="340" cy="490" rx="46" ry="7" fill="#0f2f2a" opacity="0.5" />
     </svg>
   );
 }
