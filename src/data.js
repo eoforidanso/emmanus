@@ -176,6 +176,12 @@ export const BOOKS = [
     note: "A clear map of adolescent development for parents of teenage girls; her 'The Emotional Lives of Teenagers' covers all teens.",
   },
   {
+    title: "I Don't Want to Talk About It",
+    author: "Terrence Real",
+    topic: "Men's mental health",
+    note: "The landmark book on male depression — why it so often shows up as anger, numbness, or overwork instead of sadness, and how to name it.",
+  },
+  {
     title: "Maybe You Should Talk to Someone",
     author: "Lori Gottlieb, LMFT",
     topic: "About therapy",
