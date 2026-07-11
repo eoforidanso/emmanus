@@ -3,12 +3,24 @@ import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import CareFinder from "../components/CareFinder";
 import usePageMeta from "../usePageMeta";
+import useJsonLd from "../useJsonLd";
+
+const FAQ_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 
 export default function Services() {
   usePageMeta(
     "Services",
     "Telehealth therapy, psychiatry and medication management, couples counseling, teen care, group support, and wellness coaching — delivered over secure video."
   );
+  useJsonLd(FAQ_SCHEMA);
   return (
     <>
       <section className="page-hero">
