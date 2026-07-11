@@ -60,7 +60,7 @@ export default function Privacy() {
 
           <h2>Questions</h2>
           <p>
-            Contact us at care@emmanuswellness.com or (224) 253-5528 with any
+            Contact us at care@emmanuswellness.com or (800) 555-0123 with any
             privacy question or concern.
           </p>
         </div>

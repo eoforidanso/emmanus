@@ -32,7 +32,7 @@ export default function Contact() {
                 <div>
                   <h4>Phone</h4>
                   <p>
-                    <a href="tel:+12242535528">(224) 253-5528</a>
+                    <a href="tel:+18005550123">(800) 555-0123</a>
                     <br />
                     Mon–Sat, 8am–8pm CT
                   </p>
