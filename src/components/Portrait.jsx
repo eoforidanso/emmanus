@@ -26,12 +26,19 @@ export default function Portrait({ src, alt, className = "" }) {
     }
     const el = frameRef.current;
     if (!el) return;
+    const mountedAt = performance.now();
+    let revealTimer = null;
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
           io.disconnect();
+          // If the portrait was already in view at mount, the observer
+          // fires almost instantly — reveal so fast after page load that
+          // the slide-in is easy to miss entirely. Give it a beat so the
+          // entrance is actually visible instead of just "already there".
+          const alreadyInView = performance.now() - mountedAt < 100;
+          revealTimer = setTimeout(() => setVisible(true), alreadyInView ? 350 : 0);
         }
       },
       { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
@@ -45,6 +52,7 @@ export default function Portrait({ src, alt, className = "" }) {
     return () => {
       io.disconnect();
       clearTimeout(fallback);
+      clearTimeout(revealTimer);
     };
   }, []);
 

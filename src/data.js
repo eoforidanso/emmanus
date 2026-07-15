@@ -76,8 +76,6 @@ export const CONDITIONS = [
   { icon: "🎯", label: "Men's Mental Health" },
 ];
 
-export const LICENSED_STATES = ["Illinois"];
-
 export const INSURERS = [
   "Aetna",
   "Blue Cross Blue Shield",
@@ -117,6 +115,16 @@ export const TESTIMONIALS = [
     quote:
       "Medication management used to mean half a day off work. Now it's a 20-minute video call. Same great care.",
     author: "T.M., client since 2023",
+  },
+  {
+    quote:
+      "Emmanuel really helped my mom. He's warm and funny, and he really cares.",
+    author: "Family member",
+  },
+  {
+    quote:
+      "Emmanuel's book recommendation, The Road Less Traveled, changed my mind about how I deal with stress and anxiety.",
+    author: "Client",
   },
 ];
 

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CrisisBanner from "../components/CrisisBanner";
-import StateChecker from "../components/StateChecker";
 import usePageMeta from "../usePageMeta";
 
 export default function Contact() {
@@ -9,6 +8,36 @@ export default function Contact() {
     "Questions about services, insurance, or getting started? Reach the Emmanus Wellness care team by phone or email."
   );
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSending(true);
+    setError("");
+
+    const form = new FormData(e.target);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.get("name"),
+          email: form.get("email"),
+          subject: form.get("subject"),
+          message: form.get("message"),
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setError(
+        "Something went wrong sending your message. Please email us directly at care@emmanuswellness.com."
+      );
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <>
@@ -68,9 +97,6 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
-              <div className="card" style={{ padding: 24 }}>
-                <StateChecker />
-              </div>
               <CrisisBanner />
             </div>
 
@@ -85,21 +111,17 @@ export default function Contact() {
                   </p>
                 </div>
               ) : (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSent(true);
-                  }}
-                >
+                <form onSubmit={handleSubmit}>
                   <div className="form-grid">
                     <div className="field">
                       <label htmlFor="name">Name *</label>
-                      <input id="name" required autoComplete="name" />
+                      <input id="name" name="name" required autoComplete="name" />
                     </div>
                     <div className="field">
                       <label htmlFor="cEmail">Email *</label>
                       <input
                         id="cEmail"
+                        name="email"
                         type="email"
                         required
                         autoComplete="email"
@@ -107,16 +129,29 @@ export default function Contact() {
                     </div>
                     <div className="field field--full">
                       <label htmlFor="subject">Subject</label>
-                      <input id="subject" placeholder="e.g. Insurance question" />
+                      <input
+                        id="subject"
+                        name="subject"
+                        placeholder="e.g. Insurance question"
+                      />
                     </div>
                     <div className="field field--full">
                       <label htmlFor="message">Message *</label>
-                      <textarea id="message" required />
+                      <textarea id="message" name="message" required />
                     </div>
                   </div>
+                  {error && (
+                    <p style={{ color: "#b3261e", marginTop: 16, fontSize: "0.9rem" }}>
+                      {error}
+                    </p>
+                  )}
                   <div style={{ marginTop: 24 }}>
-                    <button type="submit" className="btn btn--primary">
-                      Send Message
+                    <button
+                      type="submit"
+                      className="btn btn--primary"
+                      disabled={sending}
+                    >
+                      {sending ? "Sending…" : "Send Message"}
                     </button>
                   </div>
                 </form>
