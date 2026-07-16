@@ -726,6 +726,14 @@ button {
   gap: 26px;
 }
 
+/* Responsive card row that reflows instead of leaving empty slots
+   when the item count doesn't divide evenly into fixed columns. */
+.grid-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
 .card {
   background: var(--white);
   border: 1px solid var(--line);
@@ -1304,14 +1312,16 @@ button {
 /* Cards inside a grid should match height across the row — the
    .reveal wrapper doesn't stretch its child by default. */
 .grid-2 > .reveal,
-.grid-3 > .reveal {
+.grid-3 > .reveal,
+.grid-flow > .reveal {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .grid-2 > .reveal > *,
-.grid-3 > .reveal > * {
+.grid-3 > .reveal > *,
+.grid-flow > .reveal > * {
   flex: 1;
 }
 

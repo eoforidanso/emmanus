@@ -147,7 +147,7 @@ export default function Home() {
               <h2>Care that fits your schedule</h2>
             </div>
           </Reveal>
-          <div className="grid-3">
+          <div className="grid-flow">
             <Reveal>
               <div className="card card--mini">
                 <div className="card__icon"><IconCalendar /></div>
@@ -172,6 +172,24 @@ export default function Home() {
                 <div>
                   <h3>Flexible scheduling</h3>
                   <p>Evening and weekend times available, built for busy professionals.</p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={270}>
+              <div className="card card--mini">
+                <div className="card__icon"><IconCapsule /></div>
+                <div>
+                  <h3>Same-day medication refills</h3>
+                  <p>Message your provider about a routine refill and get same-day turnaround.</p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={360}>
+              <div className="card card--mini">
+                <div className="card__icon"><IconUser /></div>
+                <div>
+                  <h3>Speak to a live rep</h3>
+                  <p>Questions about scheduling or billing? A real person is a phone call away — no bots, no long hold times.</p>
                 </div>
               </div>
             </Reveal>
