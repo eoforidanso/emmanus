@@ -23,7 +23,7 @@ const STEPS = [
 
 const CHECKLIST = [
   "Photo ID",
-  "Insurance card (or plan to self-pay — rates start at $95)",
+  "Insurance card (or plan to self-pay)",
   "A list of current medications and doses, if any",
   "Anything you want to make sure gets discussed",
 ];
@@ -102,13 +102,14 @@ export default function HowBookingWorks() {
                   Your first appointment is a 60-minute evaluation. Dr.
                   Ofori-Danso will ask about what brings you in, your history,
                   sleep, stress, and goals — at your pace, with no judgment.
-                  You'll leave with a plan you helped shape: therapy,
-                  medication, both ("Pills and Skills"), or simply a next
-                  check-in.
+                  You'll leave with a plan you helped shape: medication
+                  management, a referral for therapy, both together ("Pills
+                  and Skills"), or simply a next check-in.
                 </p>
                 <p style={{ color: "var(--ink-soft)", marginTop: 12 }}>
                   Cost questions? Most major insurance is accepted, and
-                  self-pay starts at $95 with sliding-scale spots available.
+                  self-pay is available with sliding-scale spots for those
+                  who qualify.
                 </p>
               </div>
             </Reveal>

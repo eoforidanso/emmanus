@@ -18,7 +18,7 @@ const FAQ_SCHEMA = {
 export default function Services() {
   usePageMeta(
     "Services",
-    "Telehealth psychiatry and medication management, couples counseling, teen care, group support, and wellness coaching — delivered over secure video."
+    "Telehealth psychiatry and medication management for adults and teens — delivered over secure video."
   );
   useJsonLd(FAQ_SCHEMA);
   return (
@@ -36,11 +36,13 @@ export default function Services() {
 
       <section className="section">
         <div className="container">
-          <div className="grid-3">
+          <div className="grid-2">
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={(i % 3) * 90}>
                 <div className="card">
-                  <div className="card__icon" aria-hidden="true">{s.icon}</div>
+                  <div className="card__icon" aria-hidden="true">
+                    {typeof s.icon === "string" ? s.icon : <s.icon />}
+                  </div>
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
                   <div className="card__meta">{s.detail}</div>

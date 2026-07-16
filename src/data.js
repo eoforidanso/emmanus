@@ -16,32 +16,11 @@ export const SERVICES = [
     detail: "Initial eval 60 min · Follow-ups 20–30 min",
   },
   {
-    icon: "💑",
-    title: "Couples Counseling",
-    description:
-      "Strengthen communication and rebuild connection with evidence-based approaches like EFT and the Gottman Method.",
-    detail: "55-minute sessions · Both partners join remotely",
-  },
-  {
     icon: "🧒",
     title: "Teen & Adolescent Care",
     description:
       "Age-appropriate support for teens 13–17 navigating school stress, identity, mood, and family dynamics.",
     detail: "Parent consultation included",
-  },
-  {
-    icon: "🌿",
-    title: "Group Support",
-    description:
-      "Small, therapist-led virtual groups for grief, anxiety management, mindfulness, and postpartum wellness.",
-    detail: "6–8 participants · 8-week cohorts",
-  },
-  {
-    icon: "🧘",
-    title: "Wellness Coaching",
-    description:
-      "Structured coaching for sleep, stress resilience, burnout recovery, and sustainable habit change.",
-    detail: "30-minute sessions · Action plans included",
   },
 ];
 
@@ -77,7 +56,7 @@ export const INSURERS = [
   "Cigna",
   "UnitedHealthcare",
   "Superbills for out-of-network",
-  "Self-pay from $95",
+  "Self-pay available",
 ];
 
 export const STEPS = [
@@ -215,7 +194,7 @@ export const FAQS = [
   },
   {
     q: "Do you accept insurance?",
-    a: "We accept most major plans, including Aetna, Cigna, United, and Blue Cross Blue Shield, and we provide superbills for out-of-network reimbursement. Self-pay rates start at $95 per session with sliding-scale spots available.",
+    a: "We accept most major plans, including Aetna, Cigna, United, and Blue Cross Blue Shield, and we provide superbills for out-of-network reimbursement. Self-pay is available, with sliding-scale spots for those who qualify.",
   },
   {
     q: "How quickly can I be seen?",

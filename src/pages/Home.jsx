@@ -392,11 +392,13 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
-          <div className="grid-3">
-            {SERVICES.slice(0, 3).map((s, i) => (
+          <div className="grid-2">
+            {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div className="card">
-                  <div className="card__icon" aria-hidden="true">{s.icon}</div>
+                  <div className="card__icon" aria-hidden="true">
+                    {typeof s.icon === "string" ? s.icon : <s.icon />}
+                  </div>
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
                   <div className="card__meta">{s.detail}</div>
@@ -406,7 +408,7 @@ export default function Home() {
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
             <Link to="/services" className="btn btn--ghost">
-              See all five services
+              Learn more about our services
             </Link>
           </div>
         </div>

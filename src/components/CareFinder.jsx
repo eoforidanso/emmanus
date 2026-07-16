@@ -8,34 +8,12 @@ const QUESTIONS = [
     options: [
       { label: "Myself", value: "self" },
       { label: "My teenager (13–17)", value: "teen" },
-      { label: "Me and my partner", value: "couple" },
-    ],
-  },
-  {
-    key: "focus",
-    q: "What matters most right now?",
-    options: [
-      { label: "Talking things through with a therapist", value: "therapy" },
-      { label: "Medication questions or management", value: "medication" },
-      { label: "Stress, burnout, sleep, or habits", value: "coaching" },
-      { label: "Grief, or connecting with others like me", value: "group" },
     ],
   },
 ];
 
 function recommend(answers) {
-  if (answers.who === "couple") return "Couples Counseling";
-  if (answers.who === "teen") return "Teen & Adolescent Care";
-  switch (answers.focus) {
-    case "medication":
-      return "Psychiatry & Medication";
-    case "coaching":
-      return "Wellness Coaching";
-    case "group":
-      return "Group Support";
-    default:
-      return "Psychiatry & Medication";
-  }
+  return answers.who === "teen" ? "Teen & Adolescent Care" : "Psychiatry & Medication";
 }
 
 export default function CareFinder() {
@@ -83,7 +61,7 @@ export default function CareFinder() {
       ) : (
         <div className="finder__result">
           <div className="card__icon" aria-hidden="true">
-            {service.icon}
+            {typeof service.icon === "string" ? service.icon : <service.icon />}
           </div>
           <h3>We'd suggest: {service.title}</h3>
           <p style={{ color: "var(--ink-soft)", marginBottom: 8 }}>

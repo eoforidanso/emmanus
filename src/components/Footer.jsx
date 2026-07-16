@@ -40,9 +40,8 @@ export default function Footer() {
           <div>
             <h4>Care</h4>
             <ul>
-              <li><Link to="/services">Psychiatry</Link></li>
-              <li><Link to="/services">Couples Counseling</Link></li>
-              <li><Link to="/services">Group Support</Link></li>
+              <li><Link to="/services">Psychiatry &amp; Medication</Link></li>
+              <li><Link to="/services">Teen &amp; Adolescent Care</Link></li>
               <li><Link to="/how-booking-works">How Booking Works</Link></li>
               <li>
                 <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
