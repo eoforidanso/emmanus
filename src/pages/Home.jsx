@@ -12,6 +12,7 @@ import CrisisBanner from "../components/CrisisBanner";
 import Reveal from "../components/Reveal";
 import Breathe from "../components/Breathe";
 import Portrait from "../components/Portrait";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 import usePageMeta from "../usePageMeta";
 import {
   IconShield,
@@ -102,13 +103,13 @@ export default function Home() {
         <div className="container hero__inner">
           <div className="hero__copy">
             <h1>
-              Evidence-based psychiatric care,{" "}
-              <em>designed around your life.</em>
+              Precision-driven psychiatric care,{" "}
+              <em>delivered with compassion.</em>
             </h1>
             <p>
-              Thoughtful evaluation, clear treatment planning, and secure
-              video sessions with Dr. Emmanuel Ofori-Danso — delivered with
-              precision and compassion.
+              Evidence-based psychotherapy and medication management for
+              adults and adolescents, grounded in clarity, consistency, and
+              clinical excellence.
             </p>
             <div className="hero__actions">
               <a
@@ -119,8 +120,8 @@ export default function Home() {
               >
                 Book a Session <span className="btn__arrow" aria-hidden="true">→</span>
               </a>
-              <Link to="/resources" className="btn btn--ghost">
-                Explore Resources
+              <Link to="/team" className="btn btn--ghost">
+                Meet Your Provider
               </Link>
             </div>
             <div className="hero__micro">
@@ -136,35 +137,77 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust">
-        <div className="container grid-3">
+      <div className="accent-bar" aria-hidden="true" />
+
+      <section className="section">
+        <div className="container">
           <Reveal>
-            <div className="card card--mini">
-              <div className="card__icon"><IconTelehealth /></div>
-              <div>
-                <h3>HIPAA-secure video</h3>
-                <p>Every session runs on an encrypted, HIPAA-compliant platform — as private as a closed office door.</p>
-              </div>
+            <div className="section-head">
+              <span className="eyebrow">Availability &amp; insurance</span>
+              <h2>Care that fits your schedule</h2>
             </div>
           </Reveal>
-          <Reveal delay={90}>
-            <div className="card card--mini">
-              <div className="card__icon"><IconShield /></div>
-              <div>
-                <h3>Board-certified NP</h3>
-                <p>Care from Dr. Ofori-Danso — licensed, board-certified, and a clinical instructor in psychiatry.</p>
+          <div className="grid-3">
+            <Reveal>
+              <div className="card card--mini">
+                <div className="card__icon"><IconCalendar /></div>
+                <div>
+                  <h3>Next-day appointments often available</h3>
+                  <p>Most new patients are seen within 1–3 days, not weeks or months.</p>
+                </div>
               </div>
+            </Reveal>
+            <Reveal delay={90}>
+              <div className="card card--mini">
+                <div className="card__icon"><IconTelehealth /></div>
+                <div>
+                  <h3>Secure video sessions</h3>
+                  <p>Every session runs on an encrypted, HIPAA-compliant platform — as private as a closed office door.</p>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={180}>
+              <div className="card card--mini">
+                <div className="card__icon"><IconShield /></div>
+                <div>
+                  <h3>Flexible scheduling</h3>
+                  <p>Evening and weekend times available, built for busy professionals.</p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={150}>
+            <div className="insurers" style={{ marginTop: 32 }}>
+              <span
+                style={{
+                  border: "none",
+                  background: "none",
+                  paddingLeft: 0,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                }}
+              >
+                <span style={{ width: 18, height: 18, color: "var(--slate)" }}>
+                  <IconInsurance />
+                </span>
+                Insurance &amp; payment:
+              </span>
+              {INSURERS.map((name) => (
+                <span key={name}>{name}</span>
+              ))}
             </div>
           </Reveal>
-          <Reveal delay={180}>
-            <div className="card card--mini">
-              <div className="card__icon"><IconCalendar /></div>
-              <div>
-                <h3>Seen within days, often next-day</h3>
-                <p>Next-day appointments are often available — most new patients are seen within 1–3 days, not weeks or months.</p>
-              </div>
-            </div>
-          </Reveal>
+          <div style={{ textAlign: "center", marginTop: 32 }}>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--primary"
+            >
+              Check Availability <span className="btn__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -203,12 +246,14 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="conditions">
+            <div className="specialty-grid">
               {CONDITIONS.map((c) => (
-                <span className="condition" key={c.label}>
-                  <span aria-hidden="true">{c.icon}</span>
-                  {c.label}
-                </span>
+                <div className="specialty-card" key={c.label}>
+                  <div className="specialty-card__icon" aria-hidden="true">
+                    {c.icon}
+                  </div>
+                  <span>{c.label}</span>
+                </div>
               ))}
             </div>
           </Reveal>
@@ -315,6 +360,25 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section section--tint">
+        <div className="container">
+          <Reveal>
+            <div className="philosophy">
+              <span className="eyebrow">Treatment philosophy</span>
+              <p className="philosophy__quote">
+                "Effective psychiatric care requires clarity, collaboration,
+                and compassion. My goal is to help you understand your
+                mind, your options, and your path forward — without ever
+                feeling rushed or unheard."
+              </p>
+              <Link to="/team" className="btn btn--ghost">
+                Learn About the Emmanus Approach
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           <Reveal>
@@ -379,28 +443,6 @@ export default function Home() {
               </Link>
             </div>
           </Reveal>
-          <Reveal delay={150}>
-            <div className="insurers" style={{ marginTop: 40 }}>
-              <span
-                style={{
-                  border: "none",
-                  background: "none",
-                  paddingLeft: 0,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                }}
-              >
-                <span style={{ width: 18, height: 18, color: "var(--slate)" }}>
-                  <IconInsurance />
-                </span>
-                Insurance &amp; payment:
-              </span>
-              {INSURERS.map((name) => (
-                <span key={name}>{name}</span>
-              ))}
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -432,21 +474,13 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <div className="section-head">
-              <span className="eyebrow">Client stories</span>
+              <span className="eyebrow">Patient experience</span>
               <h2>Trusted by people like you</h2>
             </div>
           </Reveal>
-          <div className="grid-3">
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.author} delay={i * 90}>
-                <blockquote className="quote">
-                  <div className="quote__stars" aria-label="5 out of 5 stars">★★★★★</div>
-                  <p>“{t.quote}”</p>
-                  <footer>— {t.author}</footer>
-                </blockquote>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal delay={90}>
+            <TestimonialCarousel items={TESTIMONIALS} />
+          </Reveal>
         </div>
       </section>
 
