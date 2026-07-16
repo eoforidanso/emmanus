@@ -1301,6 +1301,20 @@ button {
   transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
+/* Cards inside a grid should match height across the row — the
+   .reveal wrapper doesn't stretch its child by default. */
+.grid-2 > .reveal,
+.grid-3 > .reveal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.grid-2 > .reveal > *,
+.grid-3 > .reveal > * {
+  flex: 1;
+}
+
 .reveal.visible {
   opacity: 1;
   transform: none;
