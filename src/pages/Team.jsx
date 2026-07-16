@@ -4,9 +4,9 @@ import Portrait from "../components/Portrait";
 import usePageMeta from "../usePageMeta";
 
 const APPROACH = [
-  "\"Pills and Skills\" — medication and therapy prescribed together, because each works better with the other",
+  "\"Pills and Skills\" — medication management paired with a therapy referral, because each works better with the other",
   "Warm, judgment-free sessions where you set the pace",
-  "Evidence-based care: measurement-informed treatment, CBT-informed psychotherapy, and conservative prescribing",
+  "Evidence-based care: measurement-informed treatment and conservative prescribing",
   "GeneSight® pharmacogenomic testing where necessary — so if past medications haven't worked, your genetics can help inform the next choice",
   "Whole-person focus — sleep, stress, relationships, and lifestyle alongside symptoms",
   "Clear explanations of every diagnosis and medication decision, so you're always in the loop",
@@ -92,8 +92,9 @@ export default function Team() {
                 <blockquote className="quote" style={{ marginTop: 24 }}>
                   <p>
                     “Pills and Skills. Medication can steady the ground, but
-                    therapy teaches you to walk it — my patients get the best
-                    outcomes when we do both.”
+                    therapy teaches you to walk it — I manage the medication
+                    and connect you with the right therapist, so you get
+                    both.”
                   </p>
                   <footer>— Dr. Emmanuel Ofori-Danso</footer>
                 </blockquote>

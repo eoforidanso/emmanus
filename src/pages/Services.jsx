@@ -18,7 +18,7 @@ const FAQ_SCHEMA = {
 export default function Services() {
   usePageMeta(
     "Services",
-    "Telehealth therapy, psychiatry and medication management, couples counseling, teen care, group support, and wellness coaching — delivered over secure video."
+    "Telehealth psychiatry and medication management, couples counseling, teen care, group support, and wellness coaching — delivered over secure video."
   );
   useJsonLd(FAQ_SCHEMA);
   return (

@@ -34,7 +34,7 @@ function recommend(answers) {
     case "group":
       return "Group Support";
     default:
-      return "Individual Therapy";
+      return "Psychiatry & Medication";
   }
 }
 

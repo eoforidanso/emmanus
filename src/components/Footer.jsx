@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { BOOKING_URL, PORTAL_URL, INSURERS } from "../data";
+import { BOOKING_URL, PORTAL_URL, VIDEO_URL, INSURERS } from "../data";
 
 // TODO: replace with the practice's real social profiles before launch.
 const SOCIALS = [
@@ -40,7 +40,6 @@ export default function Footer() {
           <div>
             <h4>Care</h4>
             <ul>
-              <li><Link to="/services">Individual Therapy</Link></li>
               <li><Link to="/services">Psychiatry</Link></li>
               <li><Link to="/services">Couples Counseling</Link></li>
               <li><Link to="/services">Group Support</Link></li>
@@ -60,6 +59,11 @@ export default function Footer() {
               <li>
                 <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer">
                   Patient Portal
+                </a>
+              </li>
+              <li>
+                <a href={VIDEO_URL} target="_blank" rel="noopener noreferrer">
+                  Join Session
                 </a>
               </li>
               <li><Link to="/contact">Contact</Link></li>

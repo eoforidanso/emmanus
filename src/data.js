@@ -4,15 +4,10 @@ import drPhoto from "./assets/dr-ofori-danso.jpg";
 export const BOOKING_URL = "https://app.clarity-ehr.com/book/emmanus";
 // Sign-in for existing patients
 export const PORTAL_URL = "https://app.clarity-ehr.com/patient-portal-login";
+// Doxy.me video room — where patients join their live video session
+export const VIDEO_URL = "https://doxy.me/emmanus";
 
 export const SERVICES = [
-  {
-    icon: "🗣️",
-    title: "Individual Therapy",
-    description:
-      "One-on-one video sessions with a licensed therapist for anxiety, depression, trauma, grief, and life transitions.",
-    detail: "50-minute sessions · Weekly or biweekly",
-  },
   {
     icon: "💊",
     title: "Psychiatry & Medication",
@@ -57,7 +52,7 @@ export const PROVIDERS = [
     role: "NP / Clinical Instructor",
     color: "#3e6b4f",
     photo: drPhoto,
-    bio: "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, providing compassionate, evidence-based care in psychotherapy and medication management for adults and adolescents.",
+    bio: "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, providing compassionate, evidence-based psychiatric evaluation and medication management for adults and adolescents — referring for psychotherapy alongside medication when that's the right fit.",
     tags: ["Psychiatry", "Medication Management", "Anxiety", "Depression", "ADHD"],
   },
 ];
@@ -244,6 +239,6 @@ export const FAQS = [
   },
   {
     q: "Do I have to choose between medication and therapy?",
-    a: "No — and Dr. Ofori-Danso recommends against it. His philosophy is \"Pills and Skills\": medication can steady symptoms while therapy builds the skills that keep you well, and research consistently shows the combination outperforms either alone.",
+    a: "No. \"Pills and Skills\" is Dr. Ofori-Danso's guiding philosophy — combining medication and therapy often gives the most durable results, so he'll usually recommend both where it makes sense. But it's not a requirement: your plan is individualized, and plenty of people do well with medication alone, or therapy alone. What's right for you depends on your specific situation, not a fixed formula.",
   },
 ];

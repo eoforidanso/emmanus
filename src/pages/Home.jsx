@@ -107,9 +107,9 @@ export default function Home() {
               <em>delivered with compassion.</em>
             </h1>
             <p>
-              Evidence-based psychotherapy and medication management for
-              adults and adolescents, grounded in clarity, consistency, and
-              clinical excellence.
+              Evidence-based psychiatric evaluation and medication
+              management for adults and adolescents, grounded in clarity,
+              consistency, and clinical excellence.
             </p>
             <div className="hero__actions">
               <a
@@ -289,8 +289,9 @@ export default function Home() {
                 <h3>Pills and Skills</h3>
                 <p>
                   Medication can steady the ground; therapy teaches you to
-                  walk it. We deliberately pair both, because each works
-                  better with the other.
+                  walk it. Dr. Ofori-Danso manages your medication and
+                  connects you with a therapist, because each works better
+                  with the other.
                 </p>
               </div>
             </Reveal>
@@ -405,7 +406,7 @@ export default function Home() {
           </div>
           <div style={{ textAlign: "center", marginTop: 36 }}>
             <Link to="/services" className="btn btn--ghost">
-              See all six services
+              See all five services
             </Link>
           </div>
         </div>

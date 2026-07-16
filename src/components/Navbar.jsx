@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import Logo from "./Logo";
-import { BOOKING_URL, PORTAL_URL } from "../data";
+import { BOOKING_URL, PORTAL_URL, VIDEO_URL } from "../data";
 
 const LINKS = [
   { to: "/", label: "Home", end: true },
@@ -29,6 +29,16 @@ export default function Navbar({ theme, onToggleTheme }) {
               </NavLink>
             </li>
           ))}
+          <li>
+            <a
+              href={VIDEO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              Join Session
+            </a>
+          </li>
           <li>
             <a
               href={PORTAL_URL}
