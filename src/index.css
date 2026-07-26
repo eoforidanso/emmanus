@@ -1126,6 +1126,24 @@ button {
   color: var(--ink);
 }
 
+/* Crisis numbers are tap-to-call on mobile — underlined so they read as
+   actionable, and given a generous tap target for someone in distress. */
+.crisis__tel {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  padding: 2px 1px;
+  border-radius: 3px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.crisis__tel:hover,
+.crisis__tel:focus-visible {
+  color: var(--green-700);
+  background: rgba(201, 168, 117, 0.18);
+}
+
 /* Page hero */
 .page-hero {
   background: linear-gradient(160deg, var(--green-50), var(--cream));
@@ -2117,6 +2135,20 @@ button {
 
 .skip-link:focus {
   left: 0;
+}
+
+/* Available to screen readers only — for text that gives assistive tech the
+   context sighted users get from layout alone. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Wellbeing check-in */

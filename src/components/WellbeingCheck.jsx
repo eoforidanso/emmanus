@@ -92,6 +92,9 @@ export default function WellbeingCheck() {
         ))}
       </div>
 
+      {/* The question and the result swap in place, so announce each change —
+          the progress dots above are decorative and hidden from assistive tech. */}
+      <div aria-live="polite">
       {!done ? (
         <>
           <p className="checkin__scale">
@@ -112,7 +115,10 @@ export default function WellbeingCheck() {
         </>
       ) : (
         <div>
-          <div className="checkin__score">{score}/100</div>
+          <div className="checkin__score">
+            <span aria-hidden="true">{score}/100</span>
+            <span className="sr-only">Your score: {score} out of 100.</span>
+          </div>
           <div className="scorebar">
             <span style={{ width: `${score}%` }} />
           </div>
@@ -138,10 +144,15 @@ export default function WellbeingCheck() {
           <p className="form-note">
             Based on the WHO-5 Well-Being Index. This is a wellbeing snapshot,
             not a diagnosis, and your answers never leave this page. If you're
-            in crisis, call or text 988.
+            in crisis, call or text{" "}
+            <a href="tel:988" className="crisis__tel">
+              988
+            </a>
+            .
           </p>
         </div>
       )}
+      </div>
     </div>
   );
 }
