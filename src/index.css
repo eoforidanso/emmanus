@@ -1870,7 +1870,12 @@ button {
   .form-grid {
     grid-template-columns: 1fr;
   }
+}
 
+/* Nav collapses to hamburger earlier than other layout breakpoints —
+   brand + full link list + Book a Session button need ~1340px to fit
+   in one row without clipping the CTA. */
+@media (max-width: 1680px) {
   .nav__toggle {
     display: block;
   }
