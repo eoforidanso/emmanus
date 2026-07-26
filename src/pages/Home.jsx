@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   BOOKING_URL,
+  PORTAL_URL,
   SERVICES,
   STEPS,
   TESTIMONIALS,
@@ -181,6 +182,14 @@ export default function Home() {
                 <div>
                   <h3>Same-day medication refills</h3>
                   <p>Message your provider about a routine refill and get same-day turnaround.</p>
+                  <a
+                    href={PORTAL_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card__link"
+                  >
+                    Request a refill <span className="btn__arrow" aria-hidden="true">→</span>
+                  </a>
                 </div>
               </div>
             </Reveal>

@@ -786,6 +786,20 @@ button {
   color: var(--green-600);
 }
 
+.card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+.card__link:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
 /* Steps */
 .steps {
   display: grid;
