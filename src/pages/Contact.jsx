@@ -1,43 +1,12 @@
-import { useState } from "react";
 import CrisisBanner from "../components/CrisisBanner";
 import usePageMeta from "../usePageMeta";
+import { BOOKING_URL, PORTAL_URL } from "../data";
 
 export default function Contact() {
   usePageMeta(
     "Contact",
     "Questions about services, insurance, or getting started? Reach the Emmanus Wellness care team by phone or email."
   );
-  const [sent, setSent] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState("");
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setSending(true);
-    setError("");
-
-    const form = new FormData(e.target);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.get("name"),
-          email: form.get("email"),
-          subject: form.get("subject"),
-          message: form.get("message"),
-        }),
-      });
-      if (!res.ok) throw new Error("send failed");
-      setSent(true);
-    } catch {
-      setError(
-        "Something went wrong sending your message. Please email us directly at care@emmanuswellness.com."
-      );
-    } finally {
-      setSending(false);
-    }
-  }
 
   return (
     <>
@@ -100,62 +69,66 @@ export default function Contact() {
               <CrisisBanner />
             </div>
 
+            {/* Anything clinical belongs in the portal, which is the only
+                channel here covered by a BAA — email and phone are for
+                general questions only. */}
             <div className="form-card">
-              {sent ? (
-                <div className="success-box">
-                  <div className="success-icon" aria-hidden="true">💌</div>
-                  <h2 style={{ marginBottom: 12 }}>Message sent</h2>
-                  <p style={{ color: "var(--ink-soft)" }}>
-                    Thanks for reaching out — our care team will reply within
-                    one business day.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <div className="form-grid">
-                    <div className="field">
-                      <label htmlFor="name">Name *</label>
-                      <input id="name" name="name" required autoComplete="name" />
-                    </div>
-                    <div className="field">
-                      <label htmlFor="cEmail">Email *</label>
-                      <input
-                        id="cEmail"
-                        name="email"
-                        type="email"
-                        required
-                        autoComplete="email"
-                      />
-                    </div>
-                    <div className="field field--full">
-                      <label htmlFor="subject">Subject</label>
-                      <input
-                        id="subject"
-                        name="subject"
-                        placeholder="e.g. Insurance question"
-                      />
-                    </div>
-                    <div className="field field--full">
-                      <label htmlFor="message">Message *</label>
-                      <textarea id="message" name="message" required />
-                    </div>
-                  </div>
-                  {error && (
-                    <p style={{ color: "#b3261e", marginTop: 16, fontSize: "0.9rem" }}>
-                      {error}
-                    </p>
-                  )}
-                  <div style={{ marginTop: 24 }}>
-                    <button
-                      type="submit"
-                      className="btn btn--primary"
-                      disabled={sending}
-                    >
-                      {sending ? "Sending…" : "Send Message"}
-                    </button>
-                  </div>
-                </form>
-              )}
+              <h2 style={{ marginBottom: 10 }}>Where to reach us</h2>
+              <p style={{ color: "var(--ink-soft)", marginBottom: 28 }}>
+                Pick whichever fits — each one goes straight to the right
+                place.
+              </p>
+
+              <div className="route">
+                <h4>Already a patient?</h4>
+                <p>
+                  Use the patient portal for anything about your care —
+                  medication questions, refills, records, or messaging Dr.
+                  Ofori-Danso directly. It's secure and HIPAA-compliant.
+                </p>
+                <a
+                  href={PORTAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary"
+                >
+                  Open patient portal →
+                </a>
+              </div>
+
+              <div className="route">
+                <h4>New patient?</h4>
+                <p>
+                  Book directly — no referral needed, and next-day
+                  appointments are often available.
+                </p>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--ghost"
+                >
+                  Book a session →
+                </a>
+              </div>
+
+              <div className="route">
+                <h4>General questions</h4>
+                <p>
+                  Insurance, scheduling, or how things work — email{" "}
+                  <a href="mailto:care@emmanuswellness.com">
+                    care@emmanuswellness.com
+                  </a>{" "}
+                  or call <a href="tel:+18005550123">(800) 555-0123</a>. We
+                  reply within one business day.
+                </p>
+              </div>
+
+              <p className="form-note">
+                Please don't include symptoms, medications, or other health
+                details in email — it isn't a secure channel. Use the patient
+                portal for anything clinical.
+              </p>
             </div>
           </div>
         </div>
