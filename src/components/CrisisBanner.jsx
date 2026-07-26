@@ -1,6 +1,6 @@
 export default function CrisisBanner() {
   return (
-    <div className="crisis" role="note">
+    <div className="notice notice--crisis" role="note">
       <span aria-hidden="true">💛</span>
       <span>
         <strong>Emmanus Wellness is not an emergency service.</strong> If you

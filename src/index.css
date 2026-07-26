@@ -1138,8 +1138,10 @@ button {
   margin: 0 auto 20px;
 }
 
-/* Crisis banner */
-.crisis {
+/* Callout notice — shared by the crisis banner and the privacy note.
+   .notice--crisis carries no styles of its own; it exists so the crisis
+   banner can be targeted unambiguously. */
+.notice {
   background: var(--sand);
   border: 1px solid #e5d9bf;
   border-radius: var(--radius);
@@ -1151,7 +1153,7 @@ button {
   align-items: flex-start;
 }
 
-.crisis strong {
+.notice strong {
   color: var(--ink);
 }
 
@@ -1159,7 +1161,7 @@ button {
    actionable, and given a generous tap target for someone in distress. */
 .crisis__tel {
   /* Explicit rather than inherit: 988 wraps a <strong> that picks up
-     .crisis strong, but 911 has none, and the two must not diverge. */
+     .notice strong, but 911 has none, and the two must not diverge. */
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2120,7 +2122,7 @@ button {
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-[data-theme="dark"] .crisis {
+[data-theme="dark"] .notice {
   border-color: #3d5243;
 }
 

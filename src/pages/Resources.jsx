@@ -150,7 +150,7 @@ export default function Resources() {
             ))}
           </div>
           <Reveal delay={150}>
-            <div className="crisis" style={{ marginTop: 32 }} role="note">
+            <div className="notice" style={{ marginTop: 32 }} role="note">
               <span aria-hidden="true">🔒</span>
               <span>
                 <strong>Private by design.</strong> Every tool on this page
