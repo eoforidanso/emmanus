@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AnnouncementBar from "./components/AnnouncementBar";
@@ -6,14 +6,17 @@ import BackToTop from "./components/BackToTop";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
-import Services from "./pages/Services";
-import Team from "./pages/Team";
-import Resources from "./pages/Resources";
-import HowBookingWorks from "./pages/HowBookingWorks";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import NotFound from "./pages/NotFound";
+
+// Home stays eager — it's the landing page. The rest load on navigation,
+// which keeps the self-care tools on /resources out of the initial bundle.
+const Services = lazy(() => import("./pages/Services"));
+const Team = lazy(() => import("./pages/Team"));
+const Resources = lazy(() => import("./pages/Resources"));
+const HowBookingWorks = lazy(() => import("./pages/HowBookingWorks"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function RouteFade({ children }) {
   const { pathname } = useLocation();
@@ -58,6 +61,9 @@ export default function App() {
       />
       <main id="main">
         <RouteFade>
+          {/* Reserve height so swapping in a lazy page doesn't collapse the
+              layout and bounce the footer up on slow connections. */}
+          <Suspense fallback={<div style={{ minHeight: "70vh" }} />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
@@ -69,6 +75,7 @@ export default function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </RouteFade>
       </main>
       <Footer />
