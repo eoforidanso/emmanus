@@ -106,7 +106,11 @@ export default function SafetyPlan() {
       <p className="form-note">
         Your plan exists only on this page until you download it — it is
         never saved to any server. If you're in crisis right now, don't
-        plan; call or text <strong>988</strong>.
+        plan; call or text{" "}
+        <a href="tel:988" className="crisis__tel">
+          <strong>988</strong>
+        </a>
+        .
       </p>
     </div>
   );

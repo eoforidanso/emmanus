@@ -97,7 +97,11 @@ export default function Footer() {
             <Link to="/terms">Terms of Use</Link>
           </span>
           <span>
-            In crisis? Call or text <strong>988</strong> — available 24/7.
+            In crisis? Call or text{" "}
+            <a href="tel:988" className="crisis__tel">
+              <strong>988</strong>
+            </a>{" "}
+            — available 24/7.
           </span>
         </div>
       </div>
