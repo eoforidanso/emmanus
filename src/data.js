@@ -77,16 +77,6 @@ export const STEPS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "I'd put off therapy for years because of my schedule. Being able to meet my therapist from home changed everything.",
-    author: "R.K., client since 2024",
-  },
-  {
-    quote:
-      "The matching process actually worked — my counselor understood my background from the very first session.",
-    author: "A.D., client since 2025",
-  },
-  {
-    quote:
       "Medication management used to mean half a day off work. Now it's a 20-minute video call. Same great care.",
     author: "T.M., client since 2023",
   },
