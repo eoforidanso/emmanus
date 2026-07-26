@@ -1,3 +1,4 @@
-# Site not ready for public discovery yet
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://emmanuswellness.com/sitemap.xml
