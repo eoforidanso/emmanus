@@ -36,60 +36,33 @@ function HeroArt() {
       viewBox="0 0 680 520"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="An image of hope: dawn breaking over a dark horizon, with a small sprout growing toward the light"
+      aria-label="Two abstract figures, each within their own circle, the circles overlapping to form a shared space between them"
     >
       <defs>
-        <linearGradient id="haSky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0f2f2a" />
-          <stop offset="38%" stopColor="#1c4a3d" />
-          <stop offset="60%" stopColor="#3f6b4a" />
-          <stop offset="80%" stopColor="#c9a875" />
-          <stop offset="100%" stopColor="#e8b768" />
-        </linearGradient>
-        <radialGradient id="haSun" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#f7e7c1" stopOpacity="0.95" />
-          <stop offset="45%" stopColor="#e8c47e" stopOpacity="0.55" />
-          <stop offset="100%" stopColor="#e8c47e" stopOpacity="0" />
+        <radialGradient id="haGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#c9a875" stopOpacity="0.30" />
+          <stop offset="60%" stopColor="#c9a875" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#c9a875" stopOpacity="0" />
         </radialGradient>
-        <linearGradient id="haGround" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0b2019" />
-          <stop offset="100%" stopColor="#050f0c" />
-        </linearGradient>
       </defs>
 
-      <rect x="0" y="0" width="680" height="520" fill="url(#haSky)" />
-      <circle cx="340" cy="430" r="170" fill="url(#haSun)" />
-      <circle cx="340" cy="430" r="54" fill="#f7f0dd" />
-      <circle cx="340" cy="430" r="54" fill="none" stroke="#fbf3df" strokeWidth="1" opacity="0.7" />
+      {/* No background plate — the hero's own gradient shows through, so the
+          art sits in the page rather than as a rectangle on top of it. */}
+      <circle cx="340" cy="258" r="250" fill="url(#haGlow)" />
 
-      <g stroke="#f2d9a3" strokeWidth="1.5" strokeLinecap="round" opacity="0.55">
-        <line x1="340" y1="330" x2="340" y2="308" />
-        <line x1="410" y1="360" x2="428" y2="344" />
-        <line x1="270" y1="360" x2="252" y2="344" />
-        <line x1="440" y1="430" x2="464" y2="430" />
-        <line x1="240" y1="430" x2="216" y2="430" />
-      </g>
+      {/* Two fields, drawn so the intersection reads about twice as bright.
+          The overlap is the whole idea and has to be legible. */}
+      <circle cx="252" cy="258" r="168" fill="#c9a875" opacity="0.13" stroke="#c9a875" strokeWidth="1.4" strokeOpacity="0.5" />
+      <circle cx="428" cy="258" r="168" fill="#7fa398" opacity="0.13" stroke="#7fa398" strokeWidth="1.4" strokeOpacity="0.52" />
 
-      <circle cx="120" cy="90" r="1.6" fill="#f7f4ef" opacity="0.6" />
-      <circle cx="560" cy="70" r="1.4" fill="#f7f4ef" opacity="0.5" />
-      <circle cx="600" cy="140" r="1.8" fill="#f7f4ef" opacity="0.55" />
-      <circle cx="90" cy="160" r="1.3" fill="#f7f4ef" opacity="0.45" />
-      <circle cx="480" cy="50" r="1.5" fill="#f7f4ef" opacity="0.5" />
+      {/* Gold figure is the constant — the same clinician at every visit. */}
+      <circle cx="212" cy="196" r="52" fill="#c9a875" />
+      <path d="M126 404 L126 300 Q126 274 152 274 L272 274 Q298 274 298 300 L298 404 Z" fill="#c9a875" />
 
-      <path
-        d="M0 470 C 140 452 260 472 340 466 C 430 460 560 446 680 468 L 680 496 L 0 496 Z"
-        fill="#173328"
-        opacity="0.85"
-      />
-      <rect x="0" y="486" width="680" height="34" fill="url(#haGround)" />
+      <circle cx="468" cy="196" r="52" fill="#7fa398" />
+      <path d="M382 404 L382 300 Q382 274 408 274 L528 274 Q554 274 554 300 L554 404 Z" fill="#7fa398" />
 
-      <g>
-        <path d="M340 486 C 340 456 340 428 340 404" fill="none" stroke="#c9a875" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M340 440 C 322 440 306 426 300 404 C 322 404 338 416 340 440 Z" fill="#4a7c59" />
-        <path d="M340 428 C 358 428 374 414 380 392 C 358 392 342 404 340 428 Z" fill="#5d8a6a" />
-        <path d="M340 406 C 328 406 316 396 312 380 C 326 380 337 388 340 406 Z" fill="#6fa27e" />
-      </g>
-      <ellipse cx="340" cy="490" rx="46" ry="7" fill="#0f2f2a" opacity="0.5" />
+      <rect x="96" y="404" width="488" height="2" rx="1" fill="#f7f4ef" opacity="0.22" />
     </svg>
   );
 }
