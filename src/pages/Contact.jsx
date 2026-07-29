@@ -1,4 +1,5 @@
 import CrisisBanner from "../components/CrisisBanner";
+import IllinoisMap from "../components/IllinoisMap";
 import usePageMeta from "../usePageMeta";
 import { BOOKING_URL, PORTAL_URL } from "../data";
 
@@ -66,6 +67,7 @@ export default function Contact() {
                   </p>
                 </div>
               </div>
+              <IllinoisMap />
               <CrisisBanner />
             </div>
 
