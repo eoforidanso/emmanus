@@ -27,6 +27,15 @@ export default function Contact() {
           <div className="grid-2" style={{ alignItems: "start" }}>
             <div className="contact-info">
               <div className="contact-info__item">
+                <div className="card__icon" aria-hidden="true">📱</div>
+                <div>
+                  <h4>Direct Line</h4>
+                  <p>
+                    <a href="tel:+17733400205">(773) 340-0205</a>
+                  </p>
+                </div>
+              </div>
+              <div className="contact-info__item">
                 <div className="card__icon" aria-hidden="true">📞</div>
                 <div>
                   <h4>Phone</h4>
