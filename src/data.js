@@ -51,6 +51,7 @@ export const CONDITIONS = [
 ];
 
 export const INSURERS = [
+  "Medicare",
   "Aetna",
   "Blue Cross Blue Shield",
   "Cigna",
