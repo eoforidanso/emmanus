@@ -272,6 +272,137 @@ button {
   background: var(--green-50);
 }
 
+/* Floating booking widget */
+.booking-widget {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 55;
+  width: 256px;
+  max-width: calc(100vw - 44px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 26px 16px 16px;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+
+.booking-widget.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.booking-widget__photo {
+  position: absolute;
+  top: -21px;
+  left: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--white);
+  background: var(--green-50);
+  box-shadow: var(--shadow);
+}
+
+.booking-widget__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* The source is a 360x452 portrait; centred `cover` crops ~46px off the
+     top and the circular mask then clips the top of the head. Bias the
+     crop upward so the whole head sits inside the circle. */
+  object-position: 50% 15%;
+}
+
+.booking-widget__tag {
+  display: inline-block;
+  /* clears the photo (16px offset + 46px wide) */
+  margin: 0 0 11px 68px;
+  padding: 3px 8px;
+  border: 1px solid var(--green-100);
+  border-radius: 4px;
+  background: var(--green-50);
+  /* --green-600 is remapped for dark mode; --green-700 is not, and would
+     leave this dark-on-dark. */
+  color: var(--green-600);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+/* Sits half-outside the card so it reads as a dismiss affordance rather
+   than page furniture, and keeps a 28px target without eating card width. */
+.booking-widget__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.72rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s var(--ease);
+}
+
+.booking-widget__close:hover {
+  background: var(--green-50);
+  transform: scale(1.08);
+}
+
+.booking-widget__text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.38;
+  margin: 0 0 4px;
+}
+
+.booking-widget__sub {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+  line-height: 1.45;
+  margin: 0 0 13px;
+}
+
+.booking-widget__cta {
+  width: 100%;
+  justify-content: center;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-widget {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .booking-widget {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    width: auto;
+    max-width: none;
+  }
+}
+
 /* Navbar */
 .nav {
   position: sticky;
@@ -283,12 +414,18 @@ button {
   border-bottom: 1px solid var(--green-100);
 }
 
+/* The nav opts out of the 1120px page container. Brand + seven links + the
+   Book a Session CTA measure ~1350px, so inside 1120px the row could never
+   fit and the hamburger breakpoint had to be pushed to 1680px to hide the
+   overflow — which meant desktop users got a hamburger instead of tabs.
+   Body content stays on the 1120px grid; only the bar is wider. */
 .nav__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 20px;
   height: 88px;
+  max-width: 1360px;
 }
 
 .nav__brand {
@@ -317,7 +454,7 @@ button {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 22px;
   list-style: none;
 }
 
@@ -1950,17 +2087,18 @@ button {
   }
 }
 
-/* Nav collapses to hamburger earlier than other layout breakpoints —
-   brand + full link list + Book a Session button need ~1340px to fit
-   in one row without clipping the CTA. */
-@media (max-width: 1680px) {
+/* Nav collapses to hamburger earlier than other layout breakpoints — the
+   full row measures ~1320px including the wider .nav__inner above. */
+@media (max-width: 1320px) {
   .nav__toggle {
     display: block;
   }
 
   .nav__links {
     position: absolute;
-    top: 74px;
+    /* Below the bar, not 74px from its top — .nav__inner is 88px tall, so a
+       fixed 74px slid the first link underneath the navbar. */
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--cream);
@@ -1970,6 +2108,9 @@ button {
     border-bottom: 1px solid var(--green-100);
     display: none;
     align-items: flex-start;
+    /* Long menu on a short screen must scroll rather than run off-screen. */
+    max-height: calc(100vh - 88px);
+    overflow-y: auto;
   }
 
   .nav__links.open {
@@ -2151,6 +2292,24 @@ button {
 
 [data-theme="dark"] .notice {
   border-color: #3d5243;
+}
+
+/* Primary buttons in dark mode. The light-theme pairing is forest fill
+   (--green-900) with --cream text, but --cream remaps to a near-black here,
+   leaving dark text on a dark fill. Keep the forest fill and hardcode the
+   light text instead (--on-forest is the token for exactly this pairing and
+   is deliberately not remapped). Forest sits very close to the dark page
+   ground, so a hairline border restores the button's edge. */
+[data-theme="dark"] .btn--primary {
+  color: var(--on-forest);
+  border-color: rgba(242, 239, 231, 0.22);
+}
+
+/* The hero's primary is gold-filled, not forest, so it needs the opposite
+   fix: --ink flips light in dark mode, which would put pale text on gold. */
+[data-theme="dark"] .hero .btn--primary {
+  color: #1c1c1c;
+  border-color: transparent;
 }
 
 

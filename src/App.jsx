@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AnnouncementBar from "./components/AnnouncementBar";
 import BackToTop from "./components/BackToTop";
+import BookingWidget from "./components/BookingWidget";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
@@ -80,6 +81,7 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      <BookingWidget />
     </BrowserRouter>
   );
 }
