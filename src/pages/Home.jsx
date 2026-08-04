@@ -227,7 +227,7 @@ export default function Home() {
           </div>
           <div>
             <div className="stats__num">100%</div>
-            <div className="stats__label">Telehealth across Illinois</div>
+            <div className="stats__label">HIPAA-compliant telehealth across Illinois</div>
           </div>
         </div>
       </section>

@@ -76,7 +76,8 @@ export default function Contact() {
                 <div>
                   <h4>Telehealth only</h4>
                   <p>
-                    All care is delivered virtually — no office visits needed.
+                    All care is delivered virtually over a secure,
+                    HIPAA-compliant video platform — no office visits needed.
                     Serving patients across Illinois.
                   </p>
                 </div>
