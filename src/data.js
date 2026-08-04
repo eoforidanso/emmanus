@@ -77,11 +77,6 @@ export const STEPS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Medication management used to mean half a day off work. Now it's a 20-minute video call. Same great care.",
-    author: "T.M., client since 2023",
-  },
-  {
-    quote:
       "Emmanuel really helped my mom. He's warm and funny, and he really cares.",
     author: "Family member",
   },

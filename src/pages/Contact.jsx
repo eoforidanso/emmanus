@@ -32,6 +32,11 @@ export default function Contact() {
                   <h4>Text</h4>
                   <p>
                     <a href="sms:+17733400205">(773) 340-0205</a>
+                    <br />
+                    <span style={{ fontSize: "0.85rem" }}>
+                      Scheduling questions only — please don't send medical
+                      details by text.
+                    </span>
                   </p>
                 </div>
               </div>

@@ -214,20 +214,20 @@ export default function Home() {
       <section className="stats">
         <div className="container stats__grid">
           <div>
-            <div className="stats__num">12k+</div>
-            <div className="stats__label">Sessions delivered</div>
+            <div className="stats__num">DNP</div>
+            <div className="stats__label">Doctor of Nursing Practice, Rush University</div>
           </div>
           <div>
-            <div className="stats__num">10+</div>
-            <div className="stats__label">Years of clinical experience</div>
+            <div className="stats__num">PMHNP-BC</div>
+            <div className="stats__label">Board-certified psychiatric provider</div>
           </div>
           <div>
             <div className="stats__num">Next-day</div>
             <div className="stats__label">Appointments often available</div>
           </div>
           <div>
-            <div className="stats__num">4.9★</div>
-            <div className="stats__label">Average client rating</div>
+            <div className="stats__num">100%</div>
+            <div className="stats__label">Telehealth across Illinois</div>
           </div>
         </div>
       </section>
