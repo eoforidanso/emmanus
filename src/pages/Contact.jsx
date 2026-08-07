@@ -27,27 +27,18 @@ export default function Contact() {
           <div className="grid-2" style={{ alignItems: "start" }}>
             <div className="contact-info">
               <div className="contact-info__item">
-                <div className="card__icon" aria-hidden="true">💬</div>
+                <div className="card__icon" aria-hidden="true">📞</div>
                 <div>
-                  <h4>Text</h4>
+                  <h4>Phone &amp; text</h4>
                   <p>
-                    <a href="sms:+17733400205">(773) 340-0205</a>
+                    <a href="tel:+17733400205">(773) 340-0205</a>
+                    <br />
+                    Mon–Sat, 8am–8pm CT
                     <br />
                     <span style={{ fontSize: "0.85rem" }}>
                       Scheduling questions only — please don't send medical
                       details by text.
                     </span>
-                  </p>
-                </div>
-              </div>
-              <div className="contact-info__item">
-                <div className="card__icon" aria-hidden="true">📞</div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>
-                    <a href="tel:+18005550123">(800) 555-0123</a>
-                    <br />
-                    Mon–Sat, 8am–8pm CT
                   </p>
                 </div>
               </div>
@@ -136,7 +127,7 @@ export default function Contact() {
                   <a href="mailto:care@emmanuswellness.com">
                     care@emmanuswellness.com
                   </a>{" "}
-                  or call <a href="tel:+18005550123">(800) 555-0123</a>. We
+                  or call <a href="tel:+17733400205">(773) 340-0205</a>. We
                   reply within one business day.
                 </p>
               </div>

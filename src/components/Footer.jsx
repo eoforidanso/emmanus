@@ -71,7 +71,7 @@ export default function Footer() {
           <div>
             <h4>Contact &amp; Hours</h4>
             <ul>
-              <li><a href="tel:+18005550123">(800) 555-0123</a></li>
+              <li><a href="tel:+17733400205">(773) 340-0205</a></li>
               <li><a href="mailto:care@emmanuswellness.com">care@emmanuswellness.com</a></li>
               <li>Mon–Sat, 8am–8pm CT</li>
               <li>
