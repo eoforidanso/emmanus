@@ -24,9 +24,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # postbuild emits a real dist/<route>/index.html per route (so pages
+      # return 200, not the 404 fallback) plus the 404.html catch-all
       - run: npm run build
-      # SPA fallback so client-side routes (/services, /resources, …) load on refresh
-      - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
