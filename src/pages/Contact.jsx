@@ -31,7 +31,9 @@ export default function Contact() {
                 <div>
                   <h4>Phone &amp; text</h4>
                   <p>
-                    <a href="tel:+17733400205">(773) 340-0205</a>
+                    (773) 340-0205 —{" "}
+                    <a href="tel:+17733400205">call</a> or{" "}
+                    <a href="sms:+17733400205">text</a>
                     <br />
                     Mon–Sat, 8am–8pm CT
                     <br />
@@ -127,8 +129,9 @@ export default function Contact() {
                   <a href="mailto:care@emmanuswellness.com">
                     care@emmanuswellness.com
                   </a>{" "}
-                  or call <a href="tel:+17733400205">(773) 340-0205</a>. We
-                  reply within one business day.
+                  or <a href="tel:+17733400205">call</a> /{" "}
+                  <a href="sms:+17733400205">text</a> (773) 340-0205. We reply
+                  within one business day.
                 </p>
               </div>
 

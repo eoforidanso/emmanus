@@ -71,7 +71,10 @@ export default function Footer() {
           <div>
             <h4>Contact &amp; Hours</h4>
             <ul>
-              <li><a href="tel:+17733400205">(773) 340-0205</a></li>
+              <li>
+                (773) 340-0205 — <a href="tel:+17733400205">call</a> or{" "}
+                <a href="sms:+17733400205">text</a>
+              </li>
               <li><a href="mailto:care@emmanuswellness.com">care@emmanuswellness.com</a></li>
               <li>Mon–Sat, 8am–8pm CT</li>
               <li>
