@@ -16,7 +16,11 @@ export default function usePageMeta(title, description) {
       .querySelector('meta[name="description"]')
       ?.setAttribute("content", description || DEFAULT_DESC);
 
-    const canonicalUrl = `${SITE_URL}${pathname === "/" ? "" : pathname}`;
+    // GitHub Pages serves each route as a directory, so /services 301s to
+    // /services/. Canonicalise to the trailing-slash form that actually
+    // returns 200, and keep it matching sitemap.xml.
+    const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
+    const canonicalUrl = `${SITE_URL}${path}`;
     let link = document.querySelector('link[rel="canonical"]');
     if (!link) {
       link = document.createElement("link");
