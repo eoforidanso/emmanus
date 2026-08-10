@@ -314,10 +314,9 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* The source is a 360x452 portrait; centred `cover` crops ~46px off the
-     top and the circular mask then clips the top of the head. Bias the
-     crop upward so the whole head sits inside the circle. */
-  object-position: 50% 15%;
+  /* Source is square (900x900) and the frame is square, so `cover` does
+     not crop — centred is correct. */
+  object-position: center;
 }
 
 .booking-widget__tag {
@@ -1020,7 +1019,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
 }
 
 .provider__role {
