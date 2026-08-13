@@ -4,19 +4,19 @@ import Portrait from "../components/Portrait";
 import usePageMeta from "../usePageMeta";
 
 const APPROACH = [
-  "\"Pills and Skills\" — medication management paired with a therapy referral, because each works better with the other",
+  "“Pills and Skills” — medication management paired with a therapy referral, because each works better with the other",
   "Warm, judgment-free sessions where you set the pace",
   "Evidence-based care: measurement-informed treatment and conservative prescribing",
-  "GeneSight® pharmacogenomic testing where necessary — so if past medications haven't worked, your genetics can help inform the next choice",
+  "GeneSight® pharmacogenomic testing where necessary — so if past medications haven’t worked, your genetics can help inform the next choice",
   "Whole-person focus — sleep, stress, relationships, and lifestyle alongside symptoms",
-  "Clear explanations of every diagnosis and medication decision, so you're always in the loop",
+  "Clear explanations of every diagnosis and medication decision, so you’re always in the loop",
 ];
 
 const EXPECT = [
   "A 60-minute initial evaluation to understand your history and goals",
   "A collaborative treatment plan you help shape",
   "Secure messaging between visits for questions and refills",
-  "Regular check-ins to measure what's working and adjust early",
+  "Regular check-ins to measure what’s working and adjust early",
 ];
 
 export default function Team() {
@@ -55,7 +55,7 @@ export default function Team() {
                     <span aria-hidden="true">{doctor.initials}</span>
                   )}
                 </div>
-                <h3>{doctor.name}</h3>
+                <h2>{doctor.name}</h2>
                 <div className="provider__role">{doctor.role}</div>
                 <div className="provider__tags">
                   {doctor.tags.map((t) => (

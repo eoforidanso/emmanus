@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { IconArrowUp } from "./icons";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -13,11 +14,11 @@ export default function BackToTop() {
 
   return (
     <button
-      className="back-to-top"
+      className="icon-btn back-to-top"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      ↑
+      <IconArrowUp />
     </button>
   );
 }

@@ -10,52 +10,64 @@ import SleepCheck from "../components/SleepCheck";
 import CrisisBanner from "../components/CrisisBanner";
 import { BOOKS } from "../data";
 import usePageMeta from "../usePageMeta";
+import {
+  IconWind,
+  IconTrend,
+  IconReframe,
+  IconMoon,
+  IconPen,
+  IconLifebuoy,
+  IconBook,
+  IconClock,
+  IconLock,
+  IconChart,
+} from "../components/icons";
 
 const TOOL_MENU = [
   {
-    icon: "🌬️",
+    icon: IconWind,
     title: "Breathing & grounding",
     text: "Short, guided practices to settle your body and calm your mind.",
     meta: "Breathing tools",
     href: "#breathing",
   },
   {
-    icon: "📈",
+    icon: IconTrend,
     title: "Mood tracking",
     text: "A lightweight way to notice patterns, triggers, and small wins over time.",
     meta: "Mood tracking",
     href: "#mood",
   },
   {
-    icon: "💭",
+    icon: IconReframe,
     title: "Thought reframing",
     text: "Evidence-based prompts to challenge unhelpful thinking and build healthier narratives.",
     meta: "Thought reframing",
     href: "#reframe",
   },
   {
-    icon: "🌙",
+    icon: IconMoon,
     title: "Sleep check-in",
     text: "Five quick questions about your nights, with practical habits matched to your answers.",
     meta: "Sleep check-in",
     href: "#sleep",
   },
   {
-    icon: "✍️",
+    icon: IconPen,
     title: "Journaling prompts",
     text: "A question to write with — a few minutes a day is one of the best small habits for mood.",
     meta: "Journaling",
     href: "#journal",
   },
   {
-    icon: "🛟",
+    icon: IconLifebuoy,
     title: "Crisis planning",
     text: "A private space to outline your personal safety plan — only for you, never stored.",
     meta: "Crisis planning",
     href: "#safety",
   },
   {
-    icon: "📚",
+    icon: IconBook,
     title: "Recommended reading",
     text: "Clinician-respected books on mood, trauma, ADHD, relationships, grief, and more.",
     meta: "Reading list",
@@ -118,9 +130,15 @@ export default function Resources() {
                   of your emotional temperature.
                 </p>
                 <div className="hero__badges">
-                  <span className="hero__badge">⏱️ Two minutes</span>
-                  <span className="hero__badge">🔒 Never stored</span>
-                  <span className="hero__badge">📊 Research-backed</span>
+                  <span className="hero__badge">
+                    <IconClock /> Two minutes
+                  </span>
+                  <span className="hero__badge">
+                    <IconLock /> Never stored
+                  </span>
+                  <span className="hero__badge">
+                    <IconChart /> Research-backed
+                  </span>
                 </div>
               </div>
               <WellbeingCheck />
@@ -141,7 +159,7 @@ export default function Resources() {
             {TOOL_MENU.map((t, i) => (
               <Reveal key={t.title} delay={(i % 3) * 90}>
                 <a href={t.href} className="card card--link">
-                  <div className="card__icon" aria-hidden="true">{t.icon}</div>
+                  <div className="card__icon"><t.icon /></div>
                   <h3>{t.title}</h3>
                   <p>{t.text}</p>
                   <div className="card__meta">{t.meta}</div>
@@ -150,8 +168,8 @@ export default function Resources() {
             ))}
           </div>
           <Reveal delay={150}>
-            <div className="notice" style={{ marginTop: 32 }} role="note">
-              <span aria-hidden="true">🔒</span>
+            <div className="notice notice--spaced" role="note">
+              <span className="notice__icon"><IconLock /></span>
               <span>
                 <strong>Private by design.</strong> Every tool on this page
                 runs entirely in your browser — no account, no tracking, and
@@ -217,7 +235,7 @@ export default function Resources() {
               <p>
                 A three-step exercise drawn from cognitive behavioral therapy:
                 name the thought, spot the thinking trap, and write a version
-                that's kinder — and truer.
+                that’s kinder — and truer.
               </p>
             </div>
           </Reveal>
@@ -268,7 +286,7 @@ export default function Resources() {
               <h2>A plan you write on a good day, for a hard one</h2>
               <p>
                 Private by design: your plan lives only on this page until you
-                download it, and it's never stored or shared.
+                download it, and it’s never stored or shared.
               </p>
             </div>
           </Reveal>
@@ -285,7 +303,7 @@ export default function Resources() {
               <span className="eyebrow">Recommended reading</span>
               <h2>Books our practice actually recommends</h2>
               <p>
-                A shelf's worth of well-evidenced, genuinely readable books —
+                A shelf’s worth of well-evidenced, genuinely readable books —
                 organized by what you might be navigating. Most are available
                 at your local library.
               </p>
@@ -311,7 +329,7 @@ export default function Resources() {
             <p className="form-note" style={{ marginTop: 24, maxWidth: 640 }}>
               Books are a wonderful supplement to care, not a substitute for
               it. If something you read stirs more than it settles, bring it
-              to a session — that's often where the real work starts.
+              to a session — that’s often where the real work starts.
             </p>
           </Reveal>
         </div>

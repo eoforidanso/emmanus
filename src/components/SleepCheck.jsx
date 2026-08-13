@@ -19,16 +19,16 @@ const OPTIONS = [
 const TIPS = [
   "Anchor your wake time — same time every day, even weekends",
   "Give yourself a wind-down hour: dim lights, no work, no doomscrolling",
-  "Get outside light within an hour of waking — it sets tonight's sleep",
+  "Get outside light within an hour of waking — it sets tonight’s sleep",
   "Keep the bed for sleep only, so your brain links it with rest",
-  "If you can't sleep after ~20 minutes, get up and do something quiet until drowsy",
+  "If you can’t sleep after ~20 minutes, get up and do something quiet until drowsy",
 ];
 
 function interpret(score) {
   if (score >= 12)
     return {
       title: "Your sleep looks solid",
-      text: "Whatever you're doing is working — protect that routine, especially during stressful stretches.",
+      text: "Whatever you’re doing is working — protect that routine, especially during stressful stretches.",
       showTips: false,
       suggestBooking: false,
     };
@@ -40,8 +40,8 @@ function interpret(score) {
       suggestBooking: false,
     };
   return {
-    title: "Your sleep sounds like it's struggling",
-    text: "Poor sleep and mood feed each other, and it's very treatable. These habits help — and if sleep has been hard for more than a few weeks, it's worth bringing to a session:",
+    title: "Your sleep sounds like it’s struggling",
+    text: "Poor sleep and mood feed each other, and it’s very treatable. These habits help — and if sleep has been hard for more than a few weeks, it’s worth bringing to a session:",
     showTips: true,
     suggestBooking: true,
   };

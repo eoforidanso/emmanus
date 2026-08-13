@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BOOKING_URL } from "../data";
+import { IconLeaf, IconClose } from "./icons";
 
 // Versioned: bump when the message changes so it reappears for past dismissers
 const STORAGE_KEY = "ew-announce-dismissed-v2";
@@ -13,11 +14,14 @@ export default function AnnouncementBar() {
 
   return (
     <div className="announce" role="region" aria-label="Announcement">
-      <span>
-        🌿 Next-day appointments often available across Illinois — most
-        insurance accepted.{" "}
+      <span className="announce__text">
+        <span className="announce__mark">
+          <IconLeaf />
+        </span>
+        Next-day appointments often available across Illinois — most insurance
+        accepted.{" "}
         <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
-          Book a session →
+          Book a session
         </a>
       </span>
       <button
@@ -28,7 +32,7 @@ export default function AnnouncementBar() {
           setDismissed(true);
         }}
       >
-        ✕
+        <IconClose />
       </button>
     </div>
   );

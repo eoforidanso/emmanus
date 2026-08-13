@@ -20,6 +20,9 @@
   --ink-soft: #4f5752;
   --white: #ffffff;
   --heading: #0f2f2a;
+  /* Emphasis colour for links and active states. Split from --green-700 so
+     it can flip light in dark mode without dragging fills along with it. */
+  --link-strong: #1b4a42;
   --line: #ddd7c9;
   --nav-bg: rgba(247, 244, 239, 0.82);
   --radius: 8px;
@@ -236,13 +239,39 @@ button {
   text-underline-offset: 3px;
 }
 
+.announce__text {
+  display: inline;
+}
+
+.announce__mark {
+  display: inline-flex;
+  vertical-align: -3px;
+  margin-right: 6px;
+  color: rgba(250, 247, 242, 0.85);
+}
+
+.announce__mark svg {
+  width: 16px;
+  height: 16px;
+}
+
 .announce__close {
   background: none;
   border: none;
-  color: rgba(250, 247, 242, 0.7);
-  font-size: 0.95rem;
-  padding: 2px 6px;
+  color: rgba(250, 247, 242, 0.72);
   flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  /* Negative margin keeps the 44px target without inflating the bar. */
+  margin: -12px -10px -12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.announce__close svg {
+  width: 16px;
+  height: 16px;
 }
 
 .announce__close:hover {
@@ -255,13 +284,7 @@ button {
   bottom: 26px;
   right: 26px;
   z-index: 60;
-  width: 46px;
-  height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--green-100);
-  background: var(--white);
-  color: var(--green-700);
-  font-size: 1.2rem;
   box-shadow: var(--shadow);
   animation: heroIn 0.4s var(--ease) both;
   transition: transform 0.3s var(--ease), background 0.2s ease;
@@ -482,9 +505,12 @@ button {
   right: 0;
 }
 
+/* --link-strong, not --green-700: the forest greens are page-ground colours
+   in dark mode, so using one as text put the current page's own nav link at
+   1.79:1 against the bar. */
 .nav__links a:hover,
 .nav__links a.active {
-  color: var(--green-700);
+  color: var(--link-strong);
 }
 
 .nav__links a.btn--primary,
@@ -492,12 +518,38 @@ button {
   color: #fff;
 }
 
+/* Utility links (join session / patient portal) sit a step quieter than the
+   four primary destinations without dropping below contrast. */
+.nav__utility {
+  font-size: 0.88rem;
+}
+
+.nav__divider {
+  width: 1px;
+  height: 20px;
+  background: var(--line);
+  margin: 0 2px;
+}
+
 .nav__toggle {
   display: none;
-  background: none;
+}
+
+/* Below .nav (z-50), which carries the open sheet, and above everything else. */
+.nav__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
   border: none;
-  font-size: 1.6rem;
-  color: var(--green-900);
+  padding: 0;
+  background: rgba(12, 24, 20, 0.42);
+  animation: fadeIn 0.25s var(--ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__scrim {
+    animation: none;
+  }
 }
 
 /* Hero — deep evergreen editorial */
@@ -564,8 +616,11 @@ button {
   padding-bottom: 100px;
 }
 
+/* The headline is allowed a wider measure than the paragraph beneath it, so
+   it sets in three lines on a laptop instead of four. At four lines the hero
+   ran past 800px tall and pushed the primary CTA under the fold at 1280x720. */
 .hero h1 {
-  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-size: clamp(2.3rem, 4vw, 3.2rem);
   font-weight: 600;
   margin-bottom: 20px;
   color: var(--on-forest);
@@ -756,21 +811,12 @@ button {
 
 
 /* Ornament divider */
+/* A plain rule. The ornament it used to carry (a ◆ glyph) was the only
+   typographic dingbat in the system. */
 .divider {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: var(--gold);
-  font-size: 0.6rem;
-  margin-bottom: 52px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
   height: 1px;
   background: var(--green-100);
+  margin-bottom: 52px;
 }
 
 /* Pillar motif */
@@ -963,10 +1009,12 @@ button {
   margin-bottom: 12px;
 }
 
+/* --line is a hairline colour; at 1.4:1 the step sequence was decoration
+   rather than something you could read. */
 .step__num {
   font-family: var(--font-display);
   font-size: 2.2rem;
-  color: var(--line);
+  color: var(--green-600);
   font-weight: 600;
   line-height: 1;
 }
@@ -1103,42 +1151,38 @@ button {
 }
 
 .carousel__arrow {
-  width: 36px;
-  height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--green-100);
-  background: var(--white);
-  color: var(--heading);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
   flex-shrink: 0;
-  transition: border-color 0.15s ease, transform 0.15s ease;
-}
-
-.carousel__arrow:hover {
-  border-color: var(--gold);
-  transform: translateY(-1px);
 }
 
 .carousel__dots {
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
+/* The dot stays 8px visually; the button around it is a full 44px target,
+   which is what a thumb actually has to hit. */
 .carousel__dot {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel__dot::before {
+  content: "";
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--green-100);
-  padding: 0;
-  border: none;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.carousel__dot.is-active {
+.carousel__dot.is-active::before {
   background: var(--gold);
   transform: scale(1.3);
 }
@@ -1181,7 +1225,7 @@ button {
   border-top: 1px solid var(--green-100);
 }
 
-.route h4 {
+.route h3 {
   font-size: 1.05rem;
   margin-bottom: 6px;
 }
@@ -1197,7 +1241,7 @@ button {
 }
 
 .route a:not(.btn) {
-  color: var(--green-700);
+  color: var(--link-strong);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -1309,8 +1353,21 @@ button {
 
 .crisis__tel:hover,
 .crisis__tel:focus-visible {
-  color: var(--green-700);
+  color: var(--link-strong);
   background: rgba(201, 168, 117, 0.18);
+}
+
+/* The emergency numbers are the targets that matter most on a phone and were
+   the smallest on the page at 30x21. Real padding rather than an overlaid
+   pseudo-element: padding grows the line box too, so 988 and 911 can't end up
+   with overlapping hit areas on consecutive lines — a mis-tap dialling the
+   wrong emergency number is not an acceptable trade for a tidier rhythm. */
+.crisis__tel {
+  display: inline-block;
+  padding: 9px 7px;
+  margin: 0 -5px;
+  min-width: 44px;
+  text-align: center;
 }
 
 /* Page hero */
@@ -1419,7 +1476,7 @@ button {
   flex-shrink: 0;
 }
 
-.contact-info__item h4 {
+.contact-info__item h3 {
   font-size: 1rem;
   margin-bottom: 2px;
 }
@@ -1481,12 +1538,13 @@ button {
   text-underline-offset: 3px;
 }
 
-.footer h4 {
+.footer h2 {
   color: #fff;
   font-size: 1rem;
   margin-bottom: 14px;
   font-family: var(--font-body);
   font-weight: 700;
+  letter-spacing: 0;
 }
 
 .footer ul {
@@ -2088,9 +2146,11 @@ button {
 
 /* Nav collapses to hamburger earlier than other layout breakpoints — the
    full row measures ~1320px including the wider .nav__inner above. */
-@media (max-width: 1320px) {
+/* 1024px, not 1320px: four destinations plus the utility pair now fit, so
+   13" laptops and landscape tablets keep the real nav instead of a hamburger. */
+@media (max-width: 1024px) {
   .nav__toggle {
-    display: block;
+    display: flex;
   }
 
   .nav__links {
@@ -2100,13 +2160,15 @@ button {
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 45;
     background: var(--cream);
     flex-direction: column;
-    padding: 20px 24px 26px;
-    gap: 18px;
+    padding: 12px 24px 26px;
+    gap: 2px;
     border-bottom: 1px solid var(--green-100);
+    box-shadow: var(--shadow-lg);
     display: none;
-    align-items: flex-start;
+    align-items: stretch;
     /* Long menu on a short screen must scroll rather than run off-screen. */
     max-height: calc(100vh - 88px);
     overflow-y: auto;
@@ -2114,6 +2176,54 @@ button {
 
   .nav__links.open {
     display: flex;
+    animation: sheetIn 0.28s var(--ease) both;
+  }
+
+  /* Every row is a full-width 48px target rather than a text link floating
+     in whitespace. */
+  .nav__links li {
+    display: flex;
+  }
+
+  .nav__links a:not(.btn) {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    font-size: 1.05rem;
+  }
+
+  .nav__links a:not(.btn)::after {
+    bottom: 10px;
+  }
+
+  .nav__utility {
+    font-size: 1.05rem;
+  }
+
+  .nav__divider {
+    width: auto;
+    height: 1px;
+    margin: 10px 0;
+  }
+
+  .nav__links .btn {
+    margin-top: 10px;
+    justify-content: center;
+    padding: 15px 26px;
+  }
+}
+
+@keyframes sheetIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav__links.open {
+    animation: none;
   }
 }
 
@@ -2282,6 +2392,7 @@ button {
   --ink-soft: #a4ada6;
   --heading: #e6e0d2;
   --slate: #9aa8c7;
+  --link-strong: #9fd0be;
   --line: #2a3b34;
   --nav-bg: rgba(14, 26, 22, 0.8);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -2314,16 +2425,8 @@ button {
 
 /* Theme toggle */
 .theme-toggle {
-  background: none;
-  border: 1.5px solid var(--green-100);
   border-radius: 999px;
-  width: 38px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: var(--heading);
+  border-color: var(--green-100);
   transition: border-color 0.15s, transform 0.15s;
 }
 
@@ -2474,13 +2577,26 @@ button {
 }
 
 .mood-btn {
-  font-size: 1.5rem;
   width: 56px;
   height: 56px;
   border-radius: 6px;
   border: 1.5px solid var(--line);
   background: var(--cream);
-  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s, border-color 0.15s, background 0.15s,
+    color 0.15s;
+}
+
+.mood-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+.mood-btn.selected {
+  color: var(--link-strong);
 }
 
 .mood-btn:hover,
@@ -2757,4 +2873,405 @@ button {
   color: var(--ink-soft);
   max-width: 440px;
   margin: 0 auto 30px;
+}
+
+/* ===========================================================================
+   Apple-grade pass — icon system, touch targets, and the layout helpers that
+   replaced per-page inline styles.
+   =========================================================================== */
+
+/* --- Icon buttons ---------------------------------------------------------
+   Every icon-only control in the product: nav toggle, theme toggle, carousel
+   arrows, back-to-top, footer socials. 44x44 is the HIG minimum and these
+   were all under it (the hamburger was 23x32). */
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--white);
+  border: 1px solid var(--green-100);
+  border-radius: 8px;
+  color: var(--heading);
+  transition: border-color 0.15s ease, background 0.2s ease,
+    transform 0.3s var(--ease);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-btn:hover {
+  border-color: var(--gold);
+}
+
+.nav__toggle,
+.theme-toggle {
+  background: none;
+}
+
+/* --- Icon sizing by context ---------------------------------------------- */
+.specialty-card__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.specialty-card__icon {
+  color: var(--heading);
+}
+
+.callout-line__icon svg,
+.notice__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.notice__icon {
+  display: flex;
+  flex-shrink: 0;
+  color: var(--green-600);
+  margin-top: 1px;
+}
+
+.notice--crisis .notice__icon {
+  color: var(--gold);
+}
+
+.hero__badge svg {
+  width: 15px;
+  height: 15px;
+  vertical-align: -2px;
+  margin-right: 5px;
+}
+
+.insurers__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  padding-left: 0;
+  color: var(--slate);
+}
+
+/* The set carries no intrinsic width, so an unsized svg collapses to 0x0 —
+   which is exactly what happened to the insurance mark in this row. */
+.insurers__label svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Gold on white is 2.25:1 — under the 3:1 floor for meaningful non-text.
+   The rating is darkened just enough to clear it while staying gold. */
+.quote__stars {
+  display: flex;
+  gap: 3px;
+  color: #a8873f;
+  margin-bottom: 12px;
+}
+
+.quote__stars svg {
+  width: 15px;
+  height: 15px;
+}
+
+[data-theme="dark"] .quote__stars {
+  color: var(--gold);
+}
+
+.footer__social .icon-btn {
+  background: none;
+  border-color: rgba(250, 247, 242, 0.25);
+  border-radius: 50%;
+  color: rgba(250, 247, 242, 0.9);
+}
+
+.footer__social .icon-btn:hover {
+  background: rgba(250, 247, 242, 0.12);
+  border-color: rgba(250, 247, 242, 0.5);
+  transform: translateY(-2px);
+}
+
+/* --- Layout helpers, replacing inline styles ----------------------------- */
+.section--flush {
+  padding-top: 0;
+}
+
+.section-cta {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.section-head--flush {
+  margin-bottom: 0;
+}
+
+.grid-2--centered {
+  align-items: center;
+}
+
+.grid-2--top {
+  align-items: start;
+}
+
+/* Rows that don't divide evenly into the column count used to leave a hole
+   in the last row. Centring the overflow makes 3+2 and 6+5 read as chosen. */
+.grid-flow,
+.specialty-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+}
+
+.grid-flow > * {
+  flex: 1 1 280px;
+}
+
+.specialty-grid {
+  gap: 14px;
+}
+
+.specialty-grid > * {
+  flex: 1 1 160px;
+}
+
+@media (min-width: 901px) {
+  .grid-flow > * {
+    max-width: calc((100% - 52px) / 3);
+  }
+
+  .specialty-grid > * {
+    max-width: calc((100% - 70px) / 6);
+  }
+}
+
+.spotlight__bio {
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+.philosophy__cite {
+  display: block;
+  margin-top: 22px;
+  font-style: normal;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.notice--spaced {
+  margin-top: 28px;
+}
+
+.contact-info__title,
+.form-card__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-info__title {
+  margin-bottom: 22px;
+}
+
+.form-card__lede {
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+}
+
+.contact-info__caveat {
+  font-size: 0.85rem;
+}
+
+.footer__blurb {
+  font-size: 0.9rem;
+  max-width: 300px;
+}
+
+/* Insurer names aren't links; without this they read as four dead ones. */
+.footer__facts li {
+  color: rgba(250, 247, 242, 0.75);
+}
+
+.footer__brand {
+  align-items: center;
+}
+
+/* --- Dark mode gaps ------------------------------------------------------ */
+/* The floating card was pinned to a hardcoded #fff, so in dark mode a white
+   panel sat on a near-black page. */
+[data-theme="dark"] .booking-widget {
+  background: var(--white);
+  border-color: var(--line);
+}
+
+[data-theme="dark"] .booking-widget__photo {
+  border-color: var(--white);
+}
+
+[data-theme="dark"] .booking-widget__close {
+  background: var(--white);
+  color: var(--ink);
+}
+
+[data-theme="dark"] .icon-btn {
+  background: var(--white);
+}
+
+[data-theme="dark"] .nav__toggle,
+[data-theme="dark"] .theme-toggle {
+  background: none;
+  color: var(--heading);
+}
+
+/* --- Floating controls --------------------------------------------------- */
+.booking-widget__close svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* On a phone the booking card is a full-width sheet, so the back-to-top
+   button landed on top of the card's own CTA. */
+@media (max-width: 560px) {
+  body:has(.booking-widget) .back-to-top {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+/* --- Touch target corrections -------------------------------------------
+   WCAG 2.5.8 exempts links inside a sentence, but the numbers someone in
+   distress has to hit, and the footer's navigation lists, are worth the
+   full 44px. Inline links get it from a centred pseudo-element so the
+   sentence's line rhythm is untouched; list links get it from layout. */
+.footer__social .icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.footer__nav a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.footer__nav ul {
+  gap: 0;
+}
+
+/* The other contact links sit in stacked lines about 25px apart. A 44px
+   box on each would overlap its neighbours and steal their taps, which is
+   worse than a small target. They are links within a block of text, which
+   WCAG 2.5.8 exempts, so they get breathing room instead: looser leading
+   lifts each line box to ~32px with nothing overlapping. */
+.contact-info__item p,
+.footer__facts {
+  line-height: 1.9;
+}
+
+.footer__facts li + li {
+  margin-top: 4px;
+}
+
+.route p {
+  line-height: 1.8;
+}
+
+/* Credential labels wrap to two lines at some widths; balancing stops the
+   stats row from ending on a single orphaned word. */
+.stats__label {
+  text-wrap: balance;
+}
+
+/* --- Booking launcher -----------------------------------------------------
+   The collapsed state of the booking prompt. A 60px launcher sits in the page
+   margin instead of a 256px card parked on top of the body copy. */
+.booking-launcher {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  z-index: 55;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  background: var(--green-50);
+  box-shadow: var(--shadow-lg);
+  overflow: visible;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease),
+    box-shadow 0.2s ease;
+}
+
+.booking-launcher.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.booking-launcher:hover {
+  box-shadow: 0 14px 34px rgba(15, 47, 42, 0.22);
+}
+
+.booking-launcher img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Quiet "there's something here" marker — the gold dot, not an animation
+   loop that runs forever in the corner of an anxious reader's screen. */
+.booking-launcher__pulse {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--white);
+}
+
+.booking-widget__mute {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 6px;
+  background: none;
+  border: none;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.booking-widget__mute:hover {
+  color: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-launcher {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .booking-launcher {
+    left: 16px;
+    bottom: 16px;
+  }
 }

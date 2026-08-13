@@ -1,7 +1,9 @@
+import { IconHeart } from "./icons";
+
 export default function CrisisBanner() {
   return (
     <div className="notice notice--crisis" role="note">
-      <span aria-hidden="true">💛</span>
+      <span className="notice__icon"><IconHeart /></span>
       <span>
         <strong>Emmanus Wellness is not an emergency service.</strong> If you
         or someone you know is in crisis, call or text{" "}

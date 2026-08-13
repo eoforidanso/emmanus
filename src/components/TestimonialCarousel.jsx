@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { IconStar, IconArrowLeft, IconArrowRight } from "./icons";
 
 const REDUCE_MOTION =
   typeof window !== "undefined" &&
@@ -34,9 +35,11 @@ export default function TestimonialCarousel({ items }) {
     >
       <blockquote className="quote carousel__quote" aria-live="polite">
         <div className="quote__stars" aria-label="5 out of 5 stars">
-          ★★★★★
+          {Array.from({ length: 5 }, (_, i) => (
+            <IconStar key={i} />
+          ))}
         </div>
-        <p>"{current.quote}"</p>
+        <p>&ldquo;{current.quote}&rdquo;</p>
         <footer>— {current.author}</footer>
       </blockquote>
 
@@ -44,11 +47,11 @@ export default function TestimonialCarousel({ items }) {
         <div className="carousel__controls">
           <button
             type="button"
-            className="carousel__arrow"
+            className="icon-btn carousel__arrow"
             onClick={() => go(-1)}
             aria-label="Previous testimonial"
           >
-            ←
+            <IconArrowLeft />
           </button>
           <div className="carousel__dots">
             {items.map((t, i) => (
@@ -64,11 +67,11 @@ export default function TestimonialCarousel({ items }) {
           </div>
           <button
             type="button"
-            className="carousel__arrow"
+            className="icon-btn carousel__arrow"
             onClick={() => go(1)}
             aria-label="Next testimonial"
           >
-            →
+            <IconArrowRight />
           </button>
         </div>
       )}

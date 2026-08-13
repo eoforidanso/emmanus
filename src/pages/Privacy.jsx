@@ -20,7 +20,7 @@ export default function Privacy() {
           <p>
             Emmanus Wellness takes your privacy seriously — in care and on
             this website. This page explains what this website does and
-            doesn't do with your information.
+            doesn’t do with your information.
           </p>
 
           <h2>What this website collects</h2>
@@ -30,7 +30,7 @@ export default function Privacy() {
             tools on our Resources page (check-ins, thought reframing, safety
             planning) run entirely in your browser — nothing you enter is
             transmitted to us or anyone else. The mood tracker saves entries
-            only to your own device's local storage, which you can clear at
+            only to your own device’s local storage, which you can clear at
             any time. Your theme preference (light/dark) is also stored
             locally on your device.
           </p>

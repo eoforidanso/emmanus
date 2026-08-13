@@ -12,7 +12,7 @@ const TRAPS = [
 
 const REFRAME_HINTS = [
   "What would you say to a friend who had this thought?",
-  "What evidence doesn't fit this thought?",
+  "What evidence doesn’t fit this thought?",
   "Is there a kinder, equally true way to say it?",
 ];
 
@@ -46,8 +46,8 @@ export default function Reframe() {
         <>
           <h3>What thought is weighing on you?</h3>
           <p style={{ color: "var(--ink-soft)", marginBottom: 16 }}>
-            Write it exactly as it sounds in your head — e.g. "I always mess
-            things up."
+            Write it exactly as it sounds in your head — e.g. &ldquo;I always
+            mess things up.&rdquo;
           </p>
           <div className="field">
             <textarea

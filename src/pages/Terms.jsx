@@ -43,14 +43,14 @@ export default function Terms() {
 
           <h2>Use of content</h2>
           <p>
-            You're welcome to share links to this site. Content, branding,
+            You’re welcome to share links to this site. Content, branding,
             and design may not be reproduced for commercial purposes without
             permission.
           </p>
 
           <h2>Limitation of liability</h2>
           <p>
-            Emmanus Wellness provides this website "as is" and is not liable
+            Emmanus Wellness provides this website “as is” and is not liable
             for decisions made based on its informational content. Clinical
             services are governed by the agreements provided at intake.
           </p>

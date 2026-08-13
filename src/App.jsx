@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 
-// Home stays eager — it's the landing page. The rest load on navigation,
+// Home stays eager — it’s the landing page. The rest load on navigation,
 // which keeps the self-care tools on /resources out of the initial bundle.
 const Services = lazy(() => import("./pages/Services"));
 const Team = lazy(() => import("./pages/Team"));
@@ -62,7 +62,7 @@ export default function App() {
       />
       <main id="main">
         <RouteFade>
-          {/* Reserve height so swapping in a lazy page doesn't collapse the
+          {/* Reserve height so swapping in a lazy page doesn’t collapse the
               layout and bounce the footer up on slow connections. */}
           <Suspense fallback={<div style={{ minHeight: "70vh" }} />}>
           <Routes>

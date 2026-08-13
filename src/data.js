@@ -1,4 +1,19 @@
 import drPhoto from "./assets/dr-ofori-danso.jpg";
+import {
+  IconCapsule,
+  IconTeen,
+  IconWaves,
+  IconCloud,
+  IconBolt,
+  IconMoon,
+  IconShieldHeart,
+  IconLoop,
+  IconCandle,
+  IconFlame,
+  IconCradle,
+  IconCompass,
+  IconTarget,
+} from "./components/icons";
 
 // Public new-patient booking page (no sign-in required)
 export const BOOKING_URL = "https://app.clarity-ehr.com/book/emmanus";
@@ -9,14 +24,14 @@ export const VIDEO_URL = "https://doxy.me/emmanus";
 
 export const SERVICES = [
   {
-    icon: "💊",
+    icon: IconCapsule,
     title: "Psychiatry & Medication",
     description:
       "Evaluations and ongoing medication management from a board-certified psychiatric provider, all from home — with GeneSight® genetic testing where necessary to help guide medication choices.",
     detail: "Initial eval 60 min · Follow-ups 20–30 min",
   },
   {
-    icon: "🧒",
+    icon: IconTeen,
     title: "Teen & Adolescent Care",
     description:
       "Age-appropriate support for teens 13–17 navigating school stress, identity, mood, and family dynamics.",
@@ -31,23 +46,23 @@ export const PROVIDERS = [
     role: "NP / Clinical Instructor",
     color: "#3e6b4f",
     photo: drPhoto,
-    bio: "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, providing compassionate, evidence-based psychiatric evaluation and medication management for adults and adolescents — referring for psychotherapy alongside medication when that's the right fit.",
+    bio: "Board-certified psychiatric-mental health nurse practitioner with a Doctor of Nursing Practice from Rush University, providing compassionate, evidence-based psychiatric evaluation and medication management for adults and adolescents — referring for psychotherapy alongside medication when that’s the right fit.",
     tags: ["Psychiatry", "Medication Management", "Anxiety", "Depression", "ADHD"],
   },
 ];
 
 export const CONDITIONS = [
-  { icon: "🌊", label: "Anxiety & Panic" },
-  { icon: "☁️", label: "Depression" },
-  { icon: "⚡", label: "ADHD" },
-  { icon: "🌙", label: "Insomnia & Sleep" },
-  { icon: "🛡️", label: "PTSD & Trauma" },
-  { icon: "🔄", label: "OCD" },
-  { icon: "🕯️", label: "Grief & Loss" },
-  { icon: "🔥", label: "Burnout & Stress" },
-  { icon: "🤱", label: "Postpartum Wellness" },
-  { icon: "🧭", label: "Life Transitions" },
-  { icon: "🎯", label: "Men's Mental Health" },
+  { icon: IconWaves, label: "Anxiety & Panic" },
+  { icon: IconCloud, label: "Depression" },
+  { icon: IconBolt, label: "ADHD" },
+  { icon: IconMoon, label: "Insomnia & Sleep" },
+  { icon: IconShieldHeart, label: "PTSD & Trauma" },
+  { icon: IconLoop, label: "OCD" },
+  { icon: IconCandle, label: "Grief & Loss" },
+  { icon: IconFlame, label: "Burnout & Stress" },
+  { icon: IconCradle, label: "Postpartum Wellness" },
+  { icon: IconCompass, label: "Life Transitions" },
+  { icon: IconTarget, label: "Men’s Mental Health" },
 ];
 
 export const INSURERS = [
@@ -78,12 +93,12 @@ export const STEPS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Emmanuel really helped my mom. He's warm and funny, and he really cares.",
+      "Emmanuel really helped my mom. He’s warm and funny, and he really cares.",
     author: "Family member",
   },
   {
     quote:
-      "Emmanuel's book recommendation, The Road Less Traveled, changed my mind about how I deal with stress and anxiety.",
+      "Emmanuel’s book recommendation, The Road Less Traveled, changed my mind about how I deal with stress and anxiety.",
     author: "Client",
   },
 ];
@@ -111,7 +126,7 @@ export const BOOKS = [
     title: "Self-Compassion",
     author: "Kristin Neff, PhD",
     topic: "Self-criticism",
-    note: "Research-backed case for treating yourself like someone you're responsible for helping.",
+    note: "Research-backed case for treating yourself like someone you’re responsible for helping.",
   },
   {
     title: "Driven to Distraction",
@@ -123,7 +138,7 @@ export const BOOKS = [
     title: "Burnout: The Secret to Unlocking the Stress Cycle",
     author: "Emily Nagoski, PhD & Amelia Nagoski, DMA",
     topic: "Stress · Burnout",
-    note: "Why 'dealing with the stressor' isn't the same as 'dealing with the stress' — and how to complete the cycle.",
+    note: "Why ‘dealing with the stressor’ isn’t the same as ‘dealing with the stress’ — and how to complete the cycle.",
   },
   {
     title: "Hold Me Tight",
@@ -133,27 +148,27 @@ export const BOOKS = [
   },
   {
     title: "The Grieving Brain",
-    author: "Mary-Frances O'Connor, PhD",
+    author: "Mary-Frances O’Connor, PhD",
     topic: "Grief",
-    note: "A neuroscientist's gentle explanation of why grief hurts the way it does — and why healing isn't forgetting.",
+    note: "A neuroscientist’s gentle explanation of why grief hurts the way it does — and why healing isn’t forgetting.",
   },
   {
     title: "Untangled",
     author: "Lisa Damour, PhD",
     topic: "Parenting teens",
-    note: "A clear map of adolescent development for parents of teenage girls; her 'The Emotional Lives of Teenagers' covers all teens.",
+    note: "A clear map of adolescent development for parents of teenage girls; her ‘The Emotional Lives of Teenagers’ covers all teens.",
   },
   {
-    title: "I Don't Want to Talk About It",
+    title: "I Don’t Want to Talk About It",
     author: "Terrence Real",
-    topic: "Men's mental health",
+    topic: "Men’s mental health",
     note: "The landmark book on male depression — why it so often shows up as anger, numbness, or overwork instead of sadness, and how to name it.",
   },
   {
     title: "Maybe You Should Talk to Someone",
     author: "Lori Gottlieb, LMFT",
     topic: "About therapy",
-    note: "A therapist's memoir that doubles as the best answer to 'what is therapy actually like?'",
+    note: "A therapist’s memoir that doubles as the best answer to ‘what is therapy actually like?’",
   },
   {
     title: "Why We Sleep",
@@ -165,14 +180,14 @@ export const BOOKS = [
     title: "Good Morning, Monster",
     author: "Catherine Gildiner, PhD",
     topic: "Hope · Recovery",
-    note: "Five true stories of clients' 'heroic journeys' through therapy — deeply humanizing and hopeful.",
+    note: "Five true stories of clients’ ‘heroic journeys’ through therapy — deeply humanizing and hopeful.",
   },
 ];
 
 export const FAQS = [
   {
-    q: "Do you offer care specifically for men's mental health?",
-    a: "Yes. Men are statistically far less likely to seek mental health care, often because of stigma or not knowing where to start — Dr. Ofori-Danso works with men navigating stress, anger, anxiety, relationship strain, and burnout in a direct, judgment-free way that doesn't require you to have the right words yet.",
+    q: "Do you offer care specifically for men’s mental health?",
+    a: "Yes. Men are statistically far less likely to seek mental health care, often because of stigma or not knowing where to start — Dr. Ofori-Danso works with men navigating stress, anger, anxiety, relationship strain, and burnout in a direct, judgment-free way that doesn’t require you to have the right words yet.",
   },
   {
     q: "Is telehealth therapy as effective as in-person?",
@@ -196,14 +211,14 @@ export const FAQS = [
   },
   {
     q: "Can you prescribe medication?",
-    a: "Yes — Dr. Ofori-Danso can prescribe most medications where clinically appropriate. Controlled substances may require additional evaluation depending on your state's telehealth regulations.",
+    a: "Yes — Dr. Ofori-Danso can prescribe most medications where clinically appropriate. Controlled substances may require additional evaluation depending on your state’s telehealth regulations.",
   },
   {
     q: "What is GeneSight testing?",
-    a: "GeneSight® is a pharmacogenomic test — a simple cheek swab that analyzes how your genes may affect the way you process certain psychiatric medications. Where necessary, especially when past medications haven't worked or caused side effects, Dr. Ofori-Danso uses it to help inform medication decisions. It's one input among many, ordered when it's clinically useful rather than for everyone.",
+    a: "GeneSight® is a pharmacogenomic test — a simple cheek swab that analyzes how your genes may affect the way you process certain psychiatric medications. Where necessary, especially when past medications haven’t worked or caused side effects, Dr. Ofori-Danso uses it to help inform medication decisions. It’s one input among many, ordered when it’s clinically useful rather than for everyone.",
   },
   {
     q: "Do I have to choose between medication and therapy?",
-    a: "No. \"Pills and Skills\" is Dr. Ofori-Danso's guiding philosophy — combining medication and therapy often gives the most durable results, so he'll usually recommend both where it makes sense. But it's not a requirement: your plan is individualized, and plenty of people do well with medication alone, or therapy alone. What's right for you depends on your specific situation, not a fixed formula.",
+    a: "No. “Pills and Skills” is Dr. Ofori-Danso’s guiding philosophy — combining medication and therapy often gives the most durable results, so he’ll usually recommend both where it makes sense. But it’s not a requirement: your plan is individualized, and plenty of people do well with medication alone, or therapy alone. What’s right for you depends on your specific situation, not a fixed formula.",
   },
 ];

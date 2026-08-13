@@ -69,7 +69,7 @@ export default function Grounding() {
 
       {done && (
         <>
-          <h3>Welcome back 🌿</h3>
+          <h3>Welcome back</h3>
           <p style={{ color: "var(--ink-soft)", marginBottom: 22 }}>
             Notice how your body feels compared to two minutes ago. You can
             return to this anytime.

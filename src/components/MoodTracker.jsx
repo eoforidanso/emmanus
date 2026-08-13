@@ -1,11 +1,18 @@
 import { useState } from "react";
+import {
+  IconMoodRough,
+  IconMoodLow,
+  IconMoodOkay,
+  IconMoodGood,
+  IconMoodGreat,
+} from "./icons";
 
 const MOODS = [
-  { emoji: "😞", value: 1, label: "Rough" },
-  { emoji: "😕", value: 2, label: "Low" },
-  { emoji: "😐", value: 3, label: "Okay" },
-  { emoji: "🙂", value: 4, label: "Good" },
-  { emoji: "😄", value: 5, label: "Great" },
+  { Icon: IconMoodRough, value: 1, label: "Rough" },
+  { Icon: IconMoodLow, value: 2, label: "Low" },
+  { Icon: IconMoodOkay, value: 3, label: "Okay" },
+  { Icon: IconMoodGood, value: 4, label: "Good" },
+  { Icon: IconMoodGreat, value: 5, label: "Great" },
 ];
 
 const STORAGE_KEY = "ew-moods";
@@ -53,7 +60,7 @@ export default function MoodTracker() {
       <p style={{ color: "var(--ink-soft)", marginBottom: 18 }}>
         One tap a day is enough to start noticing patterns.
       </p>
-      <div className="mood-row" role="group" aria-label="Select today's mood">
+      <div className="mood-row" role="group" aria-label="Select today’s mood">
         {MOODS.map((m) => (
           <button
             key={m.value}
@@ -62,14 +69,14 @@ export default function MoodTracker() {
             aria-label={m.label}
             title={m.label}
           >
-            {m.emoji}
+            <m.Icon />
           </button>
         ))}
       </div>
 
       {todayMood && (
         <p style={{ marginTop: 14, fontWeight: 600, color: "var(--green-600)" }}>
-          Logged: {MOODS.find((m) => m.value === todayMood).label}. Nice check-in. 🌿
+          Logged: {MOODS.find((m) => m.value === todayMood).label}. Nice check-in.
         </p>
       )}
 

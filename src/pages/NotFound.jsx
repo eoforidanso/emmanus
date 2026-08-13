@@ -6,7 +6,7 @@ export default function NotFound() {
       <span className="eyebrow">404</span>
       <h1>This page took a wellness day</h1>
       <p>
-        The page you're looking for doesn't exist — but everything you need is
+        The page you’re looking for doesn’t exist — but everything you need is
         just a click away.
       </p>
       <Link to="/" className="btn btn--primary">

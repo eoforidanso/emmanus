@@ -23,19 +23,19 @@ function interpret(score) {
   if (score >= 76)
     return {
       title: "Your wellbeing looks strong right now",
-      text: "Keep doing what's working — sleep, movement, connection. Check back in whenever you like.",
+      text: "Keep doing what’s working — sleep, movement, connection. Check back in whenever you like.",
       suggestBooking: false,
     };
   if (score >= 51)
     return {
-      title: "You're doing okay — keep tending to yourself",
-      text: "There's room to feel better. Small consistent habits help, and a few coaching or therapy sessions can too.",
+      title: "You’re doing okay — keep tending to yourself",
+      text: "There’s room to feel better. Small consistent habits help, and a few coaching or therapy sessions can too.",
       suggestBooking: false,
     };
   if (score >= 29)
     return {
-      title: "Your wellbeing looks lower than we'd like",
-      text: "You don't have to wait until things feel unmanageable. Talking with a clinician now can make a real difference.",
+      title: "Your wellbeing looks lower than we’d like",
+      text: "You don’t have to wait until things feel unmanageable. Talking with a clinician now can make a real difference.",
       suggestBooking: true,
     };
   return {
@@ -71,7 +71,7 @@ export default function WellbeingCheck() {
       <div className="finder">
         <h3>Five questions, two minutes</h3>
         <p style={{ color: "var(--ink-soft)", marginBottom: 8 }}>
-          You'll rate five statements about the last two weeks and get a
+          You’ll rate five statements about the last two weeks and get a
           gentle read on where your wellbeing sits today.
         </p>
         <p className="form-note" style={{ marginBottom: 22 }}>
@@ -143,7 +143,7 @@ export default function WellbeingCheck() {
           </button>
           <p className="form-note">
             Based on the WHO-5 Well-Being Index. This is a wellbeing snapshot,
-            not a diagnosis, and your answers never leave this page. If you're
+            not a diagnosis, and your answers never leave this page. If you’re
             in crisis, call or text{" "}
             <a href="tel:988" className="crisis__tel">
               988

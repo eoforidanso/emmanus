@@ -63,7 +63,7 @@ export default function CareFinder() {
           <div className="card__icon" aria-hidden="true">
             {typeof service.icon === "string" ? service.icon : <service.icon />}
           </div>
-          <h3>We'd suggest: {service.title}</h3>
+          <h3>We’d suggest: {service.title}</h3>
           <p style={{ color: "var(--ink-soft)", marginBottom: 8 }}>
             {service.description}
           </p>

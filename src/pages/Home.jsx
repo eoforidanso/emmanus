@@ -26,6 +26,7 @@ import {
   IconFollowUp,
   IconInsurance,
   IconTelehealth,
+  IconTarget,
 } from "../components/icons";
 
 const STEP_ICONS = [IconEvaluation, IconTreatment, IconFollowUp];
@@ -46,7 +47,7 @@ function HeroArt() {
         </radialGradient>
       </defs>
 
-      {/* No background plate — the hero's own gradient shows through, so the
+      {/* No background plate — the hero’s own gradient shows through, so the
           art sits in the page rather than as a rectangle on top of it. */}
       <circle cx="340" cy="258" r="250" fill="url(#haGlow)" />
 
@@ -95,7 +96,7 @@ export default function Home() {
                 Book a Session <span className="btn__arrow" aria-hidden="true">→</span>
               </a>
               <Link to="/team" className="btn btn--ghost">
-                Meet Your Provider
+                Meet your clinician
               </Link>
             </div>
             <div className="hero__micro">
@@ -177,35 +178,24 @@ export default function Home() {
             </Reveal>
           </div>
           <Reveal delay={150}>
-            <div className="insurers" style={{ marginTop: 32 }}>
-              <span
-                style={{
-                  border: "none",
-                  background: "none",
-                  paddingLeft: 0,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                }}
-              >
-                <span style={{ width: 18, height: 18, color: "var(--slate)" }}>
-                  <IconInsurance />
-                </span>
-                Insurance &amp; payment:
+            <div className="insurers">
+              <span className="insurers__label">
+                <IconInsurance />
+                Insurance &amp; payment
               </span>
               {INSURERS.map((name) => (
                 <span key={name}>{name}</span>
               ))}
             </div>
           </Reveal>
-          <div style={{ textAlign: "center", marginTop: 32 }}>
+          <div className="section-cta">
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn--primary"
             >
-              Check Availability <span className="btn__arrow" aria-hidden="true">→</span>
+              Check availability <span className="btn__arrow" aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -234,11 +224,11 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="divider" aria-hidden="true">◆</div>
+          <div className="divider" aria-hidden="true" />
           <Reveal>
             <div className="section-head">
               <span className="eyebrow">Conditions we treat</span>
-              <h2>Whatever you're carrying, you don't have to carry it alone</h2>
+              <h2>Whatever you’re carrying, you don’t have to carry it alone</h2>
               <p>
                 Evidence-based assessment and treatment across the concerns
                 people most often bring to telehealth.
@@ -249,8 +239,8 @@ export default function Home() {
             <div className="specialty-grid">
               {CONDITIONS.map((c) => (
                 <div className="specialty-card" key={c.label}>
-                  <div className="specialty-card__icon" aria-hidden="true">
-                    {c.icon}
+                  <div className="specialty-card__icon">
+                    <c.icon />
                   </div>
                   <span>{c.label}</span>
                 </div>
@@ -260,13 +250,13 @@ export default function Home() {
 
           <Reveal delay={160}>
             <div className="callout-line">
-              <span className="callout-line__icon" aria-hidden="true">🎯</span>
+              <span className="callout-line__icon"><IconTarget /></span>
               <p>
-                <strong>A note for men:</strong> you're statistically far less
+                <strong>A note for men:</strong> you’re statistically far less
                 likely to seek mental health care — often because of stigma,
                 or simply not knowing where to start. Dr. Ofori-Danso works
                 with men on stress, anger, anxiety, relationship strain, and
-                burnout, directly and without judgment. You don't need the
+                burnout, directly and without judgment. You don’t need the
                 right words yet.
               </p>
             </div>
@@ -339,21 +329,20 @@ export default function Home() {
                 <span className="eyebrow">Your clinician</span>
                 <h2>{doctor.name}</h2>
                 <div className="provider__role">{doctor.role}</div>
-                <p style={{ color: "var(--ink-soft)", marginTop: 12 }}>
-                  {doctor.bio}
-                </p>
+                <p className="spotlight__bio">{doctor.bio}</p>
                 <ul className="spotlight__creds">
                   <li>Board-certified psychiatric-mental health NP</li>
                   <li>Doctor of Nursing Practice (DNP), Rush University</li>
                   <li>Teaches weekly at Rush as a clinical instructor</li>
                   <li>
-                    Practices "Pills and Skills" — therapy recommended
+                    Practices &ldquo;Pills and Skills&rdquo; — therapy recommended
                     alongside medication for lasting results
                   </li>
                   <li>Same trusted clinician at every visit — no re-telling your story</li>
                 </ul>
                 <Link to="/team" className="btn btn--ghost">
-                  Meet your provider <span className="btn__arrow" aria-hidden="true">→</span>
+                  Read the full bio{" "}
+                  <span className="btn__arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
@@ -366,15 +355,15 @@ export default function Home() {
           <Reveal>
             <div className="philosophy">
               <span className="eyebrow">Treatment philosophy</span>
-              <p className="philosophy__quote">
-                "Effective psychiatric care requires clarity, collaboration,
-                and compassion. My goal is to help you understand your
-                mind, your options, and your path forward — without ever
-                feeling rushed or unheard."
-              </p>
-              <Link to="/team" className="btn btn--ghost">
-                Learn About the Emmanus Approach
-              </Link>
+              <blockquote className="philosophy__quote">
+                &ldquo;Effective psychiatric care requires clarity,
+                collaboration, and compassion. My goal is to help you
+                understand your mind, your options, and your path forward —
+                without ever feeling rushed or unheard.&rdquo;
+              </blockquote>
+              <cite className="philosophy__cite">
+                Dr. Emmanuel Ofori-Danso, DNP
+              </cite>
             </div>
           </Reveal>
         </div>
@@ -396,9 +385,7 @@ export default function Home() {
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div className="card">
-                  <div className="card__icon" aria-hidden="true">
-                    {typeof s.icon === "string" ? s.icon : <s.icon />}
-                  </div>
+                  <div className="card__icon"><s.icon /></div>
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
                   <div className="card__meta">{s.detail}</div>
@@ -406,9 +393,10 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div style={{ textAlign: "center", marginTop: 36 }}>
+          <div className="section-cta">
             <Link to="/services" className="btn btn--ghost">
-              Learn more about our services
+              Explore all services{" "}
+              <span className="btn__arrow" aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
@@ -440,9 +428,10 @@ export default function Home() {
             })}
           </div>
           <Reveal delay={120}>
-            <div style={{ textAlign: "center", marginTop: 36 }}>
+            <div className="section-cta">
               <Link to="/how-booking-works" className="btn btn--ghost">
-                See exactly how booking works <span className="btn__arrow" aria-hidden="true">→</span>
+                See exactly how booking works{" "}
+                <span className="btn__arrow" aria-hidden="true">→</span>
               </Link>
             </div>
           </Reveal>
@@ -451,18 +440,19 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="grid-2" style={{ alignItems: "center" }}>
+          <div className="grid-2 grid-2--centered">
             <Reveal>
-              <div className="section-head" style={{ marginBottom: 0 }}>
+              <div className="section-head section-head--flush">
                 <span className="eyebrow">Take a breath</span>
                 <h2>Feeling overwhelmed right now?</h2>
                 <p>
                   Box breathing is a simple technique used to settle the
                   nervous system: breathe in for 4, hold for 4, out for 4,
-                  hold for 4. Try a round while you're here.
+                  hold for 4. Try a round while you’re here.
                 </p>
-                <Link to="/resources" className="btn btn--ghost" style={{ marginTop: 8 }}>
-                  More free tools → Resources
+                <Link to="/resources" className="btn btn--ghost">
+                  Explore all free tools{" "}
+                  <span className="btn__arrow" aria-hidden="true">→</span>
                 </Link>
               </div>
             </Reveal>
@@ -473,7 +463,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section section--flush">
         <div className="container">
           <Reveal>
             <div className="section-head">
@@ -487,7 +477,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section section--flush">
         <div className="container">
           <Reveal>
             <div className="cta">
@@ -506,7 +496,7 @@ export default function Home() {
               </a>
             </div>
           </Reveal>
-          <div style={{ marginTop: 28 }}>
+          <div className="notice--spaced">
             <CrisisBanner />
           </div>
         </div>

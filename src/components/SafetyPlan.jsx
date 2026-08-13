@@ -20,7 +20,7 @@ const SECTIONS = [
   {
     key: "support",
     title: "4. People I can ask for help",
-    hint: "Names and numbers of people I trust enough to tell how I'm feeling",
+    hint: "Names and numbers of people I trust enough to tell how I’m feeling",
   },
   {
     key: "professionals",
@@ -34,7 +34,7 @@ const SECTIONS = [
   },
   {
     key: "reasons",
-    title: "7. What's worth staying for",
+    title: "7. What’s worth staying for",
     hint: "People, plans, small joys — in your own words",
   },
 ];
@@ -71,10 +71,10 @@ export default function SafetyPlan() {
   return (
     <div className="finder" style={{ maxWidth: 820 }}>
       <p style={{ color: "var(--ink-soft)", marginBottom: 22 }}>
-        A safety plan is something you write when you're steady, so it's
+        A safety plan is something you write when you’re steady, so it’s
         ready if a hard moment comes. Fill in whatever feels right — every
         field is optional, and nothing is stored or sent anywhere. When
-        you're done, download a copy to keep somewhere you can find it.
+        you’re done, download a copy to keep somewhere you can find it.
       </p>
       <div className="form-grid" style={{ gridTemplateColumns: "1fr" }}>
         {SECTIONS.map((s) => (
@@ -105,7 +105,7 @@ export default function SafetyPlan() {
       </div>
       <p className="form-note">
         Your plan exists only on this page until you download it — it is
-        never saved to any server. If you're in crisis right now, don't
+        never saved to any server. If you’re in crisis right now, don’t
         plan; call or text{" "}
         <a href="tel:988" className="crisis__tel">
           <strong>988</strong>

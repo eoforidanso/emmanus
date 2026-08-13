@@ -36,13 +36,17 @@ export default function Services() {
 
       <section className="section">
         <div className="container">
+          <Reveal>
+            <div className="section-head">
+              <span className="eyebrow">What we offer</span>
+              <h2>Two ways we work with you</h2>
+            </div>
+          </Reveal>
           <div className="grid-2">
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={(i % 3) * 90}>
                 <div className="card">
-                  <div className="card__icon" aria-hidden="true">
-                    {typeof s.icon === "string" ? s.icon : <s.icon />}
-                  </div>
+                  <div className="card__icon"><s.icon /></div>
                   <h3>{s.title}</h3>
                   <p>{s.description}</p>
                   <div className="card__meta">{s.detail}</div>
@@ -60,7 +64,7 @@ export default function Services() {
               <span className="eyebrow">Not sure where to start?</span>
               <h2>Find the right care in 30 seconds</h2>
               <p>
-                Answer two quick questions and we'll point you to the service
+                Answer two quick questions and we’ll point you to the service
                 that fits best. Nothing is stored or shared.
               </p>
             </div>
@@ -98,7 +102,7 @@ export default function Services() {
             <div className="cta">
               <h2>Not sure which service fits?</h2>
               <p>
-                Book a free 15-minute consultation and we'll help you find the
+                Book a free 15-minute consultation and we’ll help you find the
                 right starting point.
               </p>
               <a

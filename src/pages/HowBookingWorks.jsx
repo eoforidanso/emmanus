@@ -2,22 +2,27 @@ import { BOOKING_URL } from "../data";
 import Reveal from "../components/Reveal";
 import CrisisBanner from "../components/CrisisBanner";
 import usePageMeta from "../usePageMeta";
+import {
+  IconCalendar,
+  IconUser,
+  IconTelehealth,
+} from "../components/icons";
 
 const STEPS = [
   {
-    icon: "📅",
+    icon: IconCalendar,
     title: "Pick a time that works",
     text: "No account needed to look — see real-time availability, including evenings, with next-day appointments often open. Choose a free 15-minute consultation or a full first visit.",
   },
   {
-    icon: "👤",
+    icon: IconUser,
     title: "Confirm with a few details",
     text: "Name, date of birth, email, and phone — about 30 seconds. That confirms your time and sets up your secure patient portal in one step.",
   },
   {
-    icon: "💻",
+    icon: IconTelehealth,
     title: "Meet Dr. Ofori-Danso on video",
-    text: "You'll get a secure link by email. Join from a quiet, private spot on your phone or computer — no downloads or office visits.",
+    text: "You’ll get a secure link by email. Join from a quiet, private spot on your phone or computer — no downloads or office visits.",
   },
 ];
 
@@ -41,7 +46,7 @@ export default function HowBookingWorks() {
           <span className="eyebrow">How Booking Works</span>
           <h1>Three steps, and the first one takes 30 seconds</h1>
           <p>
-            Not sure what happens after you click "Book a Session"? Here's
+            Not sure what happens after you click “Book a Session”? Here’s
             the whole process, start to finish — no surprises.
           </p>
         </div>
@@ -49,12 +54,18 @@ export default function HowBookingWorks() {
 
       <section className="section">
         <div className="container">
+          <Reveal>
+            <div className="section-head">
+              <span className="eyebrow">Step by step</span>
+              <h2>What booking actually looks like</h2>
+            </div>
+          </Reveal>
           <div className="steps">
             {STEPS.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div className="step">
                   <div className="step__num">0{i + 1}</div>
-                  <div className="card__icon" aria-hidden="true">{s.icon}</div>
+                  <div className="card__icon"><s.icon /></div>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
                 </div>
@@ -62,7 +73,7 @@ export default function HowBookingWorks() {
             ))}
           </div>
           <Reveal delay={150}>
-            <div style={{ textAlign: "center", marginTop: 40 }}>
+            <div className="section-cta">
               <a
                 href={BOOKING_URL}
                 target="_blank"
@@ -102,9 +113,9 @@ export default function HowBookingWorks() {
                   Your first appointment is a 60-minute evaluation. Dr.
                   Ofori-Danso will ask about what brings you in, your history,
                   sleep, stress, and goals — at your pace, with no judgment.
-                  You'll leave with a plan you helped shape: medication
-                  management, a referral for therapy, both together ("Pills
-                  and Skills"), or simply a next check-in.
+                  You’ll leave with a plan you helped shape: medication
+                  management, a referral for therapy, both together
+                  (&ldquo;Pills and Skills&rdquo;), or simply a next check-in.
                 </p>
                 <p style={{ color: "var(--ink-soft)", marginTop: 12 }}>
                   Cost questions? Most major insurance is accepted, and
@@ -114,7 +125,7 @@ export default function HowBookingWorks() {
               </div>
             </Reveal>
           </div>
-          <div style={{ marginTop: 36 }}>
+          <div className="notice--spaced">
             <CrisisBanner />
           </div>
         </div>
