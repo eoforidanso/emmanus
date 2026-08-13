@@ -53,6 +53,10 @@
   --glass-bg: rgba(250, 248, 244, 0.86);
   --glass-border: rgba(255, 255, 255, 0.6);
   --glass-blur: blur(24px) saturate(180%);
+
+  /* The brand leaf as a mask, for list bullets that can't hold an SVG element.
+     Matches IconLeaf in src/components/icons.jsx. */
+  --leaf-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 4.2c0 9-5.2 13.2-10 13.2a5.4 5.4 0 0 1-5.4-5.4C4.6 7.6 10.4 4.2 20 4.2z'/%3E%3Cpath d='M12.4 11.8c-2.6 1.7-4.4 4.4-5.2 8'/%3E%3C/svg%3E");
   --font-display: "Spectral", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -2092,9 +2096,18 @@ button {
   color: var(--ink-soft);
 }
 
+/* A drawn leaf, not the 🌿 emoji. Pseudo-element content is invisible to a
+   DOM text scan, which is how this one survived the emoji sweep. */
 .profile__list li::before {
-  content: "🌿";
+  content: "";
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  background: currentColor;
+  color: var(--green-600);
+  -webkit-mask: var(--leaf-mask) center / contain no-repeat;
+  mask: var(--leaf-mask) center / contain no-repeat;
 }
 
 /* Insurance strip */
