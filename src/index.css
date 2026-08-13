@@ -24,12 +24,35 @@
      it can flip light in dark mode without dragging fills along with it. */
   --link-strong: #1b4a42;
   --line: #ddd7c9;
-  --nav-bg: rgba(247, 244, 239, 0.82);
-  --radius: 8px;
+  /* 0.84, not 0.72. Measured against the forest footer scrolling under the
+     bar, 0.72 composited to rgb(178,199,191) and dropped the nav links to
+     4.19:1. Blur and saturation carry the glass; alpha carries the contrast. */
+  --nav-bg: rgba(247, 244, 239, 0.84);
+  --radius: 16px; /* cards, panels, notices */
+  --radius-sm: 12px; /* buttons, icon chips, tags, small controls */
+  --radius-lg: 22px; /* floating glass panels */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow-sm: 0 1px 2px rgba(15, 47, 42, 0.04);
-  --shadow: 0 6px 20px rgba(15, 47, 42, 0.06);
-  --shadow-lg: 0 10px 30px rgba(15, 47, 42, 0.09);
+
+  /* Depth is two shadows, never one: a tight contact shadow that anchors the
+     element plus a soft ambient one that gives it height. A single blur reads
+     flat no matter how large you make it. */
+  --shadow-sm: 0 1px 2px rgba(15, 47, 42, 0.05), 0 1px 1px rgba(15, 47, 42, 0.03);
+  --shadow: 0 2px 4px rgba(15, 47, 42, 0.04), 0 8px 24px rgba(15, 47, 42, 0.07);
+  --shadow-lg: 0 4px 8px rgba(15, 47, 42, 0.05), 0 18px 40px rgba(15, 47, 42, 0.12);
+  --shadow-float: 0 2px 6px rgba(15, 47, 42, 0.06), 0 20px 48px rgba(15, 47, 42, 0.16);
+
+  /* The lit top edge. This is what actually sells a raised surface — without
+     it a shadow just looks like a drop shadow, with it the panel has a rim. */
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  --edge-light-strong: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  /* Glass, for surfaces that float over content and need to admit what's
+     behind them. Body copy never sits directly on one of these. */
+  /* The mobile nav sheet is the worst case for this token: it drops over the
+     dark hero, and at 0.72 its links measured 4.1:1. */
+  --glass-bg: rgba(250, 248, 244, 0.86);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(24px) saturate(180%);
   --font-display: "Spectral", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -72,7 +95,7 @@ body {
 :focus-visible {
   outline: 2.5px solid var(--gold);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 10px;
   transition: outline-offset 0.15s var(--ease);
 }
 
@@ -172,7 +195,7 @@ button {
   align-items: center;
   gap: 8px;
   padding: 13px 26px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.01em;
@@ -220,7 +243,12 @@ button {
 
 /* Announcement bar */
 .announce {
-  background: var(--green-900);
+  position: relative;
+  z-index: 51;
+  background: rgba(15, 47, 42, 0.82);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.08);
   color: #faf7f2;
   font-size: 0.85rem;
   font-weight: 500;
@@ -285,7 +313,11 @@ button {
   right: 26px;
   z-index: 60;
   border-radius: 50%;
-  box-shadow: var(--shadow);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-color: var(--glass-border);
+  box-shadow: var(--edge-light-strong), var(--shadow-float);
   animation: heroIn 0.4s var(--ease) both;
   transition: transform 0.3s var(--ease), background 0.2s ease;
 }
@@ -303,10 +335,12 @@ button {
   z-index: 55;
   width: 256px;
   max-width: calc(100vw - 44px);
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--edge-light-strong), var(--shadow-float);
   padding: 26px 16px 16px;
   opacity: 0;
   transform: translateY(16px);
@@ -348,7 +382,7 @@ button {
   margin: 0 0 11px 68px;
   padding: 3px 8px;
   border: 1px solid var(--green-100);
-  border-radius: 4px;
+  border-radius: 8px;
   background: var(--green-50);
   /* --green-600 is remapped for dark mode; --green-700 is not, and would
      leave this dark-on-dark. */
@@ -369,8 +403,10 @@ button {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  background: var(--white);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
   color: var(--ink);
   font-size: 0.72rem;
   line-height: 1;
@@ -431,9 +467,19 @@ button {
   top: 0;
   z-index: 50;
   background: var(--nav-bg);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--green-100);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--edge-light), 0 1px 0 rgba(15, 47, 42, 0.06),
+    0 8px 24px rgba(15, 47, 42, 0.05);
+}
+
+/* Backdrop blur is the whole effect here; without support the bar has to fall
+   back to an opaque ground or the links sit on live page content. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav {
+    background: var(--cream);
+  }
 }
 
 /* The nav opts out of the 1120px page container. Brand + seven links + the
@@ -542,7 +588,9 @@ button {
   z-index: 45;
   border: none;
   padding: 0;
-  background: rgba(12, 24, 20, 0.42);
+  background: rgba(12, 24, 20, 0.34);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   animation: fadeIn 0.25s var(--ease) both;
 }
 
@@ -748,7 +796,7 @@ button {
   gap: 9px;
   background: rgba(201, 168, 117, 0.08);
   border: 1px solid rgba(201, 168, 117, 0.4);
-  border-radius: 4px;
+  border-radius: 999px;
   padding: 8px 16px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -848,7 +896,7 @@ button {
   font-size: 1.25rem;
   margin: 0;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
 }
 
 .card--mini h3 {
@@ -935,7 +983,7 @@ button {
 .card__icon {
   width: 48px;
   height: 48px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   background: var(--cream);
   border: 1px solid var(--line);
   color: var(--heading);
@@ -1041,7 +1089,7 @@ button {
 .provider__avatar {
   width: 96px;
   height: 96px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   box-shadow: 0 0 0 3px var(--white), 0 0 0 4.5px rgba(201, 168, 117, 0.4), var(--shadow-sm);
   margin: 0 auto 18px;
   display: flex;
@@ -1092,7 +1140,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 4px 10px;
-  border-radius: 3px;
+  border-radius: 8px;
   background: var(--cream);
   color: var(--slate);
   border: 1px solid var(--line);
@@ -1347,7 +1395,7 @@ button {
   text-underline-offset: 3px;
   text-decoration-thickness: 1.5px;
   padding: 2px 1px;
-  border-radius: 3px;
+  border-radius: 10px;
   transition: color 0.15s ease, background 0.15s ease;
 }
 
@@ -1392,7 +1440,7 @@ button {
 .faq-item {
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   margin-bottom: 12px;
   overflow: hidden;
 }
@@ -1664,7 +1712,7 @@ button {
 .specialty-card__icon {
   width: 48px;
   height: 48px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   background: var(--cream);
   border: 1px solid var(--line);
   display: flex;
@@ -1683,7 +1731,7 @@ button {
   background: var(--white);
   border-left: 3px solid var(--gold);
   box-shadow: var(--shadow-sm);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
 .callout-line__icon {
@@ -1731,7 +1779,7 @@ button {
   align-items: center;
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 22px;
+  border-radius: var(--radius-lg);
   padding: 48px;
   box-shadow: var(--shadow);
 }
@@ -1740,7 +1788,7 @@ button {
   width: 100%;
   max-width: 300px;
   aspect-ratio: 4 / 5;
-  border-radius: 16px;
+  border-radius: var(--radius);
   box-shadow: 0 0 0 6px var(--white), 0 0 0 8px rgba(201, 168, 117, 0.4), var(--shadow);
   background: linear-gradient(150deg, var(--green-600), var(--green-900));
   display: flex;
@@ -1873,7 +1921,7 @@ button {
 .finder {
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   padding: 44px;
   box-shadow: var(--shadow);
   max-width: 720px;
@@ -1910,7 +1958,7 @@ button {
   text-align: left;
   padding: 16px 20px;
   border: 1.5px solid var(--green-100);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   background: var(--cream);
   font-size: 0.98rem;
   font-weight: 500;
@@ -2038,7 +2086,7 @@ button {
   align-items: flex-start;
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 14px 18px;
   font-size: 0.94rem;
   color: var(--ink-soft);
@@ -2063,7 +2111,7 @@ button {
   color: var(--ink-soft);
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 8px 16px;
 }
 
@@ -2161,12 +2209,15 @@ button {
     left: 0;
     right: 0;
     z-index: 45;
-    background: var(--cream);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
     flex-direction: column;
     padding: 12px 24px 26px;
     gap: 2px;
-    border-bottom: 1px solid var(--green-100);
-    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: var(--edge-light), var(--shadow-float);
     display: none;
     align-items: stretch;
     /* Long menu on a short screen must scroll rather than run off-screen. */
@@ -2394,10 +2445,19 @@ button {
   --slate: #9aa8c7;
   --link-strong: #9fd0be;
   --line: #2a3b34;
-  --nav-bg: rgba(14, 26, 22, 0.8);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
-  --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --nav-bg: rgba(14, 26, 22, 0.72);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2);
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3), 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-float: 0 2px 6px rgba(0, 0, 0, 0.35), 0 20px 48px rgba(0, 0, 0, 0.55);
+
+  /* A bright white rim would look like a seam on a dark ground — the lit edge
+     drops to a hint. */
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --edge-light-strong: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+  --glass-bg: rgba(22, 38, 32, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.12);
 }
 
 [data-theme="dark"] .notice {
@@ -2482,7 +2542,7 @@ button {
 .scorebar {
   height: 10px;
   background: var(--green-100);
-  border-radius: 6px;
+  border-radius: 999px;
   overflow: hidden;
   margin: 18px 0 10px;
 }
@@ -2491,7 +2551,7 @@ button {
   display: block;
   height: 100%;
   background: var(--green-600);
-  border-radius: 6px;
+  border-radius: 999px;
   transition: width 0.8s ease;
 }
 
@@ -2535,7 +2595,7 @@ button {
 .state-result {
   margin-top: 12px;
   padding: 14px 18px;
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   font-size: 0.92rem;
   border: 1px solid var(--green-100);
 }
@@ -2579,7 +2639,7 @@ button {
 .mood-btn {
   width: 56px;
   height: 56px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   border: 1.5px solid var(--line);
   background: var(--cream);
   color: var(--ink-soft);
@@ -2638,7 +2698,7 @@ button {
   font-size: 0.82rem;
   font-weight: 600;
   padding: 8px 14px;
-  border-radius: 4px;
+  border-radius: 10px;
   background: var(--green-50);
   color: var(--green-700);
   border: 1.5px solid var(--green-100);
@@ -2665,7 +2725,7 @@ button {
 }
 
 .reframe-compare blockquote {
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   padding: 18px;
   font-size: 0.95rem;
   border: 1px solid var(--green-100);
@@ -2894,7 +2954,7 @@ button {
   padding: 0;
   background: var(--white);
   border: 1px solid var(--green-100);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   color: var(--heading);
   transition: border-color 0.15s ease, background 0.2s ease,
     transform 0.3s var(--ease);
@@ -3207,9 +3267,11 @@ button {
   height: 60px;
   padding: 0;
   border-radius: 50%;
-  border: 2px solid var(--white);
-  background: var(--green-50);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--edge-light-strong), var(--shadow-float);
   overflow: visible;
   opacity: 0;
   transform: translateY(12px);
@@ -3231,6 +3293,8 @@ button {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  /* Inset a hair so the glass rim stays visible around the portrait. */
+  transform: scale(0.93);
 }
 
 /* Quiet "there's something here" marker — the gold dot, not an animation
@@ -3273,5 +3337,100 @@ button {
   .booking-launcher {
     left: 16px;
     bottom: 16px;
+  }
+}
+
+/* ===========================================================================
+   Depth. Solid surfaces stay solid — only the floating ones are glass — but
+   everything that sits above the page ground now reads as raised: a lit top
+   edge, a contact shadow, and an ambient one.
+   =========================================================================== */
+
+.card,
+.finder,
+.form-card,
+.specialty-card,
+.provider,
+.quote {
+  box-shadow: var(--edge-light), var(--shadow-sm);
+}
+
+.card:hover,
+.specialty-card:hover {
+  box-shadow: var(--edge-light), var(--shadow);
+}
+
+.card--link:hover {
+  transform: translateY(-3px);
+}
+
+/* Buttons get the same rim. On a filled button the highlight is what stops it
+   reading as a flat rectangle of colour. */
+.btn--primary,
+.btn--light {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), var(--shadow-sm);
+}
+
+.btn--primary:hover,
+.btn--light:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), var(--shadow);
+}
+
+.btn--primary:active,
+.btn--light:active,
+.btn--ghost:active {
+  box-shadow: inset 0 1px 3px rgba(15, 47, 42, 0.18);
+}
+
+.hero .btn--primary {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.14), 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.hero .btn--primary:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 4px 8px rgba(0, 0, 0, 0.16), 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Icon chips read as pressed into the card rather than sitting on it — the
+   inverse rim, so they don't compete with the card's own edge. */
+.card__icon,
+.specialty-card__icon {
+  box-shadow: inset 0 1px 2px rgba(15, 47, 42, 0.05),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.6);
+}
+
+[data-theme="dark"] .card__icon,
+[data-theme="dark"] .specialty-card__icon {
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* The tinted bands are the ground these panels sit on; a soft inner shade at
+   the seams keeps the layers distinct now that edges are rounder. */
+.section--tint {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .section--tint {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.stats,
+.cta,
+.feature-panel {
+  box-shadow: var(--edge-light), var(--shadow);
+}
+
+.cta,
+.feature-panel {
+  border-radius: var(--radius-lg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card--link:hover {
+    transform: none;
   }
 }

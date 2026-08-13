@@ -8,9 +8,9 @@ overrides). Change tokens there — never hardcode values in components.
 
 **Premium clinical**: precise · calm · evidence-based · human warmth without
 cartoon friendliness. Not marketplace-telehealth. Every choice below serves
-an anxious first-time visitor while signaling medical expertise: rectangular
-components, hairline borders, minimal shadows, generous space, slow gentle
-motion, warm plain language.
+an anxious first-time visitor while signaling medical expertise: softly
+rounded components, hairline borders, layered depth, generous space, slow
+gentle motion, warm plain language.
 
 ## Color palette
 
@@ -92,8 +92,8 @@ concept needs a mark and the set does not have one, add it to `icons.jsx` in
 the same idiom. The only fills in the set are the rating star and the social
 brand marks, which are conventionally solid.
 
-Icons sit in square bordered chips (`.card__icon`: 48px, ivory background, 1px
-`--line` border, radius 6px) at 22px, or inline at 15–20px. The set has no
+Icons sit in rounded bordered chips (`.card__icon`: 48px, ivory background,
+1px `--line` border, `--radius-sm`) at 22px, or inline at 15–20px. The set has no
 intrinsic size — an unsized `<svg>` collapses to 0×0, so every context needs a
 width/height rule.
 
@@ -101,10 +101,47 @@ Illustration is abstract geometric (see hero note above). The provider
 portrait is the only photograph; it ships at 620px, twice its largest display
 size, and is reused at every scale so the page pays for one download.
 
+## Glass & depth
+
+**Three radii, no loose values.** `--radius-sm` (12px) for buttons, icon
+chips, tags and small controls; `--radius` (16px) for cards, notices and
+panels; `--radius-lg` (22px) for floating glass and the largest feature
+surfaces. Circles stay circles.
+
+**Depth is always two shadows.** A tight contact shadow anchors the element,
+a soft ambient one gives it height — `--shadow-sm` / `--shadow` /
+`--shadow-lg`, plus `--shadow-float` for anything fixed. One blur, however
+large, reads flat.
+
+**Every raised surface carries a lit top edge** (`--edge-light`). That inner
+highlight is what makes a panel read as an object rather than a drop shadow.
+It drops to a hint in dark mode, where a bright rim would look like a seam.
+Icon chips take the inverse — pressed into the card, not sitting on it — so
+they don't compete with the card's own edge.
+
+**Glass is only for surfaces that float over content**: the nav bar,
+announcement bar, mobile nav sheet, booking launcher and card, and
+back-to-top. Body cards and page panels stay solid. Use `--glass-bg`,
+`--glass-border` and `--glass-blur` together; a translucent fill without the
+blur is just a weak colour.
+
+**Glass contrast cannot be read from computed styles.** The effective
+background is whatever `backdrop-filter` composited from the page behind it,
+so it has to be measured from real pixels with the worst-case backdrop
+underneath — on this site, the forest hero, stats band and footer. Both
+failures found that way came from alpha being too low, not from the blur:
+the nav at 0.72 gave 4.19:1 and the mobile sheet at 0.72 gave 4.1:1. **Blur
+and saturation carry the glass look; alpha carries the contrast.** Light-mode
+values are tuned to the floor: `--nav-bg` 0.84, `--glass-bg` 0.86.
+
+Provide an opaque fallback wherever `backdrop-filter` is unsupported, or the
+links end up sitting on live page content.
+
 ## Card system
 
-`.card`: white surface, 1px `--line` border, radius `--radius` (8px),
-`--shadow-sm` at rest → hover lifts −2px with a gold border (0.4s `--ease`).
+`.card`: white surface, 1px `--line` border, radius `--radius` (16px),
+`--edge-light` + `--shadow-sm` at rest → hover lifts −2px onto `--shadow`
+with a gold border (0.4s `--ease`).
 Variants: `.card--mini` (horizontal icon + text), `.card--link` (whole card
 clickable, icon tilts on hover, meta gains →), `.provider`, `.quote`,
 `.finder` (interactive tools), `.prompt-card`.
@@ -114,8 +151,9 @@ Rows that don't divide evenly into the column count (`.grid-flow`,
 
 ## CTA system
 
-- **Primary** (`.btn--primary`): filled `--green-900`, cream text, 4px radius,
-  hover lifts −1px onto a gold border. **One per section.** Booking CTAs
+- **Primary** (`.btn--primary`): filled `--green-900`, cream text,
+  `--radius-sm`, an inner top highlight so the fill isn't a flat rectangle of
+  colour, hover lifts −1px onto a gold border. **One per section.** Booking CTAs
   always link to the Clarity patient portal and may carry `.btn__arrow`
   (→ slides 4px on hover).
 - **Secondary** (`.btn--ghost`): outlined ink, gold border on hover.
