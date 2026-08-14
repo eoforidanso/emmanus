@@ -28,9 +28,9 @@
      bar, 0.72 composited to rgb(178,199,191) and dropped the nav links to
      4.19:1. Blur and saturation carry the glass; alpha carries the contrast. */
   --nav-bg: rgba(247, 244, 239, 0.84);
-  --radius: 16px; /* cards, panels, notices */
+  --radius: 24px; /* cards, panels, notices */
   --radius-sm: 12px; /* buttons, icon chips, tags, small controls */
-  --radius-lg: 22px; /* floating glass panels */
+  --radius-lg: 30px; /* floating glass panels */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Depth is two shadows, never one: a tight contact shadow that anchors the
