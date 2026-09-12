@@ -78,13 +78,13 @@ export default function Home() {
         <div className="container hero__inner">
           <div className="hero__copy">
             <h1>
-              Precision-driven psychiatric care,{" "}
-              <em>delivered with compassion.</em>
+              Medication is half the work.{" "}
+              <em>Skills are the other half.</em>
             </h1>
             <p>
-              Evidence-based psychiatric evaluation and medication
-              management for adults and adolescents, grounded in clarity,
-              consistency, and clinical excellence.
+              Psychiatric evaluation and medication management for adults and
+              adolescents across Illinois — paired with the right therapy
+              referral, and the same clinician at every visit.
             </p>
             <div className="hero__actions">
               <a
@@ -356,10 +356,10 @@ export default function Home() {
             <div className="philosophy">
               <span className="eyebrow">Treatment philosophy</span>
               <blockquote className="philosophy__quote">
-                &ldquo;Effective psychiatric care requires clarity,
-                collaboration, and compassion. My goal is to help you
-                understand your mind, your options, and your path forward —
-                without ever feeling rushed or unheard.&rdquo;
+                &ldquo;I teach at Rush one day a week. It keeps me honest — I
+                practice the way I&rsquo;d want my students to practice:
+                current evidence, explained in plain language, and never in a
+                hurry.&rdquo;
               </blockquote>
               <cite className="philosophy__cite">
                 Dr. Emmanuel Ofori-Danso, DNP
@@ -376,8 +376,9 @@ export default function Home() {
               <span className="eyebrow">What we offer</span>
               <h2>Care for every season of life</h2>
               <p>
-                From weekly therapy to medication management, every service is
-                delivered over secure video.
+                Psychiatric evaluation, medication management, and care for
+                teens — all over secure video, with a therapy referral when
+                it will help.
               </p>
             </div>
           </Reveal>
@@ -483,8 +484,8 @@ export default function Home() {
             <div className="cta">
               <h2>Ready to take the first step?</h2>
               <p>
-                Your first session could be just days away. Sign in to the
-                patient portal to schedule with Dr. Ofori-Danso.
+                Pick a time that works and book it directly — no referral, no
+                account needed, and next-day appointments are often available.
               </p>
               <a
                 href={BOOKING_URL}
