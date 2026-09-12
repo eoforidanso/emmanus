@@ -90,11 +90,26 @@ export default function Contact() {
                 channel here covered by a BAA — email and phone are for
                 general questions only. */}
             <div className="form-card">
-              <h2 className="form-card__title">Where to start</h2>
-              <p className="form-card__lede">
-                Pick whichever fits — each one goes straight to the right
-                place.
-              </p>
+              <div className="booking-panel">
+                <h2 className="form-card__title">Book an appointment</h2>
+                <p className="form-card__lede">
+                  Pick a time that works and book it directly — no referral
+                  and no account needed. Most new patients are seen within
+                  1–3 days.
+                </p>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn--primary btn--block"
+                >
+                  See available times →
+                </a>
+                <p className="booking-panel__micro">
+                  Free 15-minute consultation or a full evaluation ·
+                  Medicare and most major insurance accepted
+                </p>
+              </div>
 
               <div className="route">
                 <h3>Already a patient?</h3>
@@ -107,30 +122,14 @@ export default function Contact() {
                   href={PORTAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn--primary"
+                  className="btn btn--ghost"
                 >
                   Open patient portal →
                 </a>
               </div>
 
               <div className="route">
-                <h3>New patient?</h3>
-                <p>
-                  Book directly — no referral needed, and next-day
-                  appointments are often available.
-                </p>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn--ghost"
-                >
-                  Book a session →
-                </a>
-              </div>
-
-              <div className="route">
-                <h3>General questions</h3>
+                <h3>Questions before you book?</h3>
                 <p>
                   Insurance, scheduling, or how things work — email{" "}
                   <a href="mailto:care@emmanuswellness.com">

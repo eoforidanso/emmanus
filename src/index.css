@@ -1269,6 +1269,27 @@ button {
   box-shadow: var(--shadow);
 }
 
+/* Booking is the point of the contact page, so it gets the top slot and a
+   full-width CTA; the routes below it are secondary paths. */
+.booking-panel {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--green-100);
+  margin-bottom: 26px;
+}
+
+.btn--block {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.booking-panel__micro {
+  margin-top: 14px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
 /* Contact routing blocks — one per channel, divided so each reads as a
    distinct choice rather than a wall of prose. */
 .route + .route {
