@@ -1430,6 +1430,14 @@ button {
   background: rgba(201, 168, 117, 0.18);
 }
 
+/* --ink is right on the cream notice and wrong on the forest footer, where it
+   left 988 dark-on-dark at every screen size. */
+.footer .crisis__tel,
+.footer .crisis__tel:hover,
+.footer .crisis__tel:focus-visible {
+  color: #fff;
+}
+
 /* The emergency numbers are the targets that matter most on a phone and were
    the smallest on the page at 30x21. Real padding rather than an overlaid
    pseudo-element: padding grows the line box too, so 988 and 911 can't end up
@@ -2158,6 +2166,7 @@ button {
 
   .spotlight__portrait {
     max-width: 240px;
+    justify-self: center;
   }
 
   .profile {
@@ -2204,9 +2213,12 @@ button {
     grid-template-columns: 1fr 1fr;
   }
 
+  /* .footer__nav a is display:flex for its 44px touch target, and flex
+     ignores text-align, so the links need centring separately. */
   .footer__brand,
   .footer__social,
-  .footer__legal {
+  .footer__legal,
+  .footer__nav a {
     justify-content: center;
   }
 
@@ -2371,8 +2383,23 @@ button {
     gap: 28px;
   }
 
+  /* Once the two hero facts can't share a line, the dot between them is left
+     hanging at the end of the first one. Stack them and drop it. */
+  .hero__micro {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .hero__micro > [aria-hidden="true"] {
+    display: none;
+  }
+
+  /* The booking bubble and back-to-top button float over the last 80px of
+     the screen. Without room under it, the 988 crisis line is the thing
+     they cover. */
   .footer {
     text-align: center;
+    padding-bottom: 96px;
   }
 
   .footer__grid {
